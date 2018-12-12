@@ -81,7 +81,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://upstreamtest.na2.echosign.com/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -91,35 +91,37 @@ Class | Method | HTTP request | Description
 *AgreementsApi* | [**createDelegatedParticipantSets**](docs/Api/AgreementsApi.md#createdelegatedparticipantsets) | **POST** /agreements/{agreementId}/members/participantSets/{participantSetId}/delegatedParticipantSets | Creates a participantSet to which the agreement is forwarded for taking appropriate action.
 *AgreementsApi* | [**createReminderOnParticipant**](docs/Api/AgreementsApi.md#createreminderonparticipant) | **POST** /agreements/{agreementId}/reminders | Creates a reminder on the specified participants of an agreement identified by agreementId in the path.
 *AgreementsApi* | [**createShareOnAgreement**](docs/Api/AgreementsApi.md#createshareonagreement) | **POST** /agreements/{agreementId}/members/share | Share an agreement with someone.
-*AgreementsApi* | [**deleteDocuments**](docs/Api/AgreementsApi.md#deletedocuments) | **DELETE** /agreements/{agreementId}/documents | Deletes all the documents of an agreement.
+*AgreementsApi* | [**deleteDocumentsOfAgreement**](docs/Api/AgreementsApi.md#deletedocumentsofagreement) | **DELETE** /agreements/{agreementId}/documents | Deletes all the documents of an agreement.
+*AgreementsApi* | [**getAgreementAuditTrail**](docs/Api/AgreementsApi.md#getagreementaudittrail) | **GET** /agreements/{agreementId}/auditTrail | Retrieves the audit trail of an agreement identified by agreementId.
+*AgreementsApi* | [**getAgreementCombinedDocument**](docs/Api/AgreementsApi.md#getagreementcombineddocument) | **GET** /agreements/{agreementId}/combinedDocument | Retrieves a single combined PDF document for the documents associated with an agreement.
+*AgreementsApi* | [**getAgreementCombinedDocumentPagesInfo**](docs/Api/AgreementsApi.md#getagreementcombineddocumentpagesinfo) | **GET** /agreements/{agreementId}/combinedDocument/pagesInfo | Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
+*AgreementsApi* | [**getAgreementCombinedDocumentUrl**](docs/Api/AgreementsApi.md#getagreementcombineddocumenturl) | **GET** /agreements/{agreementId}/combinedDocument/url | Retrieves url of all visible pages of all the documents associated with an agreement.
+*AgreementsApi* | [**getAgreementEvents**](docs/Api/AgreementsApi.md#getagreementevents) | **GET** /agreements/{agreementId}/events | Retrieves the events information for an agreement.
+*AgreementsApi* | [**getAgreementFormData**](docs/Api/AgreementsApi.md#getagreementformdata) | **GET** /agreements/{agreementId}/formData | Retrieves data entered into the interactive form fields of the agreement.
 *AgreementsApi* | [**getAgreementInfo**](docs/Api/AgreementsApi.md#getagreementinfo) | **GET** /agreements/{agreementId} | Retrieves the current status of an agreement.
 *AgreementsApi* | [**getAgreementNoteForApiUser**](docs/Api/AgreementsApi.md#getagreementnoteforapiuser) | **GET** /agreements/{agreementId}/me/note | Retrieves the latest note associated with an agreement.
+*AgreementsApi* | [**getAgreementParticipantSet**](docs/Api/AgreementsApi.md#getagreementparticipantset) | **GET** /agreements/{agreementId}/members/participantSets/{participantSetId} | Retrieves the participant set of an agreement identified by agreementId in the path.
 *AgreementsApi* | [**getAgreementReminder**](docs/Api/AgreementsApi.md#getagreementreminder) | **GET** /agreements/{agreementId}/reminders/{reminderId} | Retrieves a specific reminder associated with an agreement
 *AgreementsApi* | [**getAgreementReminders**](docs/Api/AgreementsApi.md#getagreementreminders) | **GET** /agreements/{agreementId}/reminders | Retrieves the reminders of an agreement, identified by agreementId in the path.
-*AgreementsApi* | [**getAgreements**](docs/Api/AgreementsApi.md#getagreements) | **GET** /agreements | Retrieves agreements for the user.
-*AgreementsApi* | [**getAllDocuments**](docs/Api/AgreementsApi.md#getalldocuments) | **GET** /agreements/{agreementId}/documents | Retrieves the IDs of the documents of an agreement identified by agreementId.
-*AgreementsApi* | [**getAllDocumentsImageUrls**](docs/Api/AgreementsApi.md#getalldocumentsimageurls) | **GET** /agreements/{agreementId}/documents/imageUrls | Retrieves image urls of all visible pages of all the documents associated with an agreement.
+*AgreementsApi* | [**getAgreementSecurityOptionsForParticipation**](docs/Api/AgreementsApi.md#getagreementsecurityoptionsforparticipation) | **GET** /agreements/{agreementId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions | Retrieves the security options for a particular participant.
+*AgreementsApi* | [**getAllAgreements**](docs/Api/AgreementsApi.md#getallagreements) | **GET** /agreements | Retrieves agreements for the user.
+*AgreementsApi* | [**getAllDocumentsImageUrlsOfAgreement**](docs/Api/AgreementsApi.md#getalldocumentsimageurlsofagreement) | **GET** /agreements/{agreementId}/documents/imageUrls | Retrieves image urls of all visible pages of all the documents associated with an agreement.
+*AgreementsApi* | [**getAllDocumentsOfAgreement**](docs/Api/AgreementsApi.md#getalldocumentsofagreement) | **GET** /agreements/{agreementId}/documents | Retrieves the IDs of the documents of an agreement identified by agreementId.
 *AgreementsApi* | [**getAllMembers**](docs/Api/AgreementsApi.md#getallmembers) | **GET** /agreements/{agreementId}/members | Retrieves information of members of the agreement.
-*AgreementsApi* | [**getAuditTrail**](docs/Api/AgreementsApi.md#getaudittrail) | **GET** /agreements/{agreementId}/auditTrail | Retrieves the audit trail of an agreement identified by agreementId.
-*AgreementsApi* | [**getCombinedDocument**](docs/Api/AgreementsApi.md#getcombineddocument) | **GET** /agreements/{agreementId}/combinedDocument | Retrieves a single combined PDF document for the documents associated with an agreement.
-*AgreementsApi* | [**getCombinedDocumentPagesInfo**](docs/Api/AgreementsApi.md#getcombineddocumentpagesinfo) | **GET** /agreements/{agreementId}/combinedDocument/pagesInfo | Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
-*AgreementsApi* | [**getCombinedDocumentUrl**](docs/Api/AgreementsApi.md#getcombineddocumenturl) | **GET** /agreements/{agreementId}/combinedDocument/url | Retrieves url of all visible pages of all the documents associated with an agreement.
-*AgreementsApi* | [**getDocument**](docs/Api/AgreementsApi.md#getdocument) | **GET** /agreements/{agreementId}/documents/{documentId} | Retrieves the file stream of a document of an agreement.
-*AgreementsApi* | [**getDocumentImageUrls**](docs/Api/AgreementsApi.md#getdocumentimageurls) | **GET** /agreements/{agreementId}/documents/{documentId}/imageUrls | Retrieves image urls of all visible pages of a document associated with an agreement.
-*AgreementsApi* | [**getEvents**](docs/Api/AgreementsApi.md#getevents) | **GET** /agreements/{agreementId}/events | Retrieves the events information for an agreement.
-*AgreementsApi* | [**getFormData**](docs/Api/AgreementsApi.md#getformdata) | **GET** /agreements/{agreementId}/formData | Retrieves data entered into the interactive form fields of the agreement.
+*AgreementsApi* | [**getDocumentImageUrlsOfAgreement**](docs/Api/AgreementsApi.md#getdocumentimageurlsofagreement) | **GET** /agreements/{agreementId}/documents/{documentId}/imageUrls | Retrieves image urls of all visible pages of a document associated with an agreement.
+*AgreementsApi* | [**getDocumentOfAgreement**](docs/Api/AgreementsApi.md#getdocumentofagreement) | **GET** /agreements/{agreementId}/documents/{documentId} | Retrieves the file stream of a document of an agreement.
 *AgreementsApi* | [**getFormFields**](docs/Api/AgreementsApi.md#getformfields) | **GET** /agreements/{agreementId}/formFields | Retrieves details of form fields of an agreement.
 *AgreementsApi* | [**getMergeInfo**](docs/Api/AgreementsApi.md#getmergeinfo) | **GET** /agreements/{agreementId}/formFields/mergeInfo | Retrieves the merge info stored with an agreement.
-*AgreementsApi* | [**getParticipantSet**](docs/Api/AgreementsApi.md#getparticipantset) | **GET** /agreements/{agreementId}/members/participantSets/{participantSetId} | Retrieves the participant set of an agreement identified by agreementId in the path.
 *AgreementsApi* | [**getSigningUrl**](docs/Api/AgreementsApi.md#getsigningurl) | **GET** /agreements/{agreementId}/signingUrls | Retrieves the URL for the e-sign page for the current signer(s) of an agreement.
 *AgreementsApi* | [**rejectAgreementForParticipation**](docs/Api/AgreementsApi.md#rejectagreementforparticipation) | **PUT** /agreements/{agreementId}/members/participantSets/{participantSetId}/participants/{participantId}/reject | Rejects the agreement for a participant.
 *AgreementsApi* | [**updateAgreement**](docs/Api/AgreementsApi.md#updateagreement) | **PUT** /agreements/{agreementId} | Updates the agreement in draft state, or update the expirationTime on an existing agreement that is already out for signature.
 *AgreementsApi* | [**updateAgreementMergeInfo**](docs/Api/AgreementsApi.md#updateagreementmergeinfo) | **PUT** /agreements/{agreementId}/formFields/mergeInfo | Set the merge info for an agreement.
 *AgreementsApi* | [**updateAgreementNoteForApiUser**](docs/Api/AgreementsApi.md#updateagreementnoteforapiuser) | **PUT** /agreements/{agreementId}/me/note | Updates the latest note associated with an agreement.
 *AgreementsApi* | [**updateAgreementReminder**](docs/Api/AgreementsApi.md#updateagreementreminder) | **PUT** /agreements/{agreementId}/reminders/{reminderId} | Updates an existing reminder for an agreement
+*AgreementsApi* | [**updateAgreementSecurityOptionsForParticipation**](docs/Api/AgreementsApi.md#updateagreementsecurityoptionsforparticipation) | **PUT** /agreements/{agreementId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions | Updates the security options for a particular participant.
 *AgreementsApi* | [**updateAgreementState**](docs/Api/AgreementsApi.md#updateagreementstate) | **PUT** /agreements/{agreementId}/state | Updates the state of an agreement identified by agreementId in the path.
 *AgreementsApi* | [**updateAgreementVisibility**](docs/Api/AgreementsApi.md#updateagreementvisibility) | **PUT** /agreements/{agreementId}/me/visibility | Updates the visibility of an agreement.
-*AgreementsApi* | [**updateFormFields**](docs/Api/AgreementsApi.md#updateformfields) | **PUT** /agreements/{agreementId}/formFields | Updates form fields of an agreement.
+*AgreementsApi* | [**updateFormFields**](docs/Api/AgreementsApi.md#updateformfields) | **PUT** /agreements/{agreementId}/formFields | Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
 *AgreementsApi* | [**updateParticipantSet**](docs/Api/AgreementsApi.md#updateparticipantset) | **PUT** /agreements/{agreementId}/members/participantSets/{participantSetId} | Updates the participant set of an agreement identified by agreementId in the path.
 
 
@@ -136,6 +138,7 @@ Class | Method | HTTP request | Description
  - [AgreementFormFields](docs/Model/AgreementFormFields.md)
  - [AgreementInfo](docs/Model/AgreementInfo.md)
  - [AgreementRejectionInfo](docs/Model/AgreementRejectionInfo.md)
+ - [AgreementSenderInfo](docs/Model/AgreementSenderInfo.md)
  - [AgreementStateInfo](docs/Model/AgreementStateInfo.md)
  - [AgreementView](docs/Model/AgreementView.md)
  - [AgreementViewInfo](docs/Model/AgreementViewInfo.md)
@@ -188,7 +191,6 @@ Class | Method | HTTP request | Description
  - [RemindersResponse](docs/Model/RemindersResponse.md)
  - [SecurityOption](docs/Model/SecurityOption.md)
  - [SendOptions](docs/Model/SendOptions.md)
- - [SenderInfo](docs/Model/SenderInfo.md)
  - [ShareCreationInfo](docs/Model/ShareCreationInfo.md)
  - [ShareCreationInfoList](docs/Model/ShareCreationInfoList.md)
  - [ShareCreationResponse](docs/Model/ShareCreationResponse.md)

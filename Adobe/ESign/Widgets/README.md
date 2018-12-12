@@ -63,15 +63,16 @@ $apiInstance = new Adobe\ESign\Widgets\Api\WidgetsApi(
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_info = new \Adobe\ESign\Widgets\Model\WidgetInfo(); // \Adobe\ESign\Widgets\Model\WidgetInfo | Information about the widget that you want to create.
+$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$share_creation_info_list = new \Adobe\ESign\Widgets\Model\ShareCreationInfoList(); // \Adobe\ESign\Widgets\Model\ShareCreationInfoList | List of agreement share creation information objects.
 $x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 $x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createWidget($authorization, $widget_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createShareOnWidget($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WidgetsApi->createWidget: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WidgetsApi->createShareOnWidget: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -79,25 +80,30 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*WidgetsApi* | [**createShareOnWidget**](docs/Api/WidgetsApi.md#createshareonwidget) | **POST** /widgets/{widgetId}/members/share | Share a widget with someone.
 *WidgetsApi* | [**createWidget**](docs/Api/WidgetsApi.md#createwidget) | **POST** /widgets | Creates a widget and and returns the widgetId in the response to the client.
+*WidgetsApi* | [**getAllDocumentsOfWidget**](docs/Api/WidgetsApi.md#getalldocumentsofwidget) | **GET** /widgets/{widgetId}/documents | Retrieves the IDs of the documents associated with widget.
 *WidgetsApi* | [**getAllWidgetMembers**](docs/Api/WidgetsApi.md#getallwidgetmembers) | **GET** /widgets/{widgetId}/members | Retrieves detailed member info along with IDs for different types of participants.
-*WidgetsApi* | [**getEvents**](docs/Api/WidgetsApi.md#getevents) | **GET** /widgets/{widgetId}/events | Retrieves the events information for a widget.
-*WidgetsApi* | [**getParticipantSet**](docs/Api/WidgetsApi.md#getparticipantset) | **GET** /widgets/{widgetId}/members/participantSets/{participantSetId} | Retrieves the participant set of a widget identified by widgetId in the path.
+*WidgetsApi* | [**getDocumentOfWidget**](docs/Api/WidgetsApi.md#getdocumentofwidget) | **GET** /widgets/{widgetId}/documents/{documentId} | Retrieves the file stream of a document of a widget.
 *WidgetsApi* | [**getWidgetAgreements**](docs/Api/WidgetsApi.md#getwidgetagreements) | **GET** /widgets/{widgetId}/agreements | Retrieves agreements for the widget.
+*WidgetsApi* | [**getWidgetAllDocumentsImageUrls**](docs/Api/WidgetsApi.md#getwidgetalldocumentsimageurls) | **GET** /widgets/{widgetId}/documents/imageUrls | Retrieves image urls of all visible pages of a document associated with a widget.
 *WidgetsApi* | [**getWidgetAuditTrail**](docs/Api/WidgetsApi.md#getwidgetaudittrail) | **GET** /widgets/{widgetId}/auditTrail | Retrieves the audit trail of a widget identified by widgetId.
 *WidgetsApi* | [**getWidgetCombinedDocument**](docs/Api/WidgetsApi.md#getwidgetcombineddocument) | **GET** /widgets/{widgetId}/combinedDocument | Retrieves a single combined PDF document for the documents associated with a widget.
-*WidgetsApi* | [**getWidgetDocumentInfo**](docs/Api/WidgetsApi.md#getwidgetdocumentinfo) | **GET** /widgets/{widgetId}/documents/{documentId} | Retrieves the file stream of a document of a widget.
-*WidgetsApi* | [**getWidgetDocuments**](docs/Api/WidgetsApi.md#getwidgetdocuments) | **GET** /widgets/{widgetId}/documents | Retrieves the IDs of the documents associated with widget.
+*WidgetsApi* | [**getWidgetEvents**](docs/Api/WidgetsApi.md#getwidgetevents) | **GET** /widgets/{widgetId}/events | Retrieves the events information for a widget.
 *WidgetsApi* | [**getWidgetFormData**](docs/Api/WidgetsApi.md#getwidgetformdata) | **GET** /widgets/{widgetId}/formData | Retrieves data entered by the user into interactive form fields at the time they signed the widget
 *WidgetsApi* | [**getWidgetInfo**](docs/Api/WidgetsApi.md#getwidgetinfo) | **GET** /widgets/{widgetId} | Retrieves the details of a widget.
 *WidgetsApi* | [**getWidgetNoteForApiUser**](docs/Api/WidgetsApi.md#getwidgetnoteforapiuser) | **GET** /widgets/{widgetId}/me/note | Retrieves the latest note of a widget for the API user.
+*WidgetsApi* | [**getWidgetParticipantSet**](docs/Api/WidgetsApi.md#getwidgetparticipantset) | **GET** /widgets/{widgetId}/members/participantSets/{participantSetId} | Retrieves the participant set of a widget identified by widgetId in the path.
+*WidgetsApi* | [**getWidgetSecurityOptionsForParticipation**](docs/Api/WidgetsApi.md#getwidgetsecurityoptionsforparticipation) | **GET** /widgets/{widgetId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions | Retrieves the security options for a particular participant.
 *WidgetsApi* | [**getWidgetView**](docs/Api/WidgetsApi.md#getwidgetview) | **POST** /widgets/{widgetId}/views | Retrieves the requested views for a widget.
 *WidgetsApi* | [**getWidgets**](docs/Api/WidgetsApi.md#getwidgets) | **GET** /widgets | Retrieves widgets for a user.
 *WidgetsApi* | [**updateWidget**](docs/Api/WidgetsApi.md#updatewidget) | **PUT** /widgets/{widgetId} | Updates a widget.
+*WidgetsApi* | [**updateWidgetNoteForApiUser**](docs/Api/WidgetsApi.md#updatewidgetnoteforapiuser) | **PUT** /widgets/{widgetId}/me/note | Updates the latest note of a widget for the API user.
+*WidgetsApi* | [**updateWidgetSecurityOptionsForParticipation**](docs/Api/WidgetsApi.md#updatewidgetsecurityoptionsforparticipation) | **PUT** /widgets/{widgetId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions | Updates the security options for a particular participant.
 *WidgetsApi* | [**updateWidgetState**](docs/Api/WidgetsApi.md#updatewidgetstate) | **PUT** /widgets/{widgetId}/state | Updates the state of a widget identified by widgetId in the path.
 *WidgetsApi* | [**updateWidgetVisibility**](docs/Api/WidgetsApi.md#updatewidgetvisibility) | **PUT** /widgets/{widgetId}/me/visibility | Updates the visibility of widget.
 
@@ -112,14 +118,20 @@ Class | Method | HTTP request | Description
  - [DisplayParticipantInfo](docs/Model/DisplayParticipantInfo.md)
  - [DisplayWidgetParticipantSetInfo](docs/Model/DisplayWidgetParticipantSetInfo.md)
  - [Document](docs/Model/Document.md)
+ - [DocumentImageUrls](docs/Model/DocumentImageUrls.md)
+ - [DocumentImageUrlsInfo](docs/Model/DocumentImageUrlsInfo.md)
  - [FileInfo](docs/Model/FileInfo.md)
  - [Note](docs/Model/Note.md)
+ - [PageImageUrl](docs/Model/PageImageUrl.md)
  - [PageInfo](docs/Model/PageInfo.md)
  - [ParticipantSecurityOption](docs/Model/ParticipantSecurityOption.md)
  - [ParticipantSetMemberInfo](docs/Model/ParticipantSetMemberInfo.md)
  - [PhoneInfo](docs/Model/PhoneInfo.md)
  - [SecurityOption](docs/Model/SecurityOption.md)
- - [SenderInfo](docs/Model/SenderInfo.md)
+ - [ShareCreationInfo](docs/Model/ShareCreationInfo.md)
+ - [ShareCreationInfoList](docs/Model/ShareCreationInfoList.md)
+ - [ShareCreationResponse](docs/Model/ShareCreationResponse.md)
+ - [ShareCreationResponseList](docs/Model/ShareCreationResponseList.md)
  - [ShareParticipantInfo](docs/Model/ShareParticipantInfo.md)
  - [URLFileInfo](docs/Model/URLFileInfo.md)
  - [UserWidget](docs/Model/UserWidget.md)
@@ -130,8 +142,10 @@ Class | Method | HTTP request | Description
  - [WidgetAgreement](docs/Model/WidgetAgreement.md)
  - [WidgetAgreements](docs/Model/WidgetAgreements.md)
  - [WidgetCcInfo](docs/Model/WidgetCcInfo.md)
+ - [WidgetCreationInfoV6](docs/Model/WidgetCreationInfoV6.md)
  - [WidgetCreationResponse](docs/Model/WidgetCreationResponse.md)
  - [WidgetDocuments](docs/Model/WidgetDocuments.md)
+ - [WidgetDocumentsImageUrlsInfo](docs/Model/WidgetDocumentsImageUrlsInfo.md)
  - [WidgetEvent](docs/Model/WidgetEvent.md)
  - [WidgetEventDeviceLocation](docs/Model/WidgetEventDeviceLocation.md)
  - [WidgetEventList](docs/Model/WidgetEventList.md)
@@ -140,6 +154,7 @@ Class | Method | HTTP request | Description
  - [WidgetMembersInfo](docs/Model/WidgetMembersInfo.md)
  - [WidgetParticipantSetInfo](docs/Model/WidgetParticipantSetInfo.md)
  - [WidgetRedirectionInfo](docs/Model/WidgetRedirectionInfo.md)
+ - [WidgetSenderInfo](docs/Model/WidgetSenderInfo.md)
  - [WidgetStateInfo](docs/Model/WidgetStateInfo.md)
  - [WidgetView](docs/Model/WidgetView.md)
  - [WidgetViewInfo](docs/Model/WidgetViewInfo.md)

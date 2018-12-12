@@ -55,8 +55,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'authentication_method' => 'string',
         'password' => 'string',
+        'authentication_method' => 'string',
         'phone_info' => '\Adobe\ESign\Widgets\Model\PhoneInfo'
     ];
 
@@ -66,8 +66,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'authentication_method' => null,
         'password' => null,
+        'authentication_method' => null,
         'phone_info' => null
     ];
 
@@ -98,8 +98,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'authentication_method' => 'authenticationMethod',
         'password' => 'password',
+        'authentication_method' => 'authenticationMethod',
         'phone_info' => 'phoneInfo'
     ];
 
@@ -109,8 +109,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'authentication_method' => 'setAuthenticationMethod',
         'password' => 'setPassword',
+        'authentication_method' => 'setAuthenticationMethod',
         'phone_info' => 'setPhoneInfo'
     ];
 
@@ -120,8 +120,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'authentication_method' => 'getAuthenticationMethod',
         'password' => 'getPassword',
+        'authentication_method' => 'getAuthenticationMethod',
         'phone_info' => 'getPhoneInfo'
     ];
 
@@ -172,6 +172,7 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
     const AUTHENTICATION_METHOD_KBA = 'KBA';
     const AUTHENTICATION_METHOD_WEB_IDENTITY = 'WEB_IDENTITY';
     const AUTHENTICATION_METHOD_ADOBE_SIGN = 'ADOBE_SIGN';
+    const AUTHENTICATION_METHOD_GOV_ID = 'GOV_ID';
     
 
     
@@ -189,6 +190,7 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
             self::AUTHENTICATION_METHOD_KBA,
             self::AUTHENTICATION_METHOD_WEB_IDENTITY,
             self::AUTHENTICATION_METHOD_ADOBE_SIGN,
+            self::AUTHENTICATION_METHOD_GOV_ID,
         ];
     }
     
@@ -208,8 +210,8 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['authentication_method'] = isset($data['authentication_method']) ? $data['authentication_method'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['authentication_method'] = isset($data['authentication_method']) ? $data['authentication_method'] : null;
         $this->container['phone_info'] = isset($data['phone_info']) ? $data['phone_info'] : null;
     }
 
@@ -246,6 +248,30 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string $password The password required for the participant to view and sign the document. Note that AdobeSign will never show this password to anyone, so you will need to separately communicate it to any relevant parties. The password will not be returned in GET call. In case of PUT call, password associated with Agreement resource will remain unchanged if no password is specified but authentication method is provided as PASSWORD
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
      * Gets authentication_method
      *
      * @return string
@@ -274,30 +300,6 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
             );
         }
         $this->container['authentication_method'] = $authentication_method;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->container['password'];
-    }
-
-    /**
-     * Sets password
-     *
-     * @param string $password The password required for the participant to view and sign the document. Note that AdobeSign will never show this password to anyone, so you will need to separately communicate it to any relevant parties. The password will not be returned in GET call. In case of PUT call, password associated with Agreement resource will remain unchanged if no password is specified but authentication method is provided as PASSWORD
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->container['password'] = $password;
 
         return $this;
     }

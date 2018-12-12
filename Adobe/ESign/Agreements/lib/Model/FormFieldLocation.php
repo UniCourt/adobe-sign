@@ -70,10 +70,10 @@ class FormFieldLocation implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'page_number' => null,
-        'top' => null,
-        'left' => null,
-        'width' => null,
-        'height' => null
+        'top' => 'double',
+        'left' => 'double',
+        'width' => 'double',
+        'height' => 'double'
     ];
 
     /**

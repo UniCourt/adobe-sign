@@ -130,12 +130,72 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for deleteDocuments
+     * Test case for deleteDocumentsOfAgreement
      *
      * Deletes all the documents of an agreement..
      *
      */
-    public function testDeleteDocuments()
+    public function testDeleteDocumentsOfAgreement()
+    {
+    }
+
+    /**
+     * Test case for getAgreementAuditTrail
+     *
+     * Retrieves the audit trail of an agreement identified by agreementId..
+     *
+     */
+    public function testGetAgreementAuditTrail()
+    {
+    }
+
+    /**
+     * Test case for getAgreementCombinedDocument
+     *
+     * Retrieves a single combined PDF document for the documents associated with an agreement..
+     *
+     */
+    public function testGetAgreementCombinedDocument()
+    {
+    }
+
+    /**
+     * Test case for getAgreementCombinedDocumentPagesInfo
+     *
+     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement..
+     *
+     */
+    public function testGetAgreementCombinedDocumentPagesInfo()
+    {
+    }
+
+    /**
+     * Test case for getAgreementCombinedDocumentUrl
+     *
+     * Retrieves url of all visible pages of all the documents associated with an agreement..
+     *
+     */
+    public function testGetAgreementCombinedDocumentUrl()
+    {
+    }
+
+    /**
+     * Test case for getAgreementEvents
+     *
+     * Retrieves the events information for an agreement..
+     *
+     */
+    public function testGetAgreementEvents()
+    {
+    }
+
+    /**
+     * Test case for getAgreementFormData
+     *
+     * Retrieves data entered into the interactive form fields of the agreement..
+     *
+     */
+    public function testGetAgreementFormData()
     {
     }
 
@@ -160,6 +220,16 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getAgreementParticipantSet
+     *
+     * Retrieves the participant set of an agreement identified by agreementId in the path..
+     *
+     */
+    public function testGetAgreementParticipantSet()
+    {
+    }
+
+    /**
      * Test case for getAgreementReminder
      *
      * Retrieves a specific reminder associated with an agreement.
@@ -180,32 +250,42 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getAgreements
+     * Test case for getAgreementSecurityOptionsForParticipation
+     *
+     * Retrieves the security options for a particular participant..
+     *
+     */
+    public function testGetAgreementSecurityOptionsForParticipation()
+    {
+    }
+
+    /**
+     * Test case for getAllAgreements
      *
      * Retrieves agreements for the user..
      *
      */
-    public function testGetAgreements()
+    public function testGetAllAgreements()
     {
     }
 
     /**
-     * Test case for getAllDocuments
-     *
-     * Retrieves the IDs of the documents of an agreement identified by agreementId..
-     *
-     */
-    public function testGetAllDocuments()
-    {
-    }
-
-    /**
-     * Test case for getAllDocumentsImageUrls
+     * Test case for getAllDocumentsImageUrlsOfAgreement
      *
      * Retrieves image urls of all visible pages of all the documents associated with an agreement..
      *
      */
-    public function testGetAllDocumentsImageUrls()
+    public function testGetAllDocumentsImageUrlsOfAgreement()
+    {
+    }
+
+    /**
+     * Test case for getAllDocumentsOfAgreement
+     *
+     * Retrieves the IDs of the documents of an agreement identified by agreementId..
+     *
+     */
+    public function testGetAllDocumentsOfAgreement()
     {
     }
 
@@ -220,82 +300,22 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getAuditTrail
-     *
-     * Retrieves the audit trail of an agreement identified by agreementId..
-     *
-     */
-    public function testGetAuditTrail()
-    {
-    }
-
-    /**
-     * Test case for getCombinedDocument
-     *
-     * Retrieves a single combined PDF document for the documents associated with an agreement..
-     *
-     */
-    public function testGetCombinedDocument()
-    {
-    }
-
-    /**
-     * Test case for getCombinedDocumentPagesInfo
-     *
-     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement..
-     *
-     */
-    public function testGetCombinedDocumentPagesInfo()
-    {
-    }
-
-    /**
-     * Test case for getCombinedDocumentUrl
-     *
-     * Retrieves url of all visible pages of all the documents associated with an agreement..
-     *
-     */
-    public function testGetCombinedDocumentUrl()
-    {
-    }
-
-    /**
-     * Test case for getDocument
-     *
-     * Retrieves the file stream of a document of an agreement..
-     *
-     */
-    public function testGetDocument()
-    {
-    }
-
-    /**
-     * Test case for getDocumentImageUrls
+     * Test case for getDocumentImageUrlsOfAgreement
      *
      * Retrieves image urls of all visible pages of a document associated with an agreement..
      *
      */
-    public function testGetDocumentImageUrls()
+    public function testGetDocumentImageUrlsOfAgreement()
     {
     }
 
     /**
-     * Test case for getEvents
+     * Test case for getDocumentOfAgreement
      *
-     * Retrieves the events information for an agreement..
-     *
-     */
-    public function testGetEvents()
-    {
-    }
-
-    /**
-     * Test case for getFormData
-     *
-     * Retrieves data entered into the interactive form fields of the agreement..
+     * Retrieves the file stream of a document of an agreement..
      *
      */
-    public function testGetFormData()
+    public function testGetDocumentOfAgreement()
     {
     }
 
@@ -316,16 +336,6 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetMergeInfo()
-    {
-    }
-
-    /**
-     * Test case for getParticipantSet
-     *
-     * Retrieves the participant set of an agreement identified by agreementId in the path..
-     *
-     */
-    public function testGetParticipantSet()
     {
     }
 
@@ -390,6 +400,16 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for updateAgreementSecurityOptionsForParticipation
+     *
+     * Updates the security options for a particular participant..
+     *
+     */
+    public function testUpdateAgreementSecurityOptionsForParticipation()
+    {
+    }
+
+    /**
      * Test case for updateAgreementState
      *
      * Updates the state of an agreement identified by agreementId in the path..
@@ -412,7 +432,7 @@ class AgreementsApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for updateFormFields
      *
-     * Updates form fields of an agreement..
+     * Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements..
      *
      */
     public function testUpdateFormFields()

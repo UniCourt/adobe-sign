@@ -167,6 +167,7 @@ class AgreementViewInfo implements ModelInterface, ArrayAccess
     }
 
     const NAME_COMPOSE = 'COMPOSE';
+    const NAME_MODIFY = 'MODIFY';
     const NAME_PREFILL = 'PREFILL';
     const NAME_AUTHORING = 'AUTHORING';
     const NAME_SEND_PROGRESS = 'SEND_PROGRESS';
@@ -187,6 +188,7 @@ class AgreementViewInfo implements ModelInterface, ArrayAccess
     {
         return [
             self::NAME_COMPOSE,
+            self::NAME_MODIFY,
             self::NAME_PREFILL,
             self::NAME_AUTHORING,
             self::NAME_SEND_PROGRESS,

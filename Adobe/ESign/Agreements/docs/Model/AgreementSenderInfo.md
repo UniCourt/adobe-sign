@@ -1,4 +1,4 @@
-# SenderInfo
+# AgreementSenderInfo
 
 ## Properties
 Name | Type | Description | Notes

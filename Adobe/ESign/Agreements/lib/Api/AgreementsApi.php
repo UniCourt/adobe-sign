@@ -1946,7 +1946,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation deleteDocuments
+     * Operation deleteDocumentsOfAgreement
      *
      * Deletes all the documents of an agreement.
      *
@@ -1960,13 +1960,13 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteDocuments($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function deleteDocumentsOfAgreement($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
-        $this->deleteDocumentsWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+        $this->deleteDocumentsOfAgreementWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
     }
 
     /**
-     * Operation deleteDocumentsWithHttpInfo
+     * Operation deleteDocumentsOfAgreementWithHttpInfo
      *
      * Deletes all the documents of an agreement.
      *
@@ -1980,10 +1980,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDocumentsWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function deleteDocumentsOfAgreementWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         $returnType = '';
-        $request = $this->deleteDocumentsRequest($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+        $request = $this->deleteDocumentsOfAgreementRequest($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2023,7 +2023,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation deleteDocumentsAsync
+     * Operation deleteDocumentsOfAgreementAsync
      *
      * Deletes all the documents of an agreement.
      *
@@ -2036,9 +2036,9 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDocumentsAsync($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function deleteDocumentsOfAgreementAsync($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
-        return $this->deleteDocumentsAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user)
+        return $this->deleteDocumentsOfAgreementAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2047,7 +2047,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation deleteDocumentsAsyncWithHttpInfo
+     * Operation deleteDocumentsOfAgreementAsyncWithHttpInfo
      *
      * Deletes all the documents of an agreement.
      *
@@ -2060,10 +2060,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDocumentsAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function deleteDocumentsOfAgreementAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         $returnType = '';
-        $request = $this->deleteDocumentsRequest($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+        $request = $this->deleteDocumentsOfAgreementRequest($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2089,7 +2089,7 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'deleteDocuments'
+     * Create request for operation 'deleteDocumentsOfAgreement'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_retention&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_retention&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_retention&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
@@ -2100,24 +2100,24 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteDocumentsRequest($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    protected function deleteDocumentsOfAgreementRequest($authorization, $if_match, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling deleteDocuments'
+                'Missing the required parameter $authorization when calling deleteDocumentsOfAgreement'
             );
         }
         // verify the required parameter 'if_match' is set
         if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $if_match when calling deleteDocuments'
+                'Missing the required parameter $if_match when calling deleteDocumentsOfAgreement'
             );
         }
         // verify the required parameter 'agreement_id' is set
         if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling deleteDocuments'
+                'Missing the required parameter $agreement_id when calling deleteDocumentsOfAgreement'
             );
         }
 
@@ -2212,6 +2212,1902 @@ class AgreementsApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementAuditTrail
+     *
+     * Retrieves the audit trail of an agreement identified by agreementId.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getAgreementAuditTrail($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        list($response) = $this->getAgreementAuditTrailWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementAuditTrailWithHttpInfo
+     *
+     * Retrieves the audit trail of an agreement identified by agreementId.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementAuditTrailWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementAuditTrailRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementAuditTrailAsync
+     *
+     * Retrieves the audit trail of an agreement identified by agreementId.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementAuditTrailAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        return $this->getAgreementAuditTrailAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementAuditTrailAsyncWithHttpInfo
+     *
+     * Retrieves the audit trail of an agreement identified by agreementId.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementAuditTrailAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementAuditTrailRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementAuditTrail'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementAuditTrailRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementAuditTrail'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementAuditTrail'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/auditTrail';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/pdf', 'application/pdf;encoding=base64']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/pdf', 'application/pdf;encoding=base64'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocument
+     *
+     * Retrieves a single combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getAgreementCombinedDocument($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        list($response) = $this->getAgreementCombinedDocumentWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentWithHttpInfo
+     *
+     * Retrieves a single combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementCombinedDocumentWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementCombinedDocumentRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentAsync
+     *
+     * Retrieves a single combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        return $this->getAgreementCombinedDocumentAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentAsyncWithHttpInfo
+     *
+     * Retrieves a single combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementCombinedDocumentRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementCombinedDocument'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementCombinedDocumentRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementCombinedDocument'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementCombinedDocument'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/combinedDocument';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($version_id !== null) {
+            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
+        }
+        // query params
+        if ($participant_id !== null) {
+            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
+        }
+        // query params
+        if ($attach_supporting_documents !== null) {
+            $queryParams['attachSupportingDocuments'] = ObjectSerializer::toQueryValue($attach_supporting_documents);
+        }
+        // query params
+        if ($attach_audit_report !== null) {
+            $queryParams['attachAuditReport'] = ObjectSerializer::toQueryValue($attach_audit_report);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/pdf', 'application/pdf;encoding=base64']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/pdf', 'application/pdf;encoding=base64'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentPagesInfo
+     *
+     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo
+     */
+    public function getAgreementCombinedDocumentPagesInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
+    {
+        list($response) = $this->getAgreementCombinedDocumentPagesInfoWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentPagesInfoWithHttpInfo
+     *
+     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementCombinedDocumentPagesInfoWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo';
+        $request = $this->getAgreementCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentPagesInfoAsync
+     *
+     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentPagesInfoAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
+    {
+        return $this->getAgreementCombinedDocumentPagesInfoAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentPagesInfoAsyncWithHttpInfo
+     *
+     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentPagesInfoAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo';
+        $request = $this->getAgreementCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementCombinedDocumentPagesInfo'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementCombinedDocumentPagesInfo'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementCombinedDocumentPagesInfo'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/combinedDocument/pagesInfo';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($include_supporting_documents_pages_info !== null) {
+            $queryParams['includeSupportingDocumentsPagesInfo'] = ObjectSerializer::toQueryValue($include_supporting_documents_pages_info);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentUrl
+     *
+     * Retrieves url of all visible pages of all the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Agreements\Model\DocumentUrl
+     */
+    public function getAgreementCombinedDocumentUrl($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        list($response) = $this->getAgreementCombinedDocumentUrlWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentUrlWithHttpInfo
+     *
+     * Retrieves url of all visible pages of all the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Agreements\Model\DocumentUrl, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementCombinedDocumentUrlWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\DocumentUrl';
+        $request = $this->getAgreementCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Agreements\Model\DocumentUrl',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentUrlAsync
+     *
+     * Retrieves url of all visible pages of all the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentUrlAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        return $this->getAgreementCombinedDocumentUrlAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementCombinedDocumentUrlAsyncWithHttpInfo
+     *
+     * Retrieves url of all visible pages of all the documents associated with an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementCombinedDocumentUrlAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\DocumentUrl';
+        $request = $this->getAgreementCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementCombinedDocumentUrl'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
+     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementCombinedDocumentUrl'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementCombinedDocumentUrl'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/combinedDocument/url';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($version_id !== null) {
+            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
+        }
+        // query params
+        if ($participant_id !== null) {
+            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
+        }
+        // query params
+        if ($attach_supporting_documents !== null) {
+            $queryParams['attachSupportingDocuments'] = ObjectSerializer::toQueryValue($attach_supporting_documents);
+        }
+        // query params
+        if ($attach_audit_report !== null) {
+            $queryParams['attachAuditReport'] = ObjectSerializer::toQueryValue($attach_audit_report);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementEvents
+     *
+     * Retrieves the events information for an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Agreements\Model\AgreementEventList
+     */
+    public function getAgreementEvents($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        list($response) = $this->getAgreementEventsWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementEventsWithHttpInfo
+     *
+     * Retrieves the events information for an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Agreements\Model\AgreementEventList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementEventsWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\AgreementEventList';
+        $request = $this->getAgreementEventsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Agreements\Model\AgreementEventList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementEventsAsync
+     *
+     * Retrieves the events information for an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementEventsAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        return $this->getAgreementEventsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementEventsAsyncWithHttpInfo
+     *
+     * Retrieves the events information for an agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementEventsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\AgreementEventList';
+        $request = $this->getAgreementEventsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementEvents'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementEventsRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementEvents'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementEvents'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/events';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementFormData
+     *
+     * Retrieves data entered into the interactive form fields of the agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function getAgreementFormData($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        list($response) = $this->getAgreementFormDataWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementFormDataWithHttpInfo
+     *
+     * Retrieves data entered into the interactive form fields of the agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementFormDataWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementFormDataRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementFormDataAsync
+     *
+     * Retrieves data entered into the interactive form fields of the agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementFormDataAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        return $this->getAgreementFormDataAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementFormDataAsyncWithHttpInfo
+     *
+     * Retrieves data entered into the interactive form fields of the agreement.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementFormDataAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = 'string';
+        $request = $this->getAgreementFormDataRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementFormData'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementFormDataRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementFormData'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementFormData'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/formData';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['text/csv']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['text/csv'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2749,6 +4645,329 @@ class AgreementsApi
             $resourcePath = str_replace(
                 '{' . 'agreementId' . '}',
                 ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgreementParticipantSet
+     *
+     * Retrieves the participant set of an agreement identified by agreementId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo
+     */
+    public function getAgreementParticipantSet($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        list($response) = $this->getAgreementParticipantSetWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementParticipantSetWithHttpInfo
+     *
+     * Retrieves the participant set of an agreement identified by agreementId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementParticipantSetWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo';
+        $request = $this->getAgreementParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementParticipantSetAsync
+     *
+     * Retrieves the participant set of an agreement identified by agreementId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementParticipantSetAsync($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        return $this->getAgreementParticipantSetAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementParticipantSetAsyncWithHttpInfo
+     *
+     * Retrieves the participant set of an agreement identified by agreementId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementParticipantSetAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo';
+        $request = $this->getAgreementParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementParticipantSet'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementParticipantSet'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementParticipantSet'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling getAgreementParticipantSet'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/members/participantSets/{participantSetId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
                 $resourcePath
             );
         }
@@ -3436,7 +5655,340 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAgreements
+     * Operation getAgreementSecurityOptionsForParticipation
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Agreements\Model\ParticipantSecurityOption
+     */
+    public function getAgreementSecurityOptionsForParticipation($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        list($response) = $this->getAgreementSecurityOptionsForParticipationWithHttpInfo($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+        return $response;
+    }
+
+    /**
+     * Operation getAgreementSecurityOptionsForParticipationWithHttpInfo
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Agreements\Model\ParticipantSecurityOption, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgreementSecurityOptionsForParticipationWithHttpInfo($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\ParticipantSecurityOption';
+        $request = $this->getAgreementSecurityOptionsForParticipationRequest($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Agreements\Model\ParticipantSecurityOption',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgreementSecurityOptionsForParticipationAsync
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementSecurityOptionsForParticipationAsync($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        return $this->getAgreementSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgreementSecurityOptionsForParticipationAsyncWithHttpInfo
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgreementSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        $returnType = '\Adobe\ESign\Agreements\Model\ParticipantSecurityOption';
+        $request = $this->getAgreementSecurityOptionsForParticipationRequest($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgreementSecurityOptionsForParticipation'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgreementSecurityOptionsForParticipationRequest($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling getAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling getAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_id' is set
+        if ($participant_id === null || (is_array($participant_id) && count($participant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_id when calling getAgreementSecurityOptionsForParticipation'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantId' . '}',
+                ObjectSerializer::toPathValue($participant_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAllAgreements
      *
      * Retrieves agreements for the user.
      *
@@ -3452,14 +6004,14 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \Adobe\ESign\Agreements\Model\UserAgreements
      */
-    public function getAgreements($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
+    public function getAllAgreements($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
     {
-        list($response) = $this->getAgreementsWithHttpInfo($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
+        list($response) = $this->getAllAgreementsWithHttpInfo($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
         return $response;
     }
 
     /**
-     * Operation getAgreementsWithHttpInfo
+     * Operation getAllAgreementsWithHttpInfo
      *
      * Retrieves agreements for the user.
      *
@@ -3475,10 +6027,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return array of \Adobe\ESign\Agreements\Model\UserAgreements, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAgreementsWithHttpInfo($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
+    public function getAllAgreementsWithHttpInfo($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
     {
         $returnType = '\Adobe\ESign\Agreements\Model\UserAgreements';
-        $request = $this->getAgreementsRequest($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
+        $request = $this->getAllAgreementsRequest($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3540,7 +6092,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAgreementsAsync
+     * Operation getAllAgreementsAsync
      *
      * Retrieves agreements for the user.
      *
@@ -3555,9 +6107,9 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAgreementsAsync($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
+    public function getAllAgreementsAsync($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
     {
-        return $this->getAgreementsAsyncWithHttpInfo($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size)
+        return $this->getAllAgreementsAsyncWithHttpInfo($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3566,7 +6118,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAgreementsAsyncWithHttpInfo
+     * Operation getAllAgreementsAsyncWithHttpInfo
      *
      * Retrieves agreements for the user.
      *
@@ -3581,10 +6133,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAgreementsAsyncWithHttpInfo($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
+    public function getAllAgreementsAsyncWithHttpInfo($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
     {
         $returnType = '\Adobe\ESign\Agreements\Model\UserAgreements';
-        $request = $this->getAgreementsRequest($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
+        $request = $this->getAllAgreementsRequest($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3624,7 +6176,7 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'getAgreements'
+     * Create request for operation 'getAllAgreements'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
@@ -3637,12 +6189,12 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAgreementsRequest($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
+    protected function getAllAgreementsRequest($authorization, $x_api_user = null, $x_on_behalf_of_user = null, $external_id = null, $show_hidden_agreements = null, $cursor = null, $page_size = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getAgreements'
+                'Missing the required parameter $authorization when calling getAllAgreements'
             );
         }
 
@@ -3748,51 +6300,53 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocuments
+     * Operation getAllDocumentsImageUrlsOfAgreement
      *
-     * Retrieves the IDs of the documents of an agreement identified by agreementId.
+     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
      *
      * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\AgreementDocuments
+     * @return \Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo
      */
-    public function getAllDocuments($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
+    public function getAllDocumentsImageUrlsOfAgreement($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
     {
-        list($response) = $this->getAllDocumentsWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
+        list($response) = $this->getAllDocumentsImageUrlsOfAgreementWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
         return $response;
     }
 
     /**
-     * Operation getAllDocumentsWithHttpInfo
+     * Operation getAllDocumentsImageUrlsOfAgreementWithHttpInfo
      *
-     * Retrieves the IDs of the documents of an agreement identified by agreementId.
+     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
      *
      * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\AgreementDocuments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllDocumentsWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
+    public function getAllDocumentsImageUrlsOfAgreementWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
     {
-        $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocuments';
-        $request = $this->getAllDocumentsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
+        $returnType = '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo';
+        $request = $this->getAllDocumentsImageUrlsOfAgreementRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3843,7 +6397,7 @@ class AgreementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\AgreementDocuments',
+                        '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3854,25 +6408,26 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocumentsAsync
+     * Operation getAllDocumentsImageUrlsOfAgreementAsync
      *
-     * Retrieves the IDs of the documents of an agreement identified by agreementId.
+     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllDocumentsAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
+    public function getAllDocumentsImageUrlsOfAgreementAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
     {
-        return $this->getAllDocumentsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format)
+        return $this->getAllDocumentsImageUrlsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3881,26 +6436,27 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocumentsAsyncWithHttpInfo
+     * Operation getAllDocumentsImageUrlsOfAgreementAsyncWithHttpInfo
      *
-     * Retrieves the IDs of the documents of an agreement identified by agreementId.
+     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllDocumentsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
+    public function getAllDocumentsImageUrlsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
     {
-        $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocuments';
-        $request = $this->getAllDocumentsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
+        $returnType = '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo';
+        $request = $this->getAllDocumentsImageUrlsOfAgreementRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3940,36 +6496,37 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'getAllDocuments'
+     * Create request for operation 'getAllDocumentsImageUrlsOfAgreement'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllDocumentsRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
+    protected function getAllDocumentsImageUrlsOfAgreementRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getAllDocuments'
+                'Missing the required parameter $authorization when calling getAllDocumentsImageUrlsOfAgreement'
             );
         }
         // verify the required parameter 'agreement_id' is set
         if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getAllDocuments'
+                'Missing the required parameter $agreement_id when calling getAllDocumentsImageUrlsOfAgreement'
             );
         }
 
-        $resourcePath = '/agreements/{agreementId}/documents';
+        $resourcePath = '/agreements/{agreementId}/documents/imageUrls';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3985,8 +6542,16 @@ class AgreementsApi
             $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
         }
         // query params
-        if ($supporting_document_content_format !== null) {
-            $queryParams['supportingDocumentContentFormat'] = ObjectSerializer::toQueryValue($supporting_document_content_format);
+        if ($image_sizes !== null) {
+            $queryParams['imageSizes'] = ObjectSerializer::toQueryValue($image_sizes);
+        }
+        // query params
+        if ($include_supporting_documents_image_urls !== null) {
+            $queryParams['includeSupportingDocumentsImageUrls'] = ObjectSerializer::toQueryValue($include_supporting_documents_image_urls);
+        }
+        // query params
+        if ($show_image_availability_only !== null) {
+            $queryParams['showImageAvailabilityOnly'] = ObjectSerializer::toQueryValue($show_image_availability_only);
         }
         // header params
         if ($authorization !== null) {
@@ -3999,10 +6564,6 @@ class AgreementsApi
         // header params
         if ($x_on_behalf_of_user !== null) {
             $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
@@ -4079,53 +6640,51 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocumentsImageUrls
+     * Operation getAllDocumentsOfAgreement
      *
-     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
+     * Retrieves the IDs of the documents of an agreement identified by agreementId.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
-     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
-     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
      *
      * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo
+     * @return \Adobe\ESign\Agreements\Model\AgreementDocuments
      */
-    public function getAllDocumentsImageUrls($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
+    public function getAllDocumentsOfAgreement($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
     {
-        list($response) = $this->getAllDocumentsImageUrlsWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
+        list($response) = $this->getAllDocumentsOfAgreementWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
         return $response;
     }
 
     /**
-     * Operation getAllDocumentsImageUrlsWithHttpInfo
+     * Operation getAllDocumentsOfAgreementWithHttpInfo
      *
-     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
+     * Retrieves the IDs of the documents of an agreement identified by agreementId.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
-     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
-     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
      *
      * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Adobe\ESign\Agreements\Model\AgreementDocuments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllDocumentsImageUrlsWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
+    public function getAllDocumentsOfAgreementWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
     {
-        $returnType = '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo';
-        $request = $this->getAllDocumentsImageUrlsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
+        $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocuments';
+        $request = $this->getAllDocumentsOfAgreementRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4176,7 +6735,7 @@ class AgreementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo',
+                        '\Adobe\ESign\Agreements\Model\AgreementDocuments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4187,26 +6746,25 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocumentsImageUrlsAsync
+     * Operation getAllDocumentsOfAgreementAsync
      *
-     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
+     * Retrieves the IDs of the documents of an agreement identified by agreementId.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
-     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
-     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllDocumentsImageUrlsAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
+    public function getAllDocumentsOfAgreementAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
     {
-        return $this->getAllDocumentsImageUrlsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only)
+        return $this->getAllDocumentsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4215,27 +6773,26 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAllDocumentsImageUrlsAsyncWithHttpInfo
+     * Operation getAllDocumentsOfAgreementAsyncWithHttpInfo
      *
-     * Retrieves image urls of all visible pages of all the documents associated with an agreement.
+     * Retrieves the IDs of the documents of an agreement identified by agreementId.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
-     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
-     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllDocumentsImageUrlsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
+    public function getAllDocumentsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
     {
-        $returnType = '\Adobe\ESign\Agreements\Model\DocumentsImageUrlsInfo';
-        $request = $this->getAllDocumentsImageUrlsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
+        $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocuments';
+        $request = $this->getAllDocumentsOfAgreementRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4275,37 +6832,36 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'getAllDocumentsImageUrls'
+     * Create request for operation 'getAllDocumentsOfAgreement'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
      * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
-     * @param  bool $include_supporting_documents_image_urls When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. (optional)
-     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     * @param  string $supporting_document_content_format Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAllDocumentsImageUrlsRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $image_sizes = null, $include_supporting_documents_image_urls = null, $show_image_availability_only = null)
+    protected function getAllDocumentsOfAgreementRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $supporting_document_content_format = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getAllDocumentsImageUrls'
+                'Missing the required parameter $authorization when calling getAllDocumentsOfAgreement'
             );
         }
         // verify the required parameter 'agreement_id' is set
         if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getAllDocumentsImageUrls'
+                'Missing the required parameter $agreement_id when calling getAllDocumentsOfAgreement'
             );
         }
 
-        $resourcePath = '/agreements/{agreementId}/documents/imageUrls';
+        $resourcePath = '/agreements/{agreementId}/documents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4321,16 +6877,8 @@ class AgreementsApi
             $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
         }
         // query params
-        if ($image_sizes !== null) {
-            $queryParams['imageSizes'] = ObjectSerializer::toQueryValue($image_sizes);
-        }
-        // query params
-        if ($include_supporting_documents_image_urls !== null) {
-            $queryParams['includeSupportingDocumentsImageUrls'] = ObjectSerializer::toQueryValue($include_supporting_documents_image_urls);
-        }
-        // query params
-        if ($show_image_availability_only !== null) {
-            $queryParams['showImageAvailabilityOnly'] = ObjectSerializer::toQueryValue($show_image_availability_only);
+        if ($supporting_document_content_format !== null) {
+            $queryParams['supportingDocumentContentFormat'] = ObjectSerializer::toQueryValue($supporting_document_content_format);
         }
         // header params
         if ($authorization !== null) {
@@ -4343,6 +6891,10 @@ class AgreementsApi
         // header params
         if ($x_on_behalf_of_user !== null) {
             $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
@@ -4732,1618 +7284,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation getAuditTrail
-     *
-     * Retrieves the audit trail of an agreement identified by agreementId.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function getAuditTrail($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        list($response) = $this->getAuditTrailWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-        return $response;
-    }
-
-    /**
-     * Operation getAuditTrailWithHttpInfo
-     *
-     * Retrieves the audit trail of an agreement identified by agreementId.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getAuditTrailWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = 'string';
-        $request = $this->getAuditTrailRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getAuditTrailAsync
-     *
-     * Retrieves the audit trail of an agreement identified by agreementId.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAuditTrailAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        return $this->getAuditTrailAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getAuditTrailAsyncWithHttpInfo
-     *
-     * Retrieves the audit trail of an agreement identified by agreementId.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getAuditTrailAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = 'string';
-        $request = $this->getAuditTrailRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getAuditTrail'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getAuditTrailRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getAuditTrail'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getAuditTrail'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/auditTrail';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/pdf', 'application/pdf;encoding=base64']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/pdf', 'application/pdf;encoding=base64'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCombinedDocument
-     *
-     * Retrieves a single combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function getCombinedDocument($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        list($response) = $this->getCombinedDocumentWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-        return $response;
-    }
-
-    /**
-     * Operation getCombinedDocumentWithHttpInfo
-     *
-     * Retrieves a single combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCombinedDocumentWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        $returnType = 'string';
-        $request = $this->getCombinedDocumentRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCombinedDocumentAsync
-     *
-     * Retrieves a single combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        return $this->getCombinedDocumentAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCombinedDocumentAsyncWithHttpInfo
-     *
-     * Retrieves a single combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        $returnType = 'string';
-        $request = $this->getCombinedDocumentRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCombinedDocument'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getCombinedDocumentRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getCombinedDocument'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getCombinedDocument'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/combinedDocument';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($version_id !== null) {
-            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
-        }
-        // query params
-        if ($participant_id !== null) {
-            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
-        }
-        // query params
-        if ($attach_supporting_documents !== null) {
-            $queryParams['attachSupportingDocuments'] = ObjectSerializer::toQueryValue($attach_supporting_documents);
-        }
-        // query params
-        if ($attach_audit_report !== null) {
-            $queryParams['attachAuditReport'] = ObjectSerializer::toQueryValue($attach_audit_report);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/pdf', 'application/pdf;encoding=base64']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/pdf', 'application/pdf;encoding=base64'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCombinedDocumentPagesInfo
-     *
-     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo
-     */
-    public function getCombinedDocumentPagesInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
-    {
-        list($response) = $this->getCombinedDocumentPagesInfoWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
-        return $response;
-    }
-
-    /**
-     * Operation getCombinedDocumentPagesInfoWithHttpInfo
-     *
-     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCombinedDocumentPagesInfoWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo';
-        $request = $this->getCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCombinedDocumentPagesInfoAsync
-     *
-     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentPagesInfoAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
-    {
-        return $this->getCombinedDocumentPagesInfoAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCombinedDocumentPagesInfoAsyncWithHttpInfo
-     *
-     * Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentPagesInfoAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\CombinedDocumentPagesInfo';
-        $request = $this->getCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCombinedDocumentPagesInfo'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  bool $include_supporting_documents_pages_info When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getCombinedDocumentPagesInfoRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $include_supporting_documents_pages_info = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getCombinedDocumentPagesInfo'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getCombinedDocumentPagesInfo'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/combinedDocument/pagesInfo';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($include_supporting_documents_pages_info !== null) {
-            $queryParams['includeSupportingDocumentsPagesInfo'] = ObjectSerializer::toQueryValue($include_supporting_documents_pages_info);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getCombinedDocumentUrl
-     *
-     * Retrieves url of all visible pages of all the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\DocumentUrl
-     */
-    public function getCombinedDocumentUrl($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        list($response) = $this->getCombinedDocumentUrlWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-        return $response;
-    }
-
-    /**
-     * Operation getCombinedDocumentUrlWithHttpInfo
-     *
-     * Retrieves url of all visible pages of all the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\DocumentUrl, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCombinedDocumentUrlWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\DocumentUrl';
-        $request = $this->getCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\DocumentUrl',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCombinedDocumentUrlAsync
-     *
-     * Retrieves url of all visible pages of all the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentUrlAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        return $this->getCombinedDocumentUrlAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCombinedDocumentUrlAsyncWithHttpInfo
-     *
-     * Retrieves url of all visible pages of all the documents associated with an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCombinedDocumentUrlAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\DocumentUrl';
-        $request = $this->getCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCombinedDocumentUrl'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $version_id The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
-     * @param  bool $attach_supporting_documents When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. (optional)
-     * @param  bool $attach_audit_report When set to true, attach an audit report to the signed agreement PDF. Default value is false (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getCombinedDocumentUrlRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $version_id = null, $participant_id = null, $attach_supporting_documents = null, $attach_audit_report = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getCombinedDocumentUrl'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getCombinedDocumentUrl'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/combinedDocument/url';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($version_id !== null) {
-            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
-        }
-        // query params
-        if ($participant_id !== null) {
-            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
-        }
-        // query params
-        if ($attach_supporting_documents !== null) {
-            $queryParams['attachSupportingDocuments'] = ObjectSerializer::toQueryValue($attach_supporting_documents);
-        }
-        // query params
-        if ($attach_audit_report !== null) {
-            $queryParams['attachAuditReport'] = ObjectSerializer::toQueryValue($attach_audit_report);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getDocument
-     *
-     * Retrieves the file stream of a document of an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function getDocument($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        list($response) = $this->getDocumentWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-        return $response;
-    }
-
-    /**
-     * Operation getDocumentWithHttpInfo
-     *
-     * Retrieves the file stream of a document of an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getDocumentWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = 'string';
-        $request = $this->getDocumentRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getDocumentAsync
-     *
-     * Retrieves the file stream of a document of an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getDocumentAsync($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        return $this->getDocumentAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getDocumentAsyncWithHttpInfo
-     *
-     * Retrieves the file stream of a document of an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getDocumentAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = 'string';
-        $request = $this->getDocumentRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getDocument'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getDocumentRequest($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getDocument'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getDocument'
-            );
-        }
-        // verify the required parameter 'document_id' is set
-        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling getDocument'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/documents/{documentId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($document_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'documentId' . '}',
-                ObjectSerializer::toPathValue($document_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['*/*', '*_/_*;encoding=base64']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['*/*', '*_/_*;encoding=base64'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getDocumentImageUrls
+     * Operation getDocumentImageUrlsOfAgreement
      *
      * Retrieves image urls of all visible pages of a document associated with an agreement.
      *
@@ -6361,14 +7302,14 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \Adobe\ESign\Agreements\Model\AgreementDocumentImageUrlsInfo
      */
-    public function getDocumentImageUrls($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
+    public function getDocumentImageUrlsOfAgreement($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
     {
-        list($response) = $this->getDocumentImageUrlsWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
+        list($response) = $this->getDocumentImageUrlsOfAgreementWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
         return $response;
     }
 
     /**
-     * Operation getDocumentImageUrlsWithHttpInfo
+     * Operation getDocumentImageUrlsOfAgreementWithHttpInfo
      *
      * Retrieves image urls of all visible pages of a document associated with an agreement.
      *
@@ -6386,10 +7327,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return array of \Adobe\ESign\Agreements\Model\AgreementDocumentImageUrlsInfo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDocumentImageUrlsWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
+    public function getDocumentImageUrlsOfAgreementWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
     {
         $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocumentImageUrlsInfo';
-        $request = $this->getDocumentImageUrlsRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
+        $request = $this->getDocumentImageUrlsOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6451,7 +7392,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation getDocumentImageUrlsAsync
+     * Operation getDocumentImageUrlsOfAgreementAsync
      *
      * Retrieves image urls of all visible pages of a document associated with an agreement.
      *
@@ -6468,9 +7409,9 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDocumentImageUrlsAsync($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
+    public function getDocumentImageUrlsOfAgreementAsync($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
     {
-        return $this->getDocumentImageUrlsAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page)
+        return $this->getDocumentImageUrlsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6479,7 +7420,7 @@ class AgreementsApi
     }
 
     /**
-     * Operation getDocumentImageUrlsAsyncWithHttpInfo
+     * Operation getDocumentImageUrlsOfAgreementAsyncWithHttpInfo
      *
      * Retrieves image urls of all visible pages of a document associated with an agreement.
      *
@@ -6496,10 +7437,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDocumentImageUrlsAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
+    public function getDocumentImageUrlsOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
     {
         $returnType = '\Adobe\ESign\Agreements\Model\AgreementDocumentImageUrlsInfo';
-        $request = $this->getDocumentImageUrlsRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
+        $request = $this->getDocumentImageUrlsOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6539,7 +7480,7 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'getDocumentImageUrls'
+     * Create request for operation 'getDocumentImageUrlsOfAgreement'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
@@ -6554,24 +7495,24 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDocumentImageUrlsRequest($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
+    protected function getDocumentImageUrlsOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $image_sizes = null, $show_image_availability_only = null, $start_page = null, $end_page = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getDocumentImageUrls'
+                'Missing the required parameter $authorization when calling getDocumentImageUrlsOfAgreement'
             );
         }
         // verify the required parameter 'agreement_id' is set
         if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getDocumentImageUrls'
+                'Missing the required parameter $agreement_id when calling getDocumentImageUrlsOfAgreement'
             );
         }
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling getDocumentImageUrls'
+                'Missing the required parameter $document_id when calling getDocumentImageUrlsOfAgreement'
             );
         }
 
@@ -6693,316 +7634,13 @@ class AgreementsApi
     }
 
     /**
-     * Operation getEvents
+     * Operation getDocumentOfAgreement
      *
-     * Retrieves the events information for an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\AgreementEventList
-     */
-    public function getEvents($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        list($response) = $this->getEventsWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-        return $response;
-    }
-
-    /**
-     * Operation getEventsWithHttpInfo
-     *
-     * Retrieves the events information for an agreement.
+     * Retrieves the file stream of a document of an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\AgreementEventList, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getEventsWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\AgreementEventList';
-        $request = $this->getEventsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\AgreementEventList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getEventsAsync
-     *
-     * Retrieves the events information for an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getEventsAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        return $this->getEventsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getEventsAsyncWithHttpInfo
-     *
-     * Retrieves the events information for an agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getEventsAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\AgreementEventList';
-        $request = $this->getEventsRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getEvents'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getEventsRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getEvents'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getEvents'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/events';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getFormData
-     *
-     * Retrieves data entered into the interactive form fields of the agreement.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -7011,19 +7649,20 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getFormData($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfAgreement($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        list($response) = $this->getFormDataWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        list($response) = $this->getDocumentOfAgreementWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
         return $response;
     }
 
     /**
-     * Operation getFormDataWithHttpInfo
+     * Operation getDocumentOfAgreementWithHttpInfo
      *
-     * Retrieves data entered into the interactive form fields of the agreement.
+     * Retrieves the file stream of a document of an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -7032,10 +7671,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormDataWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfAgreementWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         $returnType = 'string';
-        $request = $this->getFormDataRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $request = $this->getDocumentOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7097,12 +7736,13 @@ class AgreementsApi
     }
 
     /**
-     * Operation getFormDataAsync
+     * Operation getDocumentOfAgreementAsync
      *
-     * Retrieves data entered into the interactive form fields of the agreement.
+     * Retrieves the file stream of a document of an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -7110,9 +7750,9 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormDataAsync($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfAgreementAsync($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        return $this->getFormDataAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+        return $this->getDocumentOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7121,12 +7761,13 @@ class AgreementsApi
     }
 
     /**
-     * Operation getFormDataAsyncWithHttpInfo
+     * Operation getDocumentOfAgreementAsyncWithHttpInfo
      *
-     * Retrieves data entered into the interactive form fields of the agreement.
+     * Retrieves the file stream of a document of an agreement.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -7134,10 +7775,10 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormDataAsyncWithHttpInfo($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfAgreementAsyncWithHttpInfo($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         $returnType = 'string';
-        $request = $this->getFormDataRequest($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $request = $this->getDocumentOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7177,10 +7818,11 @@ class AgreementsApi
     }
 
     /**
-     * Create request for operation 'getFormData'
+     * Create request for operation 'getDocumentOfAgreement'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified agreement (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -7188,22 +7830,28 @@ class AgreementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFormDataRequest($authorization, $agreement_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    protected function getDocumentOfAgreementRequest($authorization, $agreement_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getFormData'
+                'Missing the required parameter $authorization when calling getDocumentOfAgreement'
             );
         }
         // verify the required parameter 'agreement_id' is set
         if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getFormData'
+                'Missing the required parameter $agreement_id when calling getDocumentOfAgreement'
+            );
+        }
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling getDocumentOfAgreement'
             );
         }
 
-        $resourcePath = '/agreements/{agreementId}/formData';
+        $resourcePath = '/agreements/{agreementId}/documents/{documentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -7235,17 +7883,25 @@ class AgreementsApi
                 $resourcePath
             );
         }
+        // path params
+        if ($document_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'documentId' . '}',
+                ObjectSerializer::toPathValue($document_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['text/csv']
+                ['*/*', '*_/_*;encoding=base64']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['text/csv'],
+                ['*/*', '*_/_*;encoding=base64'],
                 []
             );
         }
@@ -7840,329 +8496,6 @@ class AgreementsApi
             $resourcePath = str_replace(
                 '{' . 'agreementId' . '}',
                 ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getParticipantSet
-     *
-     * Retrieves the participant set of an agreement identified by agreementId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo
-     */
-    public function getParticipantSet($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        list($response) = $this->getParticipantSetWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-        return $response;
-    }
-
-    /**
-     * Operation getParticipantSetWithHttpInfo
-     *
-     * Retrieves the participant set of an agreement identified by agreementId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getParticipantSetWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo';
-        $request = $this->getParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getParticipantSetAsync
-     *
-     * Retrieves the participant set of an agreement identified by agreementId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getParticipantSetAsync($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        return $this->getParticipantSetAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getParticipantSetAsyncWithHttpInfo
-     *
-     * Retrieves the participant set of an agreement identified by agreementId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getParticipantSetAsyncWithHttpInfo($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Agreements\Model\DetailedParticipantSetInfo';
-        $request = $this->getParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getParticipantSet'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getParticipantSetRequest($authorization, $agreement_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getParticipantSet'
-            );
-        }
-        // verify the required parameter 'agreement_id' is set
-        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agreement_id when calling getParticipantSet'
-            );
-        }
-        // verify the required parameter 'participant_set_id' is set
-        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $participant_set_id when calling getParticipantSet'
-            );
-        }
-
-        $resourcePath = '/agreements/{agreementId}/members/participantSets/{participantSetId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($agreement_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agreementId' . '}',
-                ObjectSerializer::toPathValue($agreement_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($participant_set_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'participantSetId' . '}',
-                ObjectSerializer::toPathValue($participant_set_id),
                 $resourcePath
             );
         }
@@ -9980,6 +10313,322 @@ class AgreementsApi
     }
 
     /**
+     * Operation updateAgreementSecurityOptionsForParticipation
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Agreements\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateAgreementSecurityOptionsForParticipation($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $this->updateAgreementSecurityOptionsForParticipationWithHttpInfo($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+    }
+
+    /**
+     * Operation updateAgreementSecurityOptionsForParticipationWithHttpInfo
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Agreements\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Agreements\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAgreementSecurityOptionsForParticipationWithHttpInfo($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateAgreementSecurityOptionsForParticipationRequest($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAgreementSecurityOptionsForParticipationAsync
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Agreements\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAgreementSecurityOptionsForParticipationAsync($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        return $this->updateAgreementSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAgreementSecurityOptionsForParticipationAsyncWithHttpInfo
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Agreements\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAgreementSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateAgreementSecurityOptionsForParticipationRequest($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAgreementSecurityOptionsForParticipation'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $agreement_id The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Agreements\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateAgreementSecurityOptionsForParticipationRequest($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'if_match' is set
+        if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $if_match when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'agreement_id' is set
+        if ($agreement_id === null || (is_array($agreement_id) && count($agreement_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $agreement_id when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_id' is set
+        if ($participant_id === null || (is_array($participant_id) && count($participant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_id when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_security_option' is set
+        if ($participant_security_option === null || (is_array($participant_security_option) && count($participant_security_option) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_security_option when calling updateAgreementSecurityOptionsForParticipation'
+            );
+        }
+
+        $resourcePath = '/agreements/{agreementId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($if_match !== null) {
+            $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+
+        // path params
+        if ($agreement_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'agreementId' . '}',
+                ObjectSerializer::toPathValue($agreement_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantId' . '}',
+                ObjectSerializer::toPathValue($participant_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($participant_security_option)) {
+            $_tempBody = $participant_security_option;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateAgreementState
      *
      * Updates the state of an agreement identified by agreementId in the path.
@@ -10541,7 +11190,7 @@ class AgreementsApi
     /**
      * Operation updateFormFields
      *
-     * Updates form fields of an agreement.
+     * Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
@@ -10563,7 +11212,7 @@ class AgreementsApi
     /**
      * Operation updateFormFieldsWithHttpInfo
      *
-     * Updates form fields of an agreement.
+     * Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
@@ -10643,7 +11292,7 @@ class AgreementsApi
     /**
      * Operation updateFormFieldsAsync
      *
-     * Updates form fields of an agreement.
+     * Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
@@ -10668,7 +11317,7 @@ class AgreementsApi
     /**
      * Operation updateFormFieldsAsyncWithHttpInfo
      *
-     * Updates form fields of an agreement.
+     * Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)

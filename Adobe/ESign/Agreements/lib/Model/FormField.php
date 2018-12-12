@@ -62,7 +62,7 @@ class FormField implements ModelInterface, ArrayAccess
         'masking_text' => 'string',
         'default_value' => 'string',
         'masked' => 'bool',
-        'min_length' => '\Adobe\ESign\Agreements\Model\Int',
+        'min_length' => 'int',
         'origin' => 'string',
         'tooltip' => 'string',
         'hidden_options' => 'string[]',
@@ -94,7 +94,7 @@ class FormField implements ModelInterface, ArrayAccess
         'assignee' => 'string',
         'alignment' => 'string',
         'font_color' => 'string',
-        'max_length' => '\Adobe\ESign\Agreements\Model\Int'
+        'max_length' => 'int'
     ];
 
     /**
@@ -115,8 +115,8 @@ class FormField implements ModelInterface, ArrayAccess
         'hidden_options' => null,
         'required' => null,
         'validation_data' => null,
-        'min_value' => null,
-        'border_width' => null,
+        'min_value' => 'double',
+        'border_width' => 'double',
         'url_overridable' => null,
         'input_type' => null,
         'border_style' => null,
@@ -128,7 +128,7 @@ class FormField implements ModelInterface, ArrayAccess
         'background_color' => null,
         'visible' => null,
         'display_format_type' => null,
-        'max_value' => null,
+        'max_value' => 'double',
         'validation_err_msg' => null,
         'display_format' => null,
         'visible_options' => null,
@@ -136,7 +136,7 @@ class FormField implements ModelInterface, ArrayAccess
         'font_name' => null,
         'conditional_action' => null,
         'name' => null,
-        'font_size' => null,
+        'font_size' => 'double',
         'locations' => null,
         'assignee' => null,
         'alignment' => null,
@@ -873,7 +873,7 @@ class FormField implements ModelInterface, ArrayAccess
     /**
      * Gets min_length
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getMinLength()
     {
@@ -883,7 +883,7 @@ class FormField implements ModelInterface, ArrayAccess
     /**
      * Sets min_length
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $min_length Minimum length of the input text field in terms of no. of characters
+     * @param int $min_length Minimum length of the input text field in terms of no. of characters
      *
      * @return $this
      */
@@ -1704,7 +1704,7 @@ class FormField implements ModelInterface, ArrayAccess
     /**
      * Gets max_length
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getMaxLength()
     {
@@ -1714,7 +1714,7 @@ class FormField implements ModelInterface, ArrayAccess
     /**
      * Sets max_length
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $max_length Maximum length of the input text field in terms of no. of characters
+     * @param int $max_length Maximum length of the input text field in terms of no. of characters
      *
      * @return $this
      */

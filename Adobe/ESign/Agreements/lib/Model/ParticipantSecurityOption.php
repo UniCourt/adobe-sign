@@ -172,6 +172,7 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
     const AUTHENTICATION_METHOD_KBA = 'KBA';
     const AUTHENTICATION_METHOD_WEB_IDENTITY = 'WEB_IDENTITY';
     const AUTHENTICATION_METHOD_ADOBE_SIGN = 'ADOBE_SIGN';
+    const AUTHENTICATION_METHOD_GOV_ID = 'GOV_ID';
     
 
     
@@ -189,6 +190,7 @@ class ParticipantSecurityOption implements ModelInterface, ArrayAccess
             self::AUTHENTICATION_METHOD_KBA,
             self::AUTHENTICATION_METHOD_WEB_IDENTITY,
             self::AUTHENTICATION_METHOD_ADOBE_SIGN,
+            self::AUTHENTICATION_METHOD_GOV_ID,
         ];
     }
     

@@ -57,7 +57,7 @@ class DocumentPageInfo implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'rotation' => 'double',
         'width' => 'double',
-        'index' => '\Adobe\ESign\Agreements\Model\Int',
+        'index' => 'int',
         'height' => 'double'
     ];
 
@@ -67,10 +67,10 @@ class DocumentPageInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'rotation' => null,
-        'width' => null,
+        'rotation' => 'double',
+        'width' => 'double',
         'index' => null,
-        'height' => null
+        'height' => 'double'
     ];
 
     /**
@@ -271,7 +271,7 @@ class DocumentPageInfo implements ModelInterface, ArrayAccess
     /**
      * Gets index
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getIndex()
     {
@@ -281,7 +281,7 @@ class DocumentPageInfo implements ModelInterface, ArrayAccess
     /**
      * Sets index
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $index Index of the page in combined document starting from 1
+     * @param int $index Index of the page in combined document starting from 1
      *
      * @return $this
      */

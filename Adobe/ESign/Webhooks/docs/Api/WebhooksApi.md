@@ -1,6 +1,6 @@
 # Adobe\ESign\Webhooks\WebhooksApi
 
-All URIs are relative to *http://localhost/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > \Adobe\ESign\Webhooks\Model\WebhookCreationResponse createWebhook($authorization, $webhook_info, $x_api_user, $x_on_behalf_of_user)
 
 Creates a webhook.
+
+This is a primary endpoint which is used to create a new webhook. A webhook can only be created in ACTIVE state. Currently, webhooks are supported at four scopes - Account, Group, User and Resource. <br/> <br/> Before creating a webhook successfully at any of these scopes, Adobe Sign <a href='https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobeio/adobeio-documentation/master/sign/webhooks.md#verificationofintentofthewebhookurl'>verifies</a> that the webhook URL that is provided in the registration request really intends to receive notifications and is a valid URL. <br/>There is a defined mechanism for this validation where Adobe Sign makes an HTTPS GET request to the webhook URL. This request has a custom HTTP header X-AdobeSign-ClientId. The value of this header is the client ID of the application that is requesting to create the webhook. To register a webhook successfully, the webhook URL must respond to this verification request with an HTTPS 2XX response code, and also it must send back the same client ID value in one of the following two ways:<ol><li>In a custom response header, X-AdobeSign-ClientId. This is the same header which was passed in the request, and can be echoed back in the response.</li><li> In the JSON response body of the response with the key of xAdobeSignClientId and its value being the same client ID that was sent in the request. </li></ol><p>On successful registration,  Adobe Sign sends a success response (any HTTPS 2XX code) to your client app with the unique webhook identifier and a Location header, which contains the URL of the webhook resource created in Adobe Sign.<br/> To learn more, please refer <a href='https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobeio/adobeio-documentation/master/sign/webhooks.md'>Webhooks in Adobe Sign Guide</a>.</p>
 
 ### Example
 ```php
@@ -194,9 +196,9 @@ $x_api_user = "x_api_user_example"; // string | The userId or email of API calle
 $x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 $show_in_active_webhooks = true; // bool | A query parameter to fetch all the inactive webhooks along with the active webhooks.
 $scope = "scope_example"; // string | Scope of webhook. The possible values are ACCOUNT, GROUP, USER or RESOURCE
-$resource_type = "resource_type_example"; // string | The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET and MEGASIGN.
+$resource_type = "resource_type_example"; // string | The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT.
 $cursor = "cursor_example"; // string | Used to navigate through the pages. If not provided, returns the first page.
-$page_size = 56; // int | Number of intended items in the response page.
+$page_size = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
 
 try {
     $result = $apiInstance->getWebhooks($authorization, $x_api_user, $x_on_behalf_of_user, $show_in_active_webhooks, $scope, $resource_type, $cursor, $page_size);
@@ -216,9 +218,9 @@ Name | Type | Description  | Notes
  **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
  **show_in_active_webhooks** | **bool**| A query parameter to fetch all the inactive webhooks along with the active webhooks. | [optional]
  **scope** | **string**| Scope of webhook. The possible values are ACCOUNT, GROUP, USER or RESOURCE | [optional]
- **resource_type** | **string**| The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET and MEGASIGN. | [optional]
+ **resource_type** | **string**| The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT. | [optional]
  **cursor** | **string**| Used to navigate through the pages. If not provided, returns the first page. | [optional]
- **page_size** | **int**| Number of intended items in the response page. | [optional]
+ **page_size** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
 
 ### Return type
 

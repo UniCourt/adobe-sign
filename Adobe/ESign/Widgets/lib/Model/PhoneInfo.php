@@ -55,8 +55,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'country_code' => 'string',
-        'phone' => 'string'
+        'phone' => 'string',
+        'country_code' => 'string'
     ];
 
     /**
@@ -65,8 +65,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'country_code' => null,
-        'phone' => null
+        'phone' => null,
+        'country_code' => null
     ];
 
     /**
@@ -96,8 +96,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'country_code' => 'countryCode',
-        'phone' => 'phone'
+        'phone' => 'phone',
+        'country_code' => 'countryCode'
     ];
 
     /**
@@ -106,8 +106,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'country_code' => 'setCountryCode',
-        'phone' => 'setPhone'
+        'phone' => 'setPhone',
+        'country_code' => 'setCountryCode'
     ];
 
     /**
@@ -116,8 +116,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'country_code' => 'getCountryCode',
-        'phone' => 'getPhone'
+        'phone' => 'getPhone',
+        'country_code' => 'getCountryCode'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PhoneInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
     }
 
     /**
@@ -209,30 +209,6 @@ class PhoneInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets country_code
-     *
-     * @return string
-     */
-    public function getCountryCode()
-    {
-        return $this->container['country_code'];
-    }
-
-    /**
-     * Sets country_code
-     *
-     * @param string $country_code The phone Info country code required for the participant to view and sign the document if authentication method is PHONE
-     *
-     * @return $this
-     */
-    public function setCountryCode($country_code)
-    {
-        $this->container['country_code'] = $country_code;
-
-        return $this;
-    }
-
-    /**
      * Gets phone
      *
      * @return string
@@ -252,6 +228,30 @@ class PhoneInfo implements ModelInterface, ArrayAccess
     public function setPhone($phone)
     {
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string $country_code The phone Info country code required for the participant to view and sign the document if authentication method is PHONE
+     *
+     * @return $this
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }

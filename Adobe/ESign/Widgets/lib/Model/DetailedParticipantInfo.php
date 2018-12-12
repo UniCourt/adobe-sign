@@ -55,14 +55,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'company' => 'string',
-        'email' => 'string',
-        'fax' => 'string',
-        'id' => 'string',
         'name' => 'string',
-        'private_message' => 'string',
-        'security_option' => '\Adobe\ESign\Widgets\Model\ParticipantSecurityOption',
         'self' => 'bool',
+        'company' => 'string',
+        'id' => 'string',
+        'fax' => 'string',
+        'private_message' => 'string',
+        'email' => 'string',
+        'security_option' => '\Adobe\ESign\Widgets\Model\ParticipantSecurityOption',
         'status' => 'string'
     ];
 
@@ -72,14 +72,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'company' => null,
-        'email' => null,
-        'fax' => null,
-        'id' => null,
         'name' => null,
-        'private_message' => null,
-        'security_option' => null,
         'self' => null,
+        'company' => null,
+        'id' => null,
+        'fax' => null,
+        'private_message' => null,
+        'email' => null,
+        'security_option' => null,
         'status' => null
     ];
 
@@ -110,14 +110,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company' => 'company',
-        'email' => 'email',
-        'fax' => 'fax',
-        'id' => 'id',
         'name' => 'name',
-        'private_message' => 'privateMessage',
-        'security_option' => 'securityOption',
         'self' => 'self',
+        'company' => 'company',
+        'id' => 'id',
+        'fax' => 'fax',
+        'private_message' => 'privateMessage',
+        'email' => 'email',
+        'security_option' => 'securityOption',
         'status' => 'status'
     ];
 
@@ -127,14 +127,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company' => 'setCompany',
-        'email' => 'setEmail',
-        'fax' => 'setFax',
-        'id' => 'setId',
         'name' => 'setName',
-        'private_message' => 'setPrivateMessage',
-        'security_option' => 'setSecurityOption',
         'self' => 'setSelf',
+        'company' => 'setCompany',
+        'id' => 'setId',
+        'fax' => 'setFax',
+        'private_message' => 'setPrivateMessage',
+        'email' => 'setEmail',
+        'security_option' => 'setSecurityOption',
         'status' => 'setStatus'
     ];
 
@@ -144,14 +144,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company' => 'getCompany',
-        'email' => 'getEmail',
-        'fax' => 'getFax',
-        'id' => 'getId',
         'name' => 'getName',
-        'private_message' => 'getPrivateMessage',
-        'security_option' => 'getSecurityOption',
         'self' => 'getSelf',
+        'company' => 'getCompany',
+        'id' => 'getId',
+        'fax' => 'getFax',
+        'private_message' => 'getPrivateMessage',
+        'email' => 'getEmail',
+        'security_option' => 'getSecurityOption',
         'status' => 'getStatus'
     ];
 
@@ -230,14 +230,14 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['fax'] = isset($data['fax']) ? $data['fax'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['private_message'] = isset($data['private_message']) ? $data['private_message'] : null;
-        $this->container['security_option'] = isset($data['security_option']) ? $data['security_option'] : null;
         $this->container['self'] = isset($data['self']) ? $data['self'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['fax'] = isset($data['fax']) ? $data['fax'] : null;
+        $this->container['private_message'] = isset($data['private_message']) ? $data['private_message'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['security_option'] = isset($data['security_option']) ? $data['security_option'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -274,102 +274,6 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company
-     *
-     * @return string
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     *
-     * @param string $company The company of the participant, if available. This cannot be changed as part of the PUT call.
-     *
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email of the participant. In case of modifying a participant set (PUT) this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow (legacy agreements) that were created using fax as input
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets fax
-     *
-     * @return string
-     */
-    public function getFax()
-    {
-        return $this->container['fax'];
-    }
-
-    /**
-     * Sets fax
-     *
-     * @param string $fax Fax of the participant. New Agreements can not be created with fax option. This is only returned for legacy agreements created with fax as participants
-     *
-     * @return $this
-     */
-    public function setFax($fax)
-    {
-        $this->container['fax'] = $fax;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id The unique identifier of the participant. This will be returned as part of Get call but is not mandatory to be passed as part of PUT call for agreements/{id}/members/participantSets/{id}.
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -389,54 +293,6 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets private_message
-     *
-     * @return string
-     */
-    public function getPrivateMessage()
-    {
-        return $this->container['private_message'];
-    }
-
-    /**
-     * Sets private_message
-     *
-     * @param string $private_message The private message of the participant, if available. This cannot be changed as part of the PUT call.
-     *
-     * @return $this
-     */
-    public function setPrivateMessage($private_message)
-    {
-        $this->container['private_message'] = $private_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets security_option
-     *
-     * @return \Adobe\ESign\Widgets\Model\ParticipantSecurityOption
-     */
-    public function getSecurityOption()
-    {
-        return $this->container['security_option'];
-    }
-
-    /**
-     * Sets security_option
-     *
-     * @param \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $security_option Security options that apply to the participant. This cannot be changed as part of the PUT call
-     *
-     * @return $this
-     */
-    public function setSecurityOption($security_option)
-    {
-        $this->container['security_option'] = $security_option;
 
         return $this;
     }
@@ -466,6 +322,150 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets company
+     *
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param string $company The company of the participant, if available. This cannot be changed as part of the PUT call.
+     *
+     * @return $this
+     */
+    public function setCompany($company)
+    {
+        $this->container['company'] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id The unique identifier of the participant. This will be returned as part of Get call but is not mandatory to be passed as part of PUT call for agreements/{id}/members/participantSets/{id}.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fax
+     *
+     * @return string
+     */
+    public function getFax()
+    {
+        return $this->container['fax'];
+    }
+
+    /**
+     * Sets fax
+     *
+     * @param string $fax Fax of the participant. New Agreements can not be created with fax option. This is only returned for legacy agreements created with fax as participants
+     *
+     * @return $this
+     */
+    public function setFax($fax)
+    {
+        $this->container['fax'] = $fax;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_message
+     *
+     * @return string
+     */
+    public function getPrivateMessage()
+    {
+        return $this->container['private_message'];
+    }
+
+    /**
+     * Sets private_message
+     *
+     * @param string $private_message The private message of the participant, if available. This cannot be changed as part of the PUT call.
+     *
+     * @return $this
+     */
+    public function setPrivateMessage($private_message)
+    {
+        $this->container['private_message'] = $private_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email Email of the participant. In case of modifying a participant set (PUT) this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow (legacy agreements) that were created using fax as input
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets security_option
+     *
+     * @return \Adobe\ESign\Widgets\Model\ParticipantSecurityOption
+     */
+    public function getSecurityOption()
+    {
+        return $this->container['security_option'];
+    }
+
+    /**
+     * Sets security_option
+     *
+     * @param \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $security_option Security options that apply to the participant. This cannot be changed as part of the PUT call
+     *
+     * @return $this
+     */
+    public function setSecurityOption($security_option)
+    {
+        $this->container['security_option'] = $security_option;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -478,7 +478,7 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status The status of the participant. This cannot be changed as part of the PUT call.
+     * @param string $status The status of the participant. This cannot be changed as part of the PUT call. New participants will be ignored if added with a REPLACED status.
      *
      * @return $this
      */

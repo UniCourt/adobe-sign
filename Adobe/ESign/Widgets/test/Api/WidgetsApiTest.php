@@ -70,12 +70,32 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for createShareOnWidget
+     *
+     * Share a widget with someone..
+     *
+     */
+    public function testCreateShareOnWidget()
+    {
+    }
+
+    /**
      * Test case for createWidget
      *
      * Creates a widget and and returns the widgetId in the response to the client..
      *
      */
     public function testCreateWidget()
+    {
+    }
+
+    /**
+     * Test case for getAllDocumentsOfWidget
+     *
+     * Retrieves the IDs of the documents associated with widget..
+     *
+     */
+    public function testGetAllDocumentsOfWidget()
     {
     }
 
@@ -90,22 +110,12 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getEvents
+     * Test case for getDocumentOfWidget
      *
-     * Retrieves the events information for a widget..
-     *
-     */
-    public function testGetEvents()
-    {
-    }
-
-    /**
-     * Test case for getParticipantSet
-     *
-     * Retrieves the participant set of a widget identified by widgetId in the path..
+     * Retrieves the file stream of a document of a widget..
      *
      */
-    public function testGetParticipantSet()
+    public function testGetDocumentOfWidget()
     {
     }
 
@@ -116,6 +126,16 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetWidgetAgreements()
+    {
+    }
+
+    /**
+     * Test case for getWidgetAllDocumentsImageUrls
+     *
+     * Retrieves image urls of all visible pages of a document associated with a widget..
+     *
+     */
+    public function testGetWidgetAllDocumentsImageUrls()
     {
     }
 
@@ -140,22 +160,12 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getWidgetDocumentInfo
+     * Test case for getWidgetEvents
      *
-     * Retrieves the file stream of a document of a widget..
-     *
-     */
-    public function testGetWidgetDocumentInfo()
-    {
-    }
-
-    /**
-     * Test case for getWidgetDocuments
-     *
-     * Retrieves the IDs of the documents associated with widget..
+     * Retrieves the events information for a widget..
      *
      */
-    public function testGetWidgetDocuments()
+    public function testGetWidgetEvents()
     {
     }
 
@@ -190,6 +200,26 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getWidgetParticipantSet
+     *
+     * Retrieves the participant set of a widget identified by widgetId in the path..
+     *
+     */
+    public function testGetWidgetParticipantSet()
+    {
+    }
+
+    /**
+     * Test case for getWidgetSecurityOptionsForParticipation
+     *
+     * Retrieves the security options for a particular participant..
+     *
+     */
+    public function testGetWidgetSecurityOptionsForParticipation()
+    {
+    }
+
+    /**
      * Test case for getWidgetView
      *
      * Retrieves the requested views for a widget..
@@ -216,6 +246,26 @@ class WidgetsApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testUpdateWidget()
+    {
+    }
+
+    /**
+     * Test case for updateWidgetNoteForApiUser
+     *
+     * Updates the latest note of a widget for the API user..
+     *
+     */
+    public function testUpdateWidgetNoteForApiUser()
+    {
+    }
+
+    /**
+     * Test case for updateWidgetSecurityOptionsForParticipation
+     *
+     * Updates the security options for a particular participant..
+     *
+     */
+    public function testUpdateWidgetSecurityOptionsForParticipation()
     {
     }
 

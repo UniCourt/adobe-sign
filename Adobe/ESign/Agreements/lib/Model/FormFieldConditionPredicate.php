@@ -59,7 +59,7 @@ class FormFieldConditionPredicate implements ModelInterface, ArrayAccess
         'field_name' => 'string',
         'value' => 'string',
         'operator' => 'string',
-        'field_location_index' => '\Adobe\ESign\Agreements\Model\Int'
+        'field_location_index' => 'int'
     ];
 
     /**
@@ -344,7 +344,7 @@ class FormFieldConditionPredicate implements ModelInterface, ArrayAccess
     /**
      * Gets field_location_index
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getFieldLocationIndex()
     {
@@ -354,7 +354,7 @@ class FormFieldConditionPredicate implements ModelInterface, ArrayAccess
     /**
      * Sets field_location_index
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $field_location_index Index of the location of the form field used in the predicate
+     * @param int $field_location_index Index of the location of the form field used in the predicate
      *
      * @return $this
      */

@@ -86,12 +86,321 @@ class WidgetsApi
     }
 
     /**
+     * Operation createShareOnWidget
+     *
+     * Share a widget with someone.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\ShareCreationInfoList $share_creation_info_list List of agreement share creation information objects. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Widgets\Model\ShareCreationResponseList
+     */
+    public function createShareOnWidget($authorization, $widget_id, $share_creation_info_list, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        list($response) = $this->createShareOnWidgetWithHttpInfo($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
+        return $response;
+    }
+
+    /**
+     * Operation createShareOnWidgetWithHttpInfo
+     *
+     * Share a widget with someone.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\ShareCreationInfoList $share_creation_info_list List of agreement share creation information objects. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Widgets\Model\ShareCreationResponseList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createShareOnWidgetWithHttpInfo($authorization, $widget_id, $share_creation_info_list, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\ShareCreationResponseList';
+        $request = $this->createShareOnWidgetRequest($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Widgets\Model\ShareCreationResponseList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createShareOnWidgetAsync
+     *
+     * Share a widget with someone.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\ShareCreationInfoList $share_creation_info_list List of agreement share creation information objects. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createShareOnWidgetAsync($authorization, $widget_id, $share_creation_info_list, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        return $this->createShareOnWidgetAsyncWithHttpInfo($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createShareOnWidgetAsyncWithHttpInfo
+     *
+     * Share a widget with someone.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\ShareCreationInfoList $share_creation_info_list List of agreement share creation information objects. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createShareOnWidgetAsyncWithHttpInfo($authorization, $widget_id, $share_creation_info_list, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\ShareCreationResponseList';
+        $request = $this->createShareOnWidgetRequest($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createShareOnWidget'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\ShareCreationInfoList $share_creation_info_list List of agreement share creation information objects. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createShareOnWidgetRequest($authorization, $widget_id, $share_creation_info_list, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling createShareOnWidget'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling createShareOnWidget'
+            );
+        }
+        // verify the required parameter 'share_creation_info_list' is set
+        if ($share_creation_info_list === null || (is_array($share_creation_info_list) && count($share_creation_info_list) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $share_creation_info_list when calling createShareOnWidget'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/members/share';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($share_creation_info_list)) {
+            $_tempBody = $share_creation_info_list;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createWidget
      *
      * Creates a widget and and returns the widgetId in the response to the client.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  \Adobe\ESign\Widgets\Model\WidgetInfo $widget_info Information about the widget that you want to create. (required)
+     * @param  \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6 $widget_info Information about the widget that you want to create. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      *
@@ -111,7 +420,7 @@ class WidgetsApi
      * Creates a widget and and returns the widgetId in the response to the client.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  \Adobe\ESign\Widgets\Model\WidgetInfo $widget_info Information about the widget that you want to create. (required)
+     * @param  \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6 $widget_info Information about the widget that you want to create. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      *
@@ -189,7 +498,7 @@ class WidgetsApi
      * Creates a widget and and returns the widgetId in the response to the client.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  \Adobe\ESign\Widgets\Model\WidgetInfo $widget_info Information about the widget that you want to create. (required)
+     * @param  \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6 $widget_info Information about the widget that you want to create. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      *
@@ -212,7 +521,7 @@ class WidgetsApi
      * Creates a widget and and returns the widgetId in the response to the client.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  \Adobe\ESign\Widgets\Model\WidgetInfo $widget_info Information about the widget that you want to create. (required)
+     * @param  \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6 $widget_info Information about the widget that you want to create. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      *
@@ -265,7 +574,7 @@ class WidgetsApi
      * Create request for operation 'createWidget'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  \Adobe\ESign\Widgets\Model\WidgetInfo $widget_info Information about the widget that you want to create. (required)
+     * @param  \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6 $widget_info Information about the widget that you want to create. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      *
@@ -369,6 +678,328 @@ class WidgetsApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAllDocumentsOfWidget
+     *
+     * Retrieves the IDs of the documents associated with widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Widgets\Model\WidgetDocuments
+     */
+    public function getAllDocumentsOfWidget($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
+    {
+        list($response) = $this->getAllDocumentsOfWidgetWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
+        return $response;
+    }
+
+    /**
+     * Operation getAllDocumentsOfWidgetWithHttpInfo
+     *
+     * Retrieves the IDs of the documents associated with widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Widgets\Model\WidgetDocuments, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllDocumentsOfWidgetWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocuments';
+        $request = $this->getAllDocumentsOfWidgetRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Widgets\Model\WidgetDocuments',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAllDocumentsOfWidgetAsync
+     *
+     * Retrieves the IDs of the documents associated with widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllDocumentsOfWidgetAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
+    {
+        return $this->getAllDocumentsOfWidgetAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAllDocumentsOfWidgetAsyncWithHttpInfo
+     *
+     * Retrieves the IDs of the documents associated with widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllDocumentsOfWidgetAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocuments';
+        $request = $this->getAllDocumentsOfWidgetRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAllDocumentsOfWidget'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAllDocumentsOfWidgetRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getAllDocumentsOfWidget'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling getAllDocumentsOfWidget'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/documents';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($version_id !== null) {
+            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
+        }
+        // query params
+        if ($participant_id !== null) {
+            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -680,45 +1311,47 @@ class WidgetsApi
     }
 
     /**
-     * Operation getEvents
+     * Operation getDocumentOfWidget
      *
-     * Retrieves the events information for a widget.
+     * Retrieves the file stream of a document of a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Widgets\Model\WidgetEventList
+     * @return string
      */
-    public function getEvents($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfWidget($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        list($response) = $this->getEventsWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        list($response) = $this->getDocumentOfWidgetWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
         return $response;
     }
 
     /**
-     * Operation getEventsWithHttpInfo
+     * Operation getDocumentOfWidgetWithHttpInfo
      *
-     * Retrieves the events information for a widget.
+     * Retrieves the file stream of a document of a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Widgets\Model\WidgetEventList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventsWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfWidgetWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetEventList';
-        $request = $this->getEventsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $returnType = 'string';
+        $request = $this->getDocumentOfWidgetRequest($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         try {
             $options = $this->createHttpClientOption();
@@ -769,7 +1402,7 @@ class WidgetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Adobe\ESign\Widgets\Model\WidgetEventList',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -780,12 +1413,13 @@ class WidgetsApi
     }
 
     /**
-     * Operation getEventsAsync
+     * Operation getDocumentOfWidgetAsync
      *
-     * Retrieves the events information for a widget.
+     * Retrieves the file stream of a document of a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -793,9 +1427,9 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventsAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfWidgetAsync($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        return $this->getEventsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+        return $this->getDocumentOfWidgetAsyncWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -804,12 +1438,13 @@ class WidgetsApi
     }
 
     /**
-     * Operation getEventsAsyncWithHttpInfo
+     * Operation getDocumentOfWidgetAsyncWithHttpInfo
      *
-     * Retrieves the events information for a widget.
+     * Retrieves the file stream of a document of a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -817,10 +1452,10 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getDocumentOfWidgetAsyncWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetEventList';
-        $request = $this->getEventsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $returnType = 'string';
+        $request = $this->getDocumentOfWidgetRequest($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -860,10 +1495,11 @@ class WidgetsApi
     }
 
     /**
-     * Create request for operation 'getEvents'
+     * Create request for operation 'getDocumentOfWidget'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -871,337 +1507,28 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEventsRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    protected function getDocumentOfWidgetRequest($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getEvents'
+                'Missing the required parameter $authorization when calling getDocumentOfWidget'
             );
         }
         // verify the required parameter 'widget_id' is set
         if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $widget_id when calling getEvents'
+                'Missing the required parameter $widget_id when calling getDocumentOfWidget'
             );
         }
-
-        $resourcePath = '/widgets/{widgetId}/events';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($widget_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'widgetId' . '}',
-                ObjectSerializer::toPathValue($widget_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getParticipantSet
-     *
-     * Retrieves the participant set of a widget identified by widgetId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo
-     */
-    public function getParticipantSet($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        list($response) = $this->getParticipantSetWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-        return $response;
-    }
-
-    /**
-     * Operation getParticipantSetWithHttpInfo
-     *
-     * Retrieves the participant set of a widget identified by widgetId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getParticipantSetWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo';
-        $request = $this->getParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getParticipantSetAsync
-     *
-     * Retrieves the participant set of a widget identified by widgetId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getParticipantSetAsync($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        return $this->getParticipantSetAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getParticipantSetAsyncWithHttpInfo
-     *
-     * Retrieves the participant set of a widget identified by widgetId in the path.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getParticipantSetAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        $returnType = '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo';
-        $request = $this->getParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getParticipantSet'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $participant_set_id The participant set identifier (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getParticipantSet'
-            );
-        }
-        // verify the required parameter 'widget_id' is set
-        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $widget_id when calling getParticipantSet'
-            );
-        }
-        // verify the required parameter 'participant_set_id' is set
-        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $participant_set_id when calling getParticipantSet'
+                'Missing the required parameter $document_id when calling getDocumentOfWidget'
             );
         }
 
-        $resourcePath = '/widgets/{widgetId}/members/participantSets/{participantSetId}';
+        $resourcePath = '/widgets/{widgetId}/documents/{documentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1234,10 +1561,10 @@ class WidgetsApi
             );
         }
         // path params
-        if ($participant_set_id !== null) {
+        if ($document_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'participantSetId' . '}',
-                ObjectSerializer::toPathValue($participant_set_id),
+                '{' . 'documentId' . '}',
+                ObjectSerializer::toPathValue($document_id),
                 $resourcePath
             );
         }
@@ -1247,11 +1574,11 @@ class WidgetsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/pdf', 'application/pdf;encoding=base64']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/pdf', 'application/pdf;encoding=base64'],
                 []
             );
         }
@@ -1315,9 +1642,9 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. (optional)
+     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1338,9 +1665,9 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. (optional)
+     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1419,9 +1746,9 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. (optional)
+     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1445,9 +1772,9 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. (optional)
+     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1501,9 +1828,9 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. (optional)
+     * @param  bool $show_hidden_agreements A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1629,6 +1956,328 @@ class WidgetsApi
     }
 
     /**
+     * Operation getWidgetAllDocumentsImageUrls
+     *
+     * Retrieves image urls of all visible pages of a document associated with a widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Widgets\Model\WidgetDocumentsImageUrlsInfo
+     */
+    public function getWidgetAllDocumentsImageUrls($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $image_sizes = null, $show_image_availability_only = null)
+    {
+        list($response) = $this->getWidgetAllDocumentsImageUrlsWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only);
+        return $response;
+    }
+
+    /**
+     * Operation getWidgetAllDocumentsImageUrlsWithHttpInfo
+     *
+     * Retrieves image urls of all visible pages of a document associated with a widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Widgets\Model\WidgetDocumentsImageUrlsInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWidgetAllDocumentsImageUrlsWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $image_sizes = null, $show_image_availability_only = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocumentsImageUrlsInfo';
+        $request = $this->getWidgetAllDocumentsImageUrlsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Widgets\Model\WidgetDocumentsImageUrlsInfo',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWidgetAllDocumentsImageUrlsAsync
+     *
+     * Retrieves image urls of all visible pages of a document associated with a widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetAllDocumentsImageUrlsAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $image_sizes = null, $show_image_availability_only = null)
+    {
+        return $this->getWidgetAllDocumentsImageUrlsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWidgetAllDocumentsImageUrlsAsyncWithHttpInfo
+     *
+     * Retrieves image urls of all visible pages of a document associated with a widget.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetAllDocumentsImageUrlsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $image_sizes = null, $show_image_availability_only = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocumentsImageUrlsInfo';
+        $request = $this->getWidgetAllDocumentsImageUrlsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWidgetAllDocumentsImageUrls'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $image_sizes A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. (optional)
+     * @param  bool $show_image_availability_only When set to true, returns only image availability. Else, returns both image urls and its availability. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWidgetAllDocumentsImageUrlsRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $image_sizes = null, $show_image_availability_only = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getWidgetAllDocumentsImageUrls'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling getWidgetAllDocumentsImageUrls'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/documents/imageUrls';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($image_sizes !== null) {
+            $queryParams['imageSizes'] = ObjectSerializer::toQueryValue($image_sizes);
+        }
+        // query params
+        if ($show_image_availability_only !== null) {
+            $queryParams['showImageAvailabilityOnly'] = ObjectSerializer::toQueryValue($show_image_availability_only);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getWidgetAuditTrail
      *
      * Retrieves the audit trail of a widget identified by widgetId.
@@ -1637,14 +2286,15 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getWidgetAuditTrail($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function getWidgetAuditTrail($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        list($response) = $this->getWidgetAuditTrailWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
+        list($response) = $this->getWidgetAuditTrailWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
         return $response;
     }
 
@@ -1657,15 +2307,16 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWidgetAuditTrailWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function getWidgetAuditTrailWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         $returnType = 'string';
-        $request = $this->getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
+        $request = $this->getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1735,13 +2386,14 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetAuditTrailAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function getWidgetAuditTrailAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        return $this->getWidgetAuditTrailAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user)
+        return $this->getWidgetAuditTrailAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1758,14 +2410,15 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetAuditTrailAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    public function getWidgetAuditTrailAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         $returnType = 'string';
-        $request = $this->getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
+        $request = $this->getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1811,11 +2464,12 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
+    protected function getWidgetAuditTrailRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -1848,6 +2502,10 @@ class WidgetsApi
         // header params
         if ($x_on_behalf_of_user !== null) {
             $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
@@ -1934,7 +2592,7 @@ class WidgetsApi
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
      * @param  bool $attach_audit_report When set to YES, attach an audit report to the signed Widget PDF. Default value is false (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
@@ -1958,7 +2616,7 @@ class WidgetsApi
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
      * @param  bool $attach_audit_report When set to YES, attach an audit report to the signed Widget PDF. Default value is false (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
@@ -2040,7 +2698,7 @@ class WidgetsApi
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
      * @param  bool $attach_audit_report When set to YES, attach an audit report to the signed Widget PDF. Default value is false (optional)
      *
      * @throws \InvalidArgumentException
@@ -2067,7 +2725,7 @@ class WidgetsApi
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
      * @param  bool $attach_audit_report When set to YES, attach an audit report to the signed Widget PDF. Default value is false (optional)
      *
      * @throws \InvalidArgumentException
@@ -2124,7 +2782,7 @@ class WidgetsApi
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
+     * @param  string $participant_id The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. (optional)
      * @param  bool $attach_audit_report When set to YES, attach an audit report to the signed Widget PDF. Default value is false (optional)
      *
      * @throws \InvalidArgumentException
@@ -2255,47 +2913,45 @@ class WidgetsApi
     }
 
     /**
-     * Operation getWidgetDocumentInfo
+     * Operation getWidgetEvents
      *
-     * Retrieves the file stream of a document of a widget.
+     * Retrieves the events information for a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \Adobe\ESign\Widgets\Model\WidgetEventList
      */
-    public function getWidgetDocumentInfo($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetEvents($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        list($response) = $this->getWidgetDocumentInfoWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        list($response) = $this->getWidgetEventsWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
         return $response;
     }
 
     /**
-     * Operation getWidgetDocumentInfoWithHttpInfo
+     * Operation getWidgetEventsWithHttpInfo
      *
-     * Retrieves the file stream of a document of a widget.
+     * Retrieves the events information for a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Adobe\ESign\Widgets\Model\WidgetEventList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWidgetDocumentInfoWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetEventsWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = 'string';
-        $request = $this->getWidgetDocumentInfoRequest($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetEventList';
+        $request = $this->getWidgetEventsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2346,7 +3002,7 @@ class WidgetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string',
+                        '\Adobe\ESign\Widgets\Model\WidgetEventList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2357,13 +3013,12 @@ class WidgetsApi
     }
 
     /**
-     * Operation getWidgetDocumentInfoAsync
+     * Operation getWidgetEventsAsync
      *
-     * Retrieves the file stream of a document of a widget.
+     * Retrieves the events information for a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -2371,9 +3026,9 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetDocumentInfoAsync($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetEventsAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        return $this->getWidgetDocumentInfoAsyncWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+        return $this->getWidgetEventsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2382,13 +3037,12 @@ class WidgetsApi
     }
 
     /**
-     * Operation getWidgetDocumentInfoAsyncWithHttpInfo
+     * Operation getWidgetEventsAsyncWithHttpInfo
      *
-     * Retrieves the file stream of a document of a widget.
+     * Retrieves the events information for a widget.
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -2396,10 +3050,10 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetDocumentInfoAsyncWithHttpInfo($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetEventsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = 'string';
-        $request = $this->getWidgetDocumentInfoRequest($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetEventList';
+        $request = $this->getWidgetEventsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2439,11 +3093,10 @@ class WidgetsApi
     }
 
     /**
-     * Create request for operation 'getWidgetDocumentInfo'
+     * Create request for operation 'getWidgetEvents'
      *
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $document_id The document identifier, as retrieved from the API which fetches the documents of a specified widget (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
      * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
@@ -2451,364 +3104,28 @@ class WidgetsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWidgetDocumentInfoRequest($authorization, $widget_id, $document_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    protected function getWidgetEventsRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getWidgetDocumentInfo'
+                'Missing the required parameter $authorization when calling getWidgetEvents'
             );
         }
         // verify the required parameter 'widget_id' is set
         if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $widget_id when calling getWidgetDocumentInfo'
-            );
-        }
-        // verify the required parameter 'document_id' is set
-        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling getWidgetDocumentInfo'
+                'Missing the required parameter $widget_id when calling getWidgetEvents'
             );
         }
 
-        $resourcePath = '/widgets/{widgetId}/documents/{documentId}';
+        $resourcePath = '/widgets/{widgetId}/events';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-        // header params
-        if ($x_api_user !== null) {
-            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
-        }
-        // header params
-        if ($x_on_behalf_of_user !== null) {
-            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
-        }
-
-        // path params
-        if ($widget_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'widgetId' . '}',
-                ObjectSerializer::toPathValue($widget_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($document_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'documentId' . '}',
-                ObjectSerializer::toPathValue($document_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/pdf', 'application/pdf;encoding=base64']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/pdf', 'application/pdf;encoding=base64'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getWidgetDocuments
-     *
-     * Retrieves the IDs of the documents associated with widget.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
-     *
-     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Widgets\Model\WidgetDocuments
-     */
-    public function getWidgetDocuments($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
-    {
-        list($response) = $this->getWidgetDocumentsWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
-        return $response;
-    }
-
-    /**
-     * Operation getWidgetDocumentsWithHttpInfo
-     *
-     * Retrieves the IDs of the documents associated with widget.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
-     *
-     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Widgets\Model\WidgetDocuments, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getWidgetDocumentsWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
-    {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocuments';
-        $request = $this->getWidgetDocumentsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Adobe\ESign\Widgets\Model\WidgetDocuments',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getWidgetDocumentsAsync
-     *
-     * Retrieves the IDs of the documents associated with widget.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWidgetDocumentsAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
-    {
-        return $this->getWidgetDocumentsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getWidgetDocumentsAsyncWithHttpInfo
-     *
-     * Retrieves the IDs of the documents associated with widget.
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getWidgetDocumentsAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
-    {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetDocuments';
-        $request = $this->getWidgetDocumentsRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getWidgetDocuments'
-     *
-     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
-     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
-     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
-     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
-     * @param  string $version_id The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. (optional)
-     * @param  string $participant_id The ID of the participant to be used to retrieve documents. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getWidgetDocumentsRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null, $version_id = null, $participant_id = null)
-    {
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling getWidgetDocuments'
-            );
-        }
-        // verify the required parameter 'widget_id' is set
-        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $widget_id when calling getWidgetDocuments'
-            );
-        }
-
-        $resourcePath = '/widgets/{widgetId}/documents';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($version_id !== null) {
-            $queryParams['versionId'] = ObjectSerializer::toQueryValue($version_id);
-        }
-        // query params
-        if ($participant_id !== null) {
-            $queryParams['participantId'] = ObjectSerializer::toQueryValue($participant_id);
-        }
         // header params
         if ($authorization !== null) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
@@ -2908,15 +3225,14 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getWidgetFormData($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetFormData($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
-        list($response) = $this->getWidgetFormDataWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        list($response) = $this->getWidgetFormDataWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
         return $response;
     }
 
@@ -2929,16 +3245,15 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWidgetFormDataWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetFormDataWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         $returnType = 'string';
-        $request = $this->getWidgetFormDataRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $request = $this->getWidgetFormDataRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3008,14 +3323,13 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetFormDataAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetFormDataAsync($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
-        return $this->getWidgetFormDataAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+        return $this->getWidgetFormDataAsyncWithHttpInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3032,15 +3346,14 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWidgetFormDataAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    public function getWidgetFormDataAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         $returnType = 'string';
-        $request = $this->getWidgetFormDataRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        $request = $this->getWidgetFormDataRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3086,12 +3399,11 @@ class WidgetsApi
      * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWidgetFormDataRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    protected function getWidgetFormDataRequest($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null)
     {
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
@@ -3124,10 +3436,6 @@ class WidgetsApi
         // header params
         if ($x_on_behalf_of_user !== null) {
             $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
-        }
-        // header params
-        if ($if_none_match !== null) {
-            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
@@ -3216,7 +3524,7 @@ class WidgetsApi
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Adobe\ESign\Widgets\Model\WidgetInfo
+     * @return \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6
      */
     public function getWidgetInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
@@ -3237,11 +3545,11 @@ class WidgetsApi
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Adobe\ESign\Widgets\Model\WidgetInfo, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Adobe\ESign\Widgets\Model\WidgetCreationInfoV6, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWidgetInfoWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetInfo';
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetCreationInfoV6';
         $request = $this->getWidgetInfoRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         try {
@@ -3293,7 +3601,7 @@ class WidgetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Adobe\ESign\Widgets\Model\WidgetInfo',
+                        '\Adobe\ESign\Widgets\Model\WidgetCreationInfoV6',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3343,7 +3651,7 @@ class WidgetsApi
      */
     public function getWidgetInfoAsyncWithHttpInfo($authorization, $widget_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
     {
-        $returnType = '\Adobe\ESign\Widgets\Model\WidgetInfo';
+        $returnType = '\Adobe\ESign\Widgets\Model\WidgetCreationInfoV6';
         $request = $this->getWidgetInfoRequest($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
 
         return $this->client
@@ -3803,6 +4111,662 @@ class WidgetsApi
     }
 
     /**
+     * Operation getWidgetParticipantSet
+     *
+     * Retrieves the participant set of a widget identified by widgetId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo
+     */
+    public function getWidgetParticipantSet($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        list($response) = $this->getWidgetParticipantSetWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+        return $response;
+    }
+
+    /**
+     * Operation getWidgetParticipantSetWithHttpInfo
+     *
+     * Retrieves the participant set of a widget identified by widgetId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWidgetParticipantSetWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo';
+        $request = $this->getWidgetParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWidgetParticipantSetAsync
+     *
+     * Retrieves the participant set of a widget identified by widgetId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetParticipantSetAsync($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        return $this->getWidgetParticipantSetAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWidgetParticipantSetAsyncWithHttpInfo
+     *
+     * Retrieves the participant set of a widget identified by widgetId in the path.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetParticipantSetAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\DetailedWidgetParticipantSetInfo';
+        $request = $this->getWidgetParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWidgetParticipantSet'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWidgetParticipantSetRequest($authorization, $widget_id, $participant_set_id, $x_api_user = null, $x_on_behalf_of_user = null, $if_none_match = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getWidgetParticipantSet'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling getWidgetParticipantSet'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling getWidgetParticipantSet'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/members/participantSets/{participantSetId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWidgetSecurityOptionsForParticipation
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Adobe\ESign\Widgets\Model\ParticipantSecurityOption
+     */
+    public function getWidgetSecurityOptionsForParticipation($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        list($response) = $this->getWidgetSecurityOptionsForParticipationWithHttpInfo($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+        return $response;
+    }
+
+    /**
+     * Operation getWidgetSecurityOptionsForParticipationWithHttpInfo
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Adobe\ESign\Widgets\Model\ParticipantSecurityOption, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWidgetSecurityOptionsForParticipationWithHttpInfo($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\ParticipantSecurityOption';
+        $request = $this->getWidgetSecurityOptionsForParticipationRequest($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Adobe\ESign\Widgets\Model\ParticipantSecurityOption',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWidgetSecurityOptionsForParticipationAsync
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetSecurityOptionsForParticipationAsync($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        return $this->getWidgetSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWidgetSecurityOptionsForParticipationAsyncWithHttpInfo
+     *
+     * Retrieves the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWidgetSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        $returnType = '\Adobe\ESign\Widgets\Model\ParticipantSecurityOption';
+        $request = $this->getWidgetSecurityOptionsForParticipationRequest($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWidgetSecurityOptionsForParticipation'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  string $if_none_match Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. (optional)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWidgetSecurityOptionsForParticipationRequest($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match = null, $x_api_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling getWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling getWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling getWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_id' is set
+        if ($participant_id === null || (is_array($participant_id) && count($participant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_id when calling getWidgetSecurityOptionsForParticipation'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantId' . '}',
+                ObjectSerializer::toPathValue($participant_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getWidgetView
      *
      * Retrieves the requested views for a widget.
@@ -4119,9 +5083,9 @@ class WidgetsApi
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. (optional)
+     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4141,9 +5105,9 @@ class WidgetsApi
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. (optional)
+     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4221,9 +5185,9 @@ class WidgetsApi
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. (optional)
+     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4246,9 +5210,9 @@ class WidgetsApi
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. (optional)
+     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4301,9 +5265,9 @@ class WidgetsApi
      * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
      * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
      * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
-     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. (optional)
+     * @param  bool $show_hidden_widgets A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. (optional)
      * @param  string $cursor Used to navigate through the pages. If not provided, returns the first page. (optional)
-     * @param  int $page_size Number of intended items in the response page. (optional)
+     * @param  int $page_size Number of intended items in the response page. If not provided, it is decided by the application settings. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4638,6 +5602,594 @@ class WidgetsApi
         $_tempBody = null;
         if (isset($widget_info)) {
             $_tempBody = $widget_info;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateWidgetNoteForApiUser
+     *
+     * Updates the latest note of a widget for the API user.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\Note $note The note to be associated with the widget. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateWidgetNoteForApiUser($authorization, $widget_id, $note, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        $this->updateWidgetNoteForApiUserWithHttpInfo($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user);
+    }
+
+    /**
+     * Operation updateWidgetNoteForApiUserWithHttpInfo
+     *
+     * Updates the latest note of a widget for the API user.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\Note $note The note to be associated with the widget. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWidgetNoteForApiUserWithHttpInfo($authorization, $widget_id, $note, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateWidgetNoteForApiUserRequest($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWidgetNoteForApiUserAsync
+     *
+     * Updates the latest note of a widget for the API user.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\Note $note The note to be associated with the widget. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWidgetNoteForApiUserAsync($authorization, $widget_id, $note, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        return $this->updateWidgetNoteForApiUserAsyncWithHttpInfo($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateWidgetNoteForApiUserAsyncWithHttpInfo
+     *
+     * Updates the latest note of a widget for the API user.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\Note $note The note to be associated with the widget. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWidgetNoteForApiUserAsyncWithHttpInfo($authorization, $widget_id, $note, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateWidgetNoteForApiUserRequest($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateWidgetNoteForApiUser'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  \Adobe\ESign\Widgets\Model\Note $note The note to be associated with the widget. (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     * @param  string $x_on_behalf_of_user The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateWidgetNoteForApiUserRequest($authorization, $widget_id, $note, $x_api_user = null, $x_on_behalf_of_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling updateWidgetNoteForApiUser'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling updateWidgetNoteForApiUser'
+            );
+        }
+        // verify the required parameter 'note' is set
+        if ($note === null || (is_array($note) && count($note) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $note when calling updateWidgetNoteForApiUser'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/me/note';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+        // header params
+        if ($x_on_behalf_of_user !== null) {
+            $headerParams['x-on-behalf-of-user'] = ObjectSerializer::toHeaderValue($x_on_behalf_of_user);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($note)) {
+            $_tempBody = $note;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateWidgetSecurityOptionsForParticipation
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateWidgetSecurityOptionsForParticipation($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $this->updateWidgetSecurityOptionsForParticipationWithHttpInfo($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+    }
+
+    /**
+     * Operation updateWidgetSecurityOptionsForParticipationWithHttpInfo
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \Adobe\ESign\Widgets\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWidgetSecurityOptionsForParticipationWithHttpInfo($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateWidgetSecurityOptionsForParticipationRequest($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWidgetSecurityOptionsForParticipationAsync
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWidgetSecurityOptionsForParticipationAsync($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        return $this->updateWidgetSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateWidgetSecurityOptionsForParticipationAsyncWithHttpInfo
+     *
+     * Updates the security options for a particular participant.
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWidgetSecurityOptionsForParticipationAsyncWithHttpInfo($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        $returnType = '';
+        $request = $this->updateWidgetSecurityOptionsForParticipationRequest($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateWidgetSecurityOptionsForParticipation'
+     *
+     * @param  string $authorization An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. (required)
+     * @param  string $if_match The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. (required)
+     * @param  string $widget_id The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. (required)
+     * @param  string $participant_set_id The participant set identifier (required)
+     * @param  string $participant_id The participant identifier (required)
+     * @param  \Adobe\ESign\Widgets\Model\ParticipantSecurityOption $participant_security_option Security options that apply to the participant (required)
+     * @param  string $x_api_user The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateWidgetSecurityOptionsForParticipationRequest($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user = null)
+    {
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'if_match' is set
+        if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $if_match when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'widget_id' is set
+        if ($widget_id === null || (is_array($widget_id) && count($widget_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $widget_id when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_set_id' is set
+        if ($participant_set_id === null || (is_array($participant_set_id) && count($participant_set_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_set_id when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_id' is set
+        if ($participant_id === null || (is_array($participant_id) && count($participant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_id when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+        // verify the required parameter 'participant_security_option' is set
+        if ($participant_security_option === null || (is_array($participant_security_option) && count($participant_security_option) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $participant_security_option when calling updateWidgetSecurityOptionsForParticipation'
+            );
+        }
+
+        $resourcePath = '/widgets/{widgetId}/members/participantSets/{participantSetId}/participants/{participantId}/securityOptions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+        // header params
+        if ($if_match !== null) {
+            $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($x_api_user !== null) {
+            $headerParams['x-api-user'] = ObjectSerializer::toHeaderValue($x_api_user);
+        }
+
+        // path params
+        if ($widget_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'widgetId' . '}',
+                ObjectSerializer::toPathValue($widget_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_set_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantSetId' . '}',
+                ObjectSerializer::toPathValue($participant_set_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($participant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'participantId' . '}',
+                ObjectSerializer::toPathValue($participant_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($participant_security_option)) {
+            $_tempBody = $participant_security_option;
         }
 
         if ($multipart) {

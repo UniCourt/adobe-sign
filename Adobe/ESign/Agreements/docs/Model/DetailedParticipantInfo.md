@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **private_message** | **string** | The private message of the participant, if available. This cannot be changed as part of the PUT call. | [optional] 
 **email** | **string** | Email of the participant. In case of modifying a participant set (PUT) this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow (legacy agreements) that were created using fax as input | [optional] 
 **security_option** | [**\Adobe\ESign\Agreements\Model\ParticipantSecurityOption**](ParticipantSecurityOption.md) | Security options that apply to the participant. This cannot be changed as part of the PUT call | [optional] 
-**status** | **string** | The status of the participant. This cannot be changed as part of the PUT call. | [optional] 
+**status** | **string** | The status of the participant. This cannot be changed as part of the PUT call. New participants will be ignored if added with a REPLACED status. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

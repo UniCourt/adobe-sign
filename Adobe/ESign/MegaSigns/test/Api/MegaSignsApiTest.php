@@ -90,16 +90,6 @@ class MegaSignsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getEvents
-     *
-     * Retrieves the events information for the MegaSign parent agreement..
-     *
-     */
-    public function testGetEvents()
-    {
-    }
-
-    /**
      * Test case for getMegaSignChildAgreements
      *
      * Get all the child agreements of the specified MegaSign parent agreement..
@@ -116,6 +106,16 @@ class MegaSignsApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetMegaSignCombinedDocument()
+    {
+    }
+
+    /**
+     * Test case for getMegaSignEvents
+     *
+     * Retrieves the events information for the MegaSign parent agreement..
+     *
+     */
+    public function testGetMegaSignEvents()
     {
     }
 

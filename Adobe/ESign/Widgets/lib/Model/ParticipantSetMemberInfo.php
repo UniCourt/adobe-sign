@@ -221,7 +221,7 @@ class ParticipantSetMemberInfo implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Email of the particpant. In case of creating new Agreements(POST/PUT), this is a required field. In case of GET, this is the required field and will always be returned unless it is a fax workflow( legacy agreements) that were created using fax as input
+     * @param string $email Email of the participant
      *
      * @return $this
      */

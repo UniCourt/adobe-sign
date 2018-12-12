@@ -63,7 +63,7 @@ $apiInstance = new Adobe\ESign\LibraryDocuments\Api\LibraryDocumentsApi(
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('library_write')\" oncontextmenu=\"this.href=oauthDoc('library_write')\" target=\"oauthDoc\">library_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$library_document_info = new \Adobe\ESign\LibraryDocuments\Model\LibraryDocumentInfo(); // \Adobe\ESign\LibraryDocuments\Model\LibraryDocumentInfo | Information about the library document that you want to create.
+$library_document_info = new \Adobe\ESign\LibraryDocuments\Model\LibraryDocumentCreationInfoV6(); // \Adobe\ESign\LibraryDocuments\Model\LibraryDocumentCreationInfoV6 | Information about the library document that you want to create.
 $x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 $x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
@@ -79,22 +79,24 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *LibraryDocumentsApi* | [**createLibraryDocument**](docs/Api/LibraryDocumentsApi.md#createlibrarydocument) | **POST** /libraryDocuments | Creates a template that is placed in the library of the user for reuse.
 *LibraryDocumentsApi* | [**createLibraryDocumentView**](docs/Api/LibraryDocumentsApi.md#createlibrarydocumentview) | **POST** /libraryDocuments/{libraryDocumentId}/views | Retrieves the latest state view url of a library document.
-*LibraryDocumentsApi* | [**getCombinedDocument**](docs/Api/LibraryDocumentsApi.md#getcombineddocument) | **GET** /libraryDocuments/{libraryDocumentId}/combinedDocument | Retrieves the combined document associated with a library document.
-*LibraryDocumentsApi* | [**getDocuments**](docs/Api/LibraryDocumentsApi.md#getdocuments) | **GET** /libraryDocuments/{libraryDocumentId}/documents | Retrieves the IDs of the documents associated with library document.
-*LibraryDocumentsApi* | [**getEvents**](docs/Api/LibraryDocumentsApi.md#getevents) | **GET** /libraryDocuments/{libraryDocumentId}/events | Retrieves the events information for a library document.
-*LibraryDocumentsApi* | [**getLibraryDocument**](docs/Api/LibraryDocumentsApi.md#getlibrarydocument) | **GET** /libraryDocuments/{libraryDocumentId}/documents/{documentId} | Retrieves the file stream of a document of library document.
+*LibraryDocumentsApi* | [**getAllDocumentsOfLibraryDocument**](docs/Api/LibraryDocumentsApi.md#getalldocumentsoflibrarydocument) | **GET** /libraryDocuments/{libraryDocumentId}/documents | Retrieves the IDs of the documents associated with library document.
+*LibraryDocumentsApi* | [**getAllLibraryDocuments**](docs/Api/LibraryDocumentsApi.md#getalllibrarydocuments) | **GET** /libraryDocuments | Retrieves library documents for a user.
+*LibraryDocumentsApi* | [**getDocumentImageUrlsOfLibraryDocument**](docs/Api/LibraryDocumentsApi.md#getdocumentimageurlsoflibrarydocument) | **GET** /libraryDocuments/{libraryDocumentId}/documents/{documentId}/imageUrls | Retrieves image urls of all visible pages of a document associated with a library document.
+*LibraryDocumentsApi* | [**getDocumentOfLibraryDocument**](docs/Api/LibraryDocumentsApi.md#getdocumentoflibrarydocument) | **GET** /libraryDocuments/{libraryDocumentId}/documents/{documentId} | Retrieves the file stream of a document of library document.
 *LibraryDocumentsApi* | [**getLibraryDocumentAuditTrail**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentaudittrail) | **GET** /libraryDocuments/{libraryDocumentId}/auditTrail | Retrieves the audit trail associated with a library document.
-*LibraryDocumentsApi* | [**getLibraryDocumentImageUrls**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentimageurls) | **GET** /libraryDocuments/{libraryDocumentId}/documents/{documentId}/imageUrls | Retrieves image urls of all visible pages of a document associated with a library document.
+*LibraryDocumentsApi* | [**getLibraryDocumentCombinedDocument**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentcombineddocument) | **GET** /libraryDocuments/{libraryDocumentId}/combinedDocument | Retrieves the combined document associated with a library document.
+*LibraryDocumentsApi* | [**getLibraryDocumentEvents**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentevents) | **GET** /libraryDocuments/{libraryDocumentId}/events | Retrieves the events information for a library document.
+*LibraryDocumentsApi* | [**getLibraryDocumentFormData**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentformdata) | **GET** /libraryDocuments/{libraryDocumentId}/formData | Retrieves data entered into the interactive form fields of the library document.
 *LibraryDocumentsApi* | [**getLibraryDocumentInfo**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentinfo) | **GET** /libraryDocuments/{libraryDocumentId} | Retrieves the details of a library document.
 *LibraryDocumentsApi* | [**getLibraryDocumentNoteForApiUser**](docs/Api/LibraryDocumentsApi.md#getlibrarydocumentnoteforapiuser) | **GET** /libraryDocuments/{libraryDocumentId}/me/note | Retrieves the latest note of a library document for the API user.
-*LibraryDocumentsApi* | [**getLibraryDocuments**](docs/Api/LibraryDocumentsApi.md#getlibrarydocuments) | **GET** /libraryDocuments | Retrieves library documents for a user.
 *LibraryDocumentsApi* | [**updateLibraryDocument**](docs/Api/LibraryDocumentsApi.md#updatelibrarydocument) | **PUT** /libraryDocuments/{libraryDocumentId} | Updates the library document.
+*LibraryDocumentsApi* | [**updateLibraryDocumentNoteForApiUser**](docs/Api/LibraryDocumentsApi.md#updatelibrarydocumentnoteforapiuser) | **PUT** /libraryDocuments/{libraryDocumentId}/me/note | Updates the latest note of a library document for the API user.
 *LibraryDocumentsApi* | [**updateLibraryDocumentState**](docs/Api/LibraryDocumentsApi.md#updatelibrarydocumentstate) | **PUT** /libraryDocuments/{libraryDocumentId}/state | Updates the library document&#39;s state.
 *LibraryDocumentsApi* | [**updateLibraryDocumentVisibility**](docs/Api/LibraryDocumentsApi.md#updatelibrarydocumentvisibility) | **PUT** /libraryDocuments/{libraryDocumentId}/me/visibility | Updates the visibility of library document.
 
@@ -108,8 +110,10 @@ Class | Method | HTTP request | Description
  - [DocumentImageUrlsInfo](docs/Model/DocumentImageUrlsInfo.md)
  - [Documents](docs/Model/Documents.md)
  - [FileInfo](docs/Model/FileInfo.md)
+ - [FileUploadOptions](docs/Model/FileUploadOptions.md)
  - [LibDocEventDeviceLocation](docs/Model/LibDocEventDeviceLocation.md)
  - [LibraryDocument](docs/Model/LibraryDocument.md)
+ - [LibraryDocumentCreationInfoV6](docs/Model/LibraryDocumentCreationInfoV6.md)
  - [LibraryDocumentCreationResponse](docs/Model/LibraryDocumentCreationResponse.md)
  - [LibraryDocumentEvent](docs/Model/LibraryDocumentEvent.md)
  - [LibraryDocumentEventList](docs/Model/LibraryDocumentEventList.md)
@@ -122,6 +126,7 @@ Class | Method | HTTP request | Description
  - [Note](docs/Model/Note.md)
  - [PageImageUrl](docs/Model/PageImageUrl.md)
  - [PageInfo](docs/Model/PageInfo.md)
+ - [SendViewConfiguration](docs/Model/SendViewConfiguration.md)
  - [URLFileInfo](docs/Model/URLFileInfo.md)
  - [VisibilityInfo](docs/Model/VisibilityInfo.md)
 

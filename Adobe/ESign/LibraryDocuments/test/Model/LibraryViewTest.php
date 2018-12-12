@@ -75,6 +75,13 @@ class LibraryViewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "is_current"
+     */
+    public function testPropertyIsCurrent()
+    {
+    }
+
+    /**
      * Test attribute "embedded_code"
      */
     public function testPropertyEmbeddedCode()
@@ -82,16 +89,16 @@ class LibraryViewTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "expiration"
+     * Test attribute "name"
      */
-    public function testPropertyExpiration()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "is_current"
+     * Test attribute "expiration"
      */
-    public function testPropertyIsCurrent()
+    public function testPropertyExpiration()
     {
     }
 

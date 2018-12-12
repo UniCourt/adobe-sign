@@ -1,11 +1,11 @@
 <?php
 /**
- * SenderInfoTest
+ * FileUploadOptionsTest
  *
  * PHP version 5
  *
  * @category Class
- * @package  Adobe\ESign\Widgets
+ * @package  Adobe\ESign\LibraryDocuments
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the model.
  */
 
-namespace Adobe\ESign\Widgets;
+namespace Adobe\ESign\LibraryDocuments;
 
 /**
- * SenderInfoTest Class Doc Comment
+ * FileUploadOptionsTest Class Doc Comment
  *
  * @category    Class
- * @description SenderInfo
- * @package     Adobe\ESign\Widgets
+ * @description FileUploadOptions
+ * @package     Adobe\ESign\LibraryDocuments
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SenderInfoTest extends \PHPUnit_Framework_TestCase
+class FileUploadOptionsTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -68,44 +68,30 @@ class SenderInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "SenderInfo"
+     * Test "FileUploadOptions"
      */
-    public function testSenderInfo()
+    public function testFileUploadOptions()
     {
     }
 
     /**
-     * Test attribute "company"
+     * Test attribute "local_file"
      */
-    public function testPropertyCompany()
+    public function testPropertyLocalFile()
     {
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "web_connectors"
      */
-    public function testPropertyEmail()
+    public function testPropertyWebConnectors()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "library_document"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "participant_id"
-     */
-    public function testPropertyParticipantId()
-    {
-    }
-
-    /**
-     * Test attribute "self"
-     */
-    public function testPropertySelf()
+    public function testPropertyLibraryDocument()
     {
     }
 }

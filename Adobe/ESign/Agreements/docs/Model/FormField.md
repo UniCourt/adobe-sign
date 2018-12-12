@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **masking_text** | **string** | Text to mask the masked form field | [optional] 
 **default_value** | **string** | Default value of the form field | [optional] 
 **masked** | **bool** | true if the input entered by the signer has to be masked (like password), false if it shouldn&#39;t be | [optional] 
-**min_length** | [**\Adobe\ESign\Agreements\Model\Int**](Int.md) | Minimum length of the input text field in terms of no. of characters | [optional] 
+**min_length** | **int** | Minimum length of the input text field in terms of no. of characters | [optional] 
 **origin** | **string** | Origin of Form Field | [optional] 
 **tooltip** | **string** | Text that appears while hovering over the field | [optional] 
 **hidden_options** | **string[]** | Text values which are hidden in a drop down form field | [optional] 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **assignee** | **string** | Who the field is assigned to.  Either a participant set id, null, NOBODY or PREFILL. | [optional] 
 **alignment** | **string** | Alignment of the text. | [optional] 
 **font_color** | **string** | Font color of the form field in RGB or HEX format | [optional] 
-**max_length** | [**\Adobe\ESign\Agreements\Model\Int**](Int.md) | Maximum length of the input text field in terms of no. of characters | [optional] 
+**max_length** | **int** | Maximum length of the input text field in terms of no. of characters | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

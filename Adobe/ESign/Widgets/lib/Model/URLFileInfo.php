@@ -55,8 +55,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'mime_type' => 'string',
         'name' => 'string',
+        'mime_type' => 'string',
         'url' => 'string'
     ];
 
@@ -66,8 +66,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'mime_type' => null,
         'name' => null,
+        'mime_type' => null,
         'url' => null
     ];
 
@@ -98,8 +98,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'mime_type' => 'mimeType',
         'name' => 'name',
+        'mime_type' => 'mimeType',
         'url' => 'url'
     ];
 
@@ -109,8 +109,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'mime_type' => 'setMimeType',
         'name' => 'setName',
+        'mime_type' => 'setMimeType',
         'url' => 'setUrl'
     ];
 
@@ -120,8 +120,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'mime_type' => 'getMimeType',
         'name' => 'getName',
+        'mime_type' => 'getMimeType',
         'url' => 'getUrl'
     ];
 
@@ -185,8 +185,8 @@ class URLFileInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -215,30 +215,6 @@ class URLFileInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets mime_type
-     *
-     * @return string
-     */
-    public function getMimeType()
-    {
-        return $this->container['mime_type'];
-    }
-
-    /**
-     * Sets mime_type
-     *
-     * @param string $mime_type The mime type of the referenced file, used to determine if the file can be accepted and the necessary conversion steps can be performed
-     *
-     * @return $this
-     */
-    public function setMimeType($mime_type)
-    {
-        $this->container['mime_type'] = $mime_type;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -258,6 +234,30 @@ class URLFileInfo implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets mime_type
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     *
+     * @param string $mime_type The mime type of the referenced file, used to determine if the file can be accepted and the necessary conversion steps can be performed
+     *
+     * @return $this
+     */
+    public function setMimeType($mime_type)
+    {
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }

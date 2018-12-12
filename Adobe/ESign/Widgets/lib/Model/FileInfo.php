@@ -55,10 +55,9 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'transient_document_id' => 'string',
         'document' => '\Adobe\ESign\Widgets\Model\Document',
         'label' => 'string',
-        'library_document_id' => 'string',
-        'transient_document_id' => 'string',
         'url_file_info' => '\Adobe\ESign\Widgets\Model\URLFileInfo'
     ];
 
@@ -68,10 +67,9 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'transient_document_id' => null,
         'document' => null,
         'label' => null,
-        'library_document_id' => null,
-        'transient_document_id' => null,
         'url_file_info' => null
     ];
 
@@ -102,10 +100,9 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'transient_document_id' => 'transientDocumentId',
         'document' => 'document',
         'label' => 'label',
-        'library_document_id' => 'libraryDocumentId',
-        'transient_document_id' => 'transientDocumentId',
         'url_file_info' => 'urlFileInfo'
     ];
 
@@ -115,10 +112,9 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'transient_document_id' => 'setTransientDocumentId',
         'document' => 'setDocument',
         'label' => 'setLabel',
-        'library_document_id' => 'setLibraryDocumentId',
-        'transient_document_id' => 'setTransientDocumentId',
         'url_file_info' => 'setUrlFileInfo'
     ];
 
@@ -128,10 +124,9 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'transient_document_id' => 'getTransientDocumentId',
         'document' => 'getDocument',
         'label' => 'getLabel',
-        'library_document_id' => 'getLibraryDocumentId',
-        'transient_document_id' => 'getTransientDocumentId',
         'url_file_info' => 'getUrlFileInfo'
     ];
 
@@ -195,10 +190,9 @@ class FileInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['transient_document_id'] = isset($data['transient_document_id']) ? $data['transient_document_id'] : null;
         $this->container['document'] = isset($data['document']) ? $data['document'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['library_document_id'] = isset($data['library_document_id']) ? $data['library_document_id'] : null;
-        $this->container['transient_document_id'] = isset($data['transient_document_id']) ? $data['transient_document_id'] : null;
         $this->container['url_file_info'] = isset($data['url_file_info']) ? $data['url_file_info'] : null;
     }
 
@@ -225,6 +219,30 @@ class FileInfo implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets transient_document_id
+     *
+     * @return string
+     */
+    public function getTransientDocumentId()
+    {
+        return $this->container['transient_document_id'];
+    }
+
+    /**
+     * Sets transient_document_id
+     *
+     * @param string $transient_document_id ID for a transient document that will be added to the widget
+     *
+     * @return $this
+     */
+    public function setTransientDocumentId($transient_document_id)
+    {
+        $this->container['transient_document_id'] = $transient_document_id;
+
+        return $this;
+    }
 
     /**
      * Gets document
@@ -270,54 +288,6 @@ class FileInfo implements ModelInterface, ArrayAccess
     public function setLabel($label)
     {
         $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets library_document_id
-     *
-     * @return string
-     */
-    public function getLibraryDocumentId()
-    {
-        return $this->container['library_document_id'];
-    }
-
-    /**
-     * Sets library_document_id
-     *
-     * @param string $library_document_id ID for an existing Library document that will be added to the agreement
-     *
-     * @return $this
-     */
-    public function setLibraryDocumentId($library_document_id)
-    {
-        $this->container['library_document_id'] = $library_document_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets transient_document_id
-     *
-     * @return string
-     */
-    public function getTransientDocumentId()
-    {
-        return $this->container['transient_document_id'];
-    }
-
-    /**
-     * Sets transient_document_id
-     *
-     * @param string $transient_document_id ID for a transient document that will be added to the agreement
-     *
-     * @return $this
-     */
-    public function setTransientDocumentId($transient_document_id)
-    {
-        $this->container['transient_document_id'] = $transient_document_id;
 
         return $this;
     }

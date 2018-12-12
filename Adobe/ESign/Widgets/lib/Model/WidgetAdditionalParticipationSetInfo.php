@@ -55,9 +55,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'role' => 'string',
         'member_infos' => '\Adobe\ESign\Widgets\Model\ParticipantSetMemberInfo[]',
-        'order' => 'int',
-        'role' => 'string'
+        'order' => 'int'
     ];
 
     /**
@@ -66,9 +66,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'role' => null,
         'member_infos' => null,
-        'order' => null,
-        'role' => null
+        'order' => null
     ];
 
     /**
@@ -98,9 +98,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'role' => 'role',
         'member_infos' => 'memberInfos',
-        'order' => 'order',
-        'role' => 'role'
+        'order' => 'order'
     ];
 
     /**
@@ -109,9 +109,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'role' => 'setRole',
         'member_infos' => 'setMemberInfos',
-        'order' => 'setOrder',
-        'role' => 'setRole'
+        'order' => 'setOrder'
     ];
 
     /**
@@ -120,9 +120,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'role' => 'getRole',
         'member_infos' => 'getMemberInfos',
-        'order' => 'getOrder',
-        'role' => 'getRole'
+        'order' => 'getOrder'
     ];
 
     /**
@@ -216,9 +216,9 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['member_infos'] = isset($data['member_infos']) ? $data['member_infos'] : null;
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
     }
 
     /**
@@ -254,6 +254,39 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
 
 
     /**
+     * Gets role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string $role Role assumed by all participants in the set (signer, approver, etc.) Widget First Participant will only have roles - Signer, Approver, Acceptor and Form Filler
+     *
+     * @return $this
+     */
+    public function setRole($role)
+    {
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'role', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['role'] = $role;
+
+        return $this;
+    }
+
+    /**
      * Gets member_infos
      *
      * @return \Adobe\ESign\Widgets\Model\ParticipantSetMemberInfo[]
@@ -266,7 +299,7 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
     /**
      * Sets member_infos
      *
-     * @param \Adobe\ESign\Widgets\Model\ParticipantSetMemberInfo[] $member_infos Array of ParticipantInfo objects, containing participant - specific data (email, e.g.). All participants in the array belong to the same set. Currently we are supporting only one member in the set. Since the email of the widget signer is unknown at the time of widget creation, the email should be left empty and its optional security options should be provided.
+     * @param \Adobe\ESign\Widgets\Model\ParticipantSetMemberInfo[] $member_infos Array of ParticipantInfo objects, containing participant-specific data (email, e.g.) for all the additional participants in the widget
      *
      * @return $this
      */
@@ -297,39 +330,6 @@ class WidgetAdditionalParticipationSetInfo implements ModelInterface, ArrayAcces
     public function setOrder($order)
     {
         $this->container['order'] = $order;
-
-        return $this;
-    }
-
-    /**
-     * Gets role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string $role Role assumed by all participants in the set (signer, approver, etc.) Widget First Participant will only have roles - Signer, Approver, Acceptor and Form Filler
-     *
-     * @return $this
-     */
-    public function setRole($role)
-    {
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'role', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
 
         return $this;
     }

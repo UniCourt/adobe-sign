@@ -90,42 +90,42 @@ class LibraryDocumentsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getCombinedDocument
-     *
-     * Retrieves the combined document associated with a library document..
-     *
-     */
-    public function testGetCombinedDocument()
-    {
-    }
-
-    /**
-     * Test case for getDocuments
+     * Test case for getAllDocumentsOfLibraryDocument
      *
      * Retrieves the IDs of the documents associated with library document..
      *
      */
-    public function testGetDocuments()
+    public function testGetAllDocumentsOfLibraryDocument()
     {
     }
 
     /**
-     * Test case for getEvents
+     * Test case for getAllLibraryDocuments
      *
-     * Retrieves the events information for a library document..
+     * Retrieves library documents for a user..
      *
      */
-    public function testGetEvents()
+    public function testGetAllLibraryDocuments()
     {
     }
 
     /**
-     * Test case for getLibraryDocument
+     * Test case for getDocumentImageUrlsOfLibraryDocument
+     *
+     * Retrieves image urls of all visible pages of a document associated with a library document..
+     *
+     */
+    public function testGetDocumentImageUrlsOfLibraryDocument()
+    {
+    }
+
+    /**
+     * Test case for getDocumentOfLibraryDocument
      *
      * Retrieves the file stream of a document of library document..
      *
      */
-    public function testGetLibraryDocument()
+    public function testGetDocumentOfLibraryDocument()
     {
     }
 
@@ -140,12 +140,32 @@ class LibraryDocumentsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getLibraryDocumentImageUrls
+     * Test case for getLibraryDocumentCombinedDocument
      *
-     * Retrieves image urls of all visible pages of a document associated with a library document..
+     * Retrieves the combined document associated with a library document..
      *
      */
-    public function testGetLibraryDocumentImageUrls()
+    public function testGetLibraryDocumentCombinedDocument()
+    {
+    }
+
+    /**
+     * Test case for getLibraryDocumentEvents
+     *
+     * Retrieves the events information for a library document..
+     *
+     */
+    public function testGetLibraryDocumentEvents()
+    {
+    }
+
+    /**
+     * Test case for getLibraryDocumentFormData
+     *
+     * Retrieves data entered into the interactive form fields of the library document..
+     *
+     */
+    public function testGetLibraryDocumentFormData()
     {
     }
 
@@ -170,22 +190,22 @@ class LibraryDocumentsApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getLibraryDocuments
-     *
-     * Retrieves library documents for a user..
-     *
-     */
-    public function testGetLibraryDocuments()
-    {
-    }
-
-    /**
      * Test case for updateLibraryDocument
      *
      * Updates the library document..
      *
      */
     public function testUpdateLibraryDocument()
+    {
+    }
+
+    /**
+     * Test case for updateLibraryDocumentNoteForApiUser
+     *
+     * Updates the latest note of a library document for the API user..
+     *
+     */
+    public function testUpdateLibraryDocumentNoteForApiUser()
     {
     }
 

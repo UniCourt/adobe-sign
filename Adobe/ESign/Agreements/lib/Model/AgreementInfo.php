@@ -74,7 +74,7 @@ class AgreementInfo implements ModelInterface, ArrayAccess
         'reminder_frequency' => 'string',
         'created_date' => '\DateTime',
         'participant_sets_info' => '\Adobe\ESign\Agreements\Model\ParticipantSetInfo[]',
-        'expiration_time' => '\Adobe\ESign\Agreements\Model\\DateTime',
+        'expiration_time' => '\DateTime',
         'form_field_layer_templates' => '\Adobe\ESign\Agreements\Model\FileInfo[]',
         'name' => 'string',
         'file_infos' => '\Adobe\ESign\Agreements\Model\FileInfo[]',
@@ -107,7 +107,7 @@ class AgreementInfo implements ModelInterface, ArrayAccess
         'reminder_frequency' => null,
         'created_date' => 'date',
         'participant_sets_info' => null,
-        'expiration_time' => null,
+        'expiration_time' => 'date',
         'form_field_layer_templates' => null,
         'name' => null,
         'file_infos' => null,
@@ -770,7 +770,7 @@ class AgreementInfo implements ModelInterface, ArrayAccess
     /**
      * Sets email_option
      *
-     * @param \Adobe\ESign\Agreements\Model\EmailOption $email_option Email configurations for the agreement. Should not be provided in offline agreement creation.
+     * @param \Adobe\ESign\Agreements\Model\EmailOption $email_option Email configurations for the agreement. Should not be provided in offline agreement creation or when updating a non draft agreement.
      *
      * @return $this
      */
@@ -970,7 +970,7 @@ class AgreementInfo implements ModelInterface, ArrayAccess
     /**
      * Gets expiration_time
      *
-     * @return \Adobe\ESign\Agreements\Model\\DateTime
+     * @return \DateTime
      */
     public function getExpirationTime()
     {
@@ -980,7 +980,7 @@ class AgreementInfo implements ModelInterface, ArrayAccess
     /**
      * Sets expiration_time
      *
-     * @param \Adobe\ESign\Agreements\Model\\DateTime $expiration_time Time after which Agreement expires and needs to be signed before it. Format should be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time. Should not be provided in offline agreement creation.
+     * @param \DateTime $expiration_time Time after which Agreement expires and needs to be signed before it. Format should be yyyy-MM-dd'T'HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time. Should not be provided in offline agreement creation.
      *
      * @return $this
      */

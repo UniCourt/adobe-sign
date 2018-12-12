@@ -55,7 +55,7 @@ class PageImageUrl implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'page_number' => '\Adobe\ESign\Agreements\Model\Int',
+        'page_number' => 'int',
         'url' => 'string'
     ];
 
@@ -211,7 +211,7 @@ class PageImageUrl implements ModelInterface, ArrayAccess
     /**
      * Gets page_number
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getPageNumber()
     {
@@ -221,7 +221,7 @@ class PageImageUrl implements ModelInterface, ArrayAccess
     /**
      * Sets page_number
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $page_number Page number within the document.
+     * @param int $page_number Page number within the document.
      *
      * @return $this
      */

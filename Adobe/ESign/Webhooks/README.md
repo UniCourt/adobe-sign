@@ -79,7 +79,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
  - [WebhookConditionalParams](docs/Model/WebhookConditionalParams.md)
  - [WebhookCreationResponse](docs/Model/WebhookCreationResponse.md)
  - [WebhookInfo](docs/Model/WebhookInfo.md)
+ - [WebhookLibraryDocumentEvents](docs/Model/WebhookLibraryDocumentEvents.md)
  - [WebhookMegaSignEvents](docs/Model/WebhookMegaSignEvents.md)
  - [WebhookStateInfo](docs/Model/WebhookStateInfo.md)
  - [WebhookUrlInfo](docs/Model/WebhookUrlInfo.md)

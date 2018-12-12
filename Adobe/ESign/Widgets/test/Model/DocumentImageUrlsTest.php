@@ -1,11 +1,11 @@
 <?php
 /**
- * SenderInfoTest
+ * DocumentImageUrlsTest
  *
  * PHP version 5
  *
  * @category Class
- * @package  Adobe\ESign\Agreements
+ * @package  Adobe\ESign\Widgets
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the model.
  */
 
-namespace Adobe\ESign\Agreements;
+namespace Adobe\ESign\Widgets;
 
 /**
- * SenderInfoTest Class Doc Comment
+ * DocumentImageUrlsTest Class Doc Comment
  *
  * @category    Class
- * @description SenderInfo
- * @package     Adobe\ESign\Agreements
+ * @description DocumentImageUrls
+ * @package     Adobe\ESign\Widgets
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SenderInfoTest extends \PHPUnit_Framework_TestCase
+class DocumentImageUrlsTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -68,51 +68,30 @@ class SenderInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "SenderInfo"
+     * Test "DocumentImageUrls"
      */
-    public function testSenderInfo()
+    public function testDocumentImageUrls()
     {
     }
 
     /**
-     * Test attribute "participant_id"
+     * Test attribute "image_ur_ls"
      */
-    public function testPropertyParticipantId()
+    public function testPropertyImageUrLs()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "images_available"
      */
-    public function testPropertyName()
+    public function testPropertyImagesAvailable()
     {
     }
 
     /**
-     * Test attribute "self"
+     * Test attribute "image_size"
      */
-    public function testPropertySelf()
-    {
-    }
-
-    /**
-     * Test attribute "company"
-     */
-    public function testPropertyCompany()
-    {
-    }
-
-    /**
-     * Test attribute "email"
-     */
-    public function testPropertyEmail()
-    {
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
+    public function testPropertyImageSize()
     {
     }
 }

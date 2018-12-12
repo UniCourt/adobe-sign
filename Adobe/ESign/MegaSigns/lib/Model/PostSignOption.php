@@ -55,8 +55,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'redirect_delay' => 'int',
-        'redirect_url' => 'string'
+        'redirect_url' => 'string',
+        'redirect_delay' => 'int'
     ];
 
     /**
@@ -65,8 +65,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'redirect_delay' => null,
-        'redirect_url' => null
+        'redirect_url' => null,
+        'redirect_delay' => null
     ];
 
     /**
@@ -96,8 +96,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'redirect_delay' => 'redirectDelay',
-        'redirect_url' => 'redirectUrl'
+        'redirect_url' => 'redirectUrl',
+        'redirect_delay' => 'redirectDelay'
     ];
 
     /**
@@ -106,8 +106,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'redirect_delay' => 'setRedirectDelay',
-        'redirect_url' => 'setRedirectUrl'
+        'redirect_url' => 'setRedirectUrl',
+        'redirect_delay' => 'setRedirectDelay'
     ];
 
     /**
@@ -116,8 +116,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'redirect_delay' => 'getRedirectDelay',
-        'redirect_url' => 'getRedirectUrl'
+        'redirect_url' => 'getRedirectUrl',
+        'redirect_delay' => 'getRedirectDelay'
     ];
 
     /**
@@ -180,8 +180,8 @@ class PostSignOption implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['redirect_delay'] = isset($data['redirect_delay']) ? $data['redirect_delay'] : null;
         $this->container['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : null;
+        $this->container['redirect_delay'] = isset($data['redirect_delay']) ? $data['redirect_delay'] : null;
     }
 
     /**
@@ -209,30 +209,6 @@ class PostSignOption implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets redirect_delay
-     *
-     * @return int
-     */
-    public function getRedirectDelay()
-    {
-        return $this->container['redirect_delay'];
-    }
-
-    /**
-     * Sets redirect_delay
-     *
-     * @param int $redirect_delay The delay (in seconds) before the user is taken to the success page. If this value is greater than 0, the user will first see the standard Adobe Sign success message, and then after a delay will be redirected to your success page
-     *
-     * @return $this
-     */
-    public function setRedirectDelay($redirect_delay)
-    {
-        $this->container['redirect_delay'] = $redirect_delay;
-
-        return $this;
-    }
-
-    /**
      * Gets redirect_url
      *
      * @return string
@@ -252,6 +228,30 @@ class PostSignOption implements ModelInterface, ArrayAccess
     public function setRedirectUrl($redirect_url)
     {
         $this->container['redirect_url'] = $redirect_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_delay
+     *
+     * @return int
+     */
+    public function getRedirectDelay()
+    {
+        return $this->container['redirect_delay'];
+    }
+
+    /**
+     * Sets redirect_delay
+     *
+     * @param int $redirect_delay The delay (in seconds) before the user is taken to the success page. If this value is greater than 0, the user will first see the standard Adobe Sign success message, and then after a delay will be redirected to your success page
+     *
+     * @return $this
+     */
+    public function setRedirectDelay($redirect_delay)
+    {
+        $this->container['redirect_delay'] = $redirect_delay;
 
         return $this;
     }

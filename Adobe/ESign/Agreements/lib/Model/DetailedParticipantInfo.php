@@ -478,7 +478,7 @@ class DetailedParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status The status of the participant. This cannot be changed as part of the PUT call.
+     * @param string $status The status of the participant. This cannot be changed as part of the PUT call. New participants will be ignored if added with a REPLACED status.
      *
      * @return $this
      */

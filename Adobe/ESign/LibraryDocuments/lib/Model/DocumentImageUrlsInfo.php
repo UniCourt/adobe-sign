@@ -55,8 +55,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'document_id' => 'string',
-        'document_image_urls_list' => '\Adobe\ESign\LibraryDocuments\Model\DocumentImageUrls[]'
+        'document_image_urls_list' => '\Adobe\ESign\LibraryDocuments\Model\DocumentImageUrls[]',
+        'document_id' => 'string'
     ];
 
     /**
@@ -65,8 +65,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'document_id' => null,
-        'document_image_urls_list' => null
+        'document_image_urls_list' => null,
+        'document_id' => null
     ];
 
     /**
@@ -96,8 +96,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'document_id' => 'documentId',
-        'document_image_urls_list' => 'documentImageUrlsList'
+        'document_image_urls_list' => 'documentImageUrlsList',
+        'document_id' => 'documentId'
     ];
 
     /**
@@ -106,8 +106,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'document_id' => 'setDocumentId',
-        'document_image_urls_list' => 'setDocumentImageUrlsList'
+        'document_image_urls_list' => 'setDocumentImageUrlsList',
+        'document_id' => 'setDocumentId'
     ];
 
     /**
@@ -116,8 +116,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'document_id' => 'getDocumentId',
-        'document_image_urls_list' => 'getDocumentImageUrlsList'
+        'document_image_urls_list' => 'getDocumentImageUrlsList',
+        'document_id' => 'getDocumentId'
     ];
 
     /**
@@ -180,8 +180,8 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;
         $this->container['document_image_urls_list'] = isset($data['document_image_urls_list']) ? $data['document_image_urls_list'] : null;
+        $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;
     }
 
     /**
@@ -209,30 +209,6 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets document_id
-     *
-     * @return string
-     */
-    public function getDocumentId()
-    {
-        return $this->container['document_id'];
-    }
-
-    /**
-     * Sets document_id
-     *
-     * @param string $document_id Id of the document
-     *
-     * @return $this
-     */
-    public function setDocumentId($document_id)
-    {
-        $this->container['document_id'] = $document_id;
-
-        return $this;
-    }
-
-    /**
      * Gets document_image_urls_list
      *
      * @return \Adobe\ESign\LibraryDocuments\Model\DocumentImageUrls[]
@@ -252,6 +228,30 @@ class DocumentImageUrlsInfo implements ModelInterface, ArrayAccess
     public function setDocumentImageUrlsList($document_image_urls_list)
     {
         $this->container['document_image_urls_list'] = $document_image_urls_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_id
+     *
+     * @return string
+     */
+    public function getDocumentId()
+    {
+        return $this->container['document_id'];
+    }
+
+    /**
+     * Sets document_id
+     *
+     * @param string $document_id Id of the document
+     *
+     * @return $this
+     */
+    public function setDocumentId($document_id)
+    {
+        $this->container['document_id'] = $document_id;
 
         return $this;
     }

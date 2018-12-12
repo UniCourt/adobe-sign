@@ -56,8 +56,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_login_user' => 'bool',
-        'locale' => 'string',
-        'no_chrome' => 'bool'
+        'no_chrome' => 'bool',
+        'locale' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_login_user' => null,
-        'locale' => null,
-        'no_chrome' => null
+        'no_chrome' => null,
+        'locale' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_login_user' => 'autoLoginUser',
-        'locale' => 'locale',
-        'no_chrome' => 'noChrome'
+        'no_chrome' => 'noChrome',
+        'locale' => 'locale'
     ];
 
     /**
@@ -110,8 +110,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_login_user' => 'setAutoLoginUser',
-        'locale' => 'setLocale',
-        'no_chrome' => 'setNoChrome'
+        'no_chrome' => 'setNoChrome',
+        'locale' => 'setLocale'
     ];
 
     /**
@@ -121,8 +121,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_login_user' => 'getAutoLoginUser',
-        'locale' => 'getLocale',
-        'no_chrome' => 'getNoChrome'
+        'no_chrome' => 'getNoChrome',
+        'locale' => 'getLocale'
     ];
 
     /**
@@ -186,8 +186,8 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auto_login_user'] = isset($data['auto_login_user']) ? $data['auto_login_user'] : null;
-        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['no_chrome'] = isset($data['no_chrome']) ? $data['no_chrome'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
     }
 
     /**
@@ -239,30 +239,6 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets locale
-     *
-     * @return string
-     */
-    public function getLocale()
-    {
-        return $this->container['locale'];
-    }
-
-    /**
-     * Sets locale
-     *
-     * @param string $locale Message template locale
-     *
-     * @return $this
-     */
-    public function setLocale($locale)
-    {
-        $this->container['locale'] = $locale;
-
-        return $this;
-    }
-
-    /**
      * Gets no_chrome
      *
      * @return bool
@@ -282,6 +258,30 @@ class CommonViewConfiguration implements ModelInterface, ArrayAccess
     public function setNoChrome($no_chrome)
     {
         $this->container['no_chrome'] = $no_chrome;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale Message template locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
 
         return $this;
     }

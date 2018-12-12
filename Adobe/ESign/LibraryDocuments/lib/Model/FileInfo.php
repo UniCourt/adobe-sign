@@ -55,8 +55,8 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'label' => 'string',
         'transient_document_id' => 'string',
+        'label' => 'string',
         'url_file_info' => '\Adobe\ESign\LibraryDocuments\Model\URLFileInfo'
     ];
 
@@ -66,8 +66,8 @@ class FileInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'label' => null,
         'transient_document_id' => null,
+        'label' => null,
         'url_file_info' => null
     ];
 
@@ -98,8 +98,8 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'label' => 'label',
         'transient_document_id' => 'transientDocumentId',
+        'label' => 'label',
         'url_file_info' => 'urlFileInfo'
     ];
 
@@ -109,8 +109,8 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'label' => 'setLabel',
         'transient_document_id' => 'setTransientDocumentId',
+        'label' => 'setLabel',
         'url_file_info' => 'setUrlFileInfo'
     ];
 
@@ -120,8 +120,8 @@ class FileInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'label' => 'getLabel',
         'transient_document_id' => 'getTransientDocumentId',
+        'label' => 'getLabel',
         'url_file_info' => 'getUrlFileInfo'
     ];
 
@@ -185,8 +185,8 @@ class FileInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['transient_document_id'] = isset($data['transient_document_id']) ? $data['transient_document_id'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['url_file_info'] = isset($data['url_file_info']) ? $data['url_file_info'] : null;
     }
 
@@ -215,30 +215,6 @@ class FileInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label The unique label value of a file info element. In case of custom workflow this will map a file to corresponding file element in workflow definition. This must be specified in case of custom workflow agreement creation request
-     *
-     * @return $this
-     */
-    public function setLabel($label)
-    {
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
      * Gets transient_document_id
      *
      * @return string
@@ -258,6 +234,30 @@ class FileInfo implements ModelInterface, ArrayAccess
     public function setTransientDocumentId($transient_document_id)
     {
         $this->container['transient_document_id'] = $transient_document_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     *
+     * @param string $label The unique label value of a file info element. In case of custom workflow this will map a file to corresponding file element in workflow definition. This must be specified in case of custom workflow agreement creation request
+     *
+     * @return $this
+     */
+    public function setLabel($label)
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }

@@ -55,9 +55,10 @@ class LibraryView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'embedded_code' => 'string',
-        'expiration' => '\DateTime',
         'is_current' => 'bool',
+        'embedded_code' => 'string',
+        'name' => 'string',
+        'expiration' => '\DateTime',
         'url' => 'string'
     ];
 
@@ -67,9 +68,10 @@ class LibraryView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'embedded_code' => null,
-        'expiration' => 'date',
         'is_current' => null,
+        'embedded_code' => null,
+        'name' => null,
+        'expiration' => 'date',
         'url' => null
     ];
 
@@ -100,9 +102,10 @@ class LibraryView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'embedded_code' => 'embeddedCode',
-        'expiration' => 'expiration',
         'is_current' => 'isCurrent',
+        'embedded_code' => 'embeddedCode',
+        'name' => 'name',
+        'expiration' => 'expiration',
         'url' => 'url'
     ];
 
@@ -112,9 +115,10 @@ class LibraryView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'embedded_code' => 'setEmbeddedCode',
-        'expiration' => 'setExpiration',
         'is_current' => 'setIsCurrent',
+        'embedded_code' => 'setEmbeddedCode',
+        'name' => 'setName',
+        'expiration' => 'setExpiration',
         'url' => 'setUrl'
     ];
 
@@ -124,9 +128,10 @@ class LibraryView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'embedded_code' => 'getEmbeddedCode',
-        'expiration' => 'getExpiration',
         'is_current' => 'getIsCurrent',
+        'embedded_code' => 'getEmbeddedCode',
+        'name' => 'getName',
+        'expiration' => 'getExpiration',
         'url' => 'getUrl'
     ];
 
@@ -171,8 +176,29 @@ class LibraryView implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const NAME_EDIT = 'EDIT';
+    const NAME_DOCUMENT = 'DOCUMENT';
+    const NAME_MANAGE = 'MANAGE';
+    const NAME_SEND = 'SEND';
+    const NAME_ALL = 'ALL';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNameAllowableValues()
+    {
+        return [
+            self::NAME_EDIT,
+            self::NAME_DOCUMENT,
+            self::NAME_MANAGE,
+            self::NAME_SEND,
+            self::NAME_ALL,
+        ];
+    }
     
 
     /**
@@ -190,9 +216,10 @@ class LibraryView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['embedded_code'] = isset($data['embedded_code']) ? $data['embedded_code'] : null;
-        $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['is_current'] = isset($data['is_current']) ? $data['is_current'] : null;
+        $this->container['embedded_code'] = isset($data['embedded_code']) ? $data['embedded_code'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -204,6 +231,14 @@ class LibraryView implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'name', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -219,6 +254,30 @@ class LibraryView implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets is_current
+     *
+     * @return bool
+     */
+    public function getIsCurrent()
+    {
+        return $this->container['is_current'];
+    }
+
+    /**
+     * Sets is_current
+     *
+     * @param bool $is_current True if this view is the current view
+     *
+     * @return $this
+     */
+    public function setIsCurrent($is_current)
+    {
+        $this->container['is_current'] = $is_current;
+
+        return $this;
+    }
 
     /**
      * Gets embedded_code
@@ -245,6 +304,39 @@ class LibraryView implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name of the requested libraryDocument view
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($name) && !in_array($name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'name', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets expiration
      *
      * @return \DateTime
@@ -264,30 +356,6 @@ class LibraryView implements ModelInterface, ArrayAccess
     public function setExpiration($expiration)
     {
         $this->container['expiration'] = $expiration;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_current
-     *
-     * @return bool
-     */
-    public function getIsCurrent()
-    {
-        return $this->container['is_current'];
-    }
-
-    /**
-     * Sets is_current
-     *
-     * @param bool $is_current True if this view is the current view
-     *
-     * @return $this
-     */
-    public function setIsCurrent($is_current)
-    {
-        $this->container['is_current'] = $is_current;
 
         return $this;
     }

@@ -56,7 +56,7 @@ class SupportingDocument implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'display_label' => 'string',
-        'num_pages' => '\Adobe\ESign\Agreements\Model\Int',
+        'num_pages' => 'int',
         'field_name' => 'string',
         'id' => 'string',
         'mime_type' => 'string'
@@ -253,7 +253,7 @@ class SupportingDocument implements ModelInterface, ArrayAccess
     /**
      * Gets num_pages
      *
-     * @return \Adobe\ESign\Agreements\Model\Int
+     * @return int
      */
     public function getNumPages()
     {
@@ -263,7 +263,7 @@ class SupportingDocument implements ModelInterface, ArrayAccess
     /**
      * Sets num_pages
      *
-     * @param \Adobe\ESign\Agreements\Model\Int $num_pages Number of pages in the document
+     * @param int $num_pages Number of pages in the document
      *
      * @return $this
      */

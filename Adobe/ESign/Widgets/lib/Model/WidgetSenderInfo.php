@@ -1,11 +1,11 @@
 <?php
 /**
- * SenderInfo
+ * WidgetSenderInfo
  *
  * PHP version 5
  *
  * @category Class
- * @package  Adobe\ESign\Agreements
+ * @package  Adobe\ESign\Widgets
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,20 +25,20 @@
  * Do not edit the class manually.
  */
 
-namespace Adobe\ESign\Agreements\Model;
+namespace Adobe\ESign\Widgets\Model;
 
 use \ArrayAccess;
-use \Adobe\ESign\Agreements\ObjectSerializer;
+use \Adobe\ESign\Widgets\ObjectSerializer;
 
 /**
- * SenderInfo Class Doc Comment
+ * WidgetSenderInfo Class Doc Comment
  *
  * @category Class
- * @package  Adobe\ESign\Agreements
+ * @package  Adobe\ESign\Widgets
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SenderInfo implements ModelInterface, ArrayAccess
+class WidgetSenderInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SenderInfo';
+    protected static $swaggerModelName = 'WidgetSenderInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
         'name' => 'string',
         'self' => 'bool',
         'company' => 'string',
-        'email' => 'string',
-        'status' => 'string'
+        'email' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
         'name' => null,
         'self' => null,
         'company' => null,
-        'email' => null,
-        'status' => null
+        'email' => null
     ];
 
     /**
@@ -108,8 +106,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
         'name' => 'name',
         'self' => 'self',
         'company' => 'company',
-        'email' => 'email',
-        'status' => 'status'
+        'email' => 'email'
     ];
 
     /**
@@ -122,8 +119,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'self' => 'setSelf',
         'company' => 'setCompany',
-        'email' => 'setEmail',
-        'status' => 'setStatus'
+        'email' => 'setEmail'
     ];
 
     /**
@@ -136,8 +132,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'self' => 'getSelf',
         'company' => 'getCompany',
-        'email' => 'getEmail',
-        'status' => 'getStatus'
+        'email' => 'getEmail'
     ];
 
     /**
@@ -181,43 +176,8 @@ class SenderInfo implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const STATUS_CANCELLED = 'CANCELLED';
-    const STATUS_COMPLETED = 'COMPLETED';
-    const STATUS_EXPIRED = 'EXPIRED';
-    const STATUS_NOT_YET_VISIBLE = 'NOT_YET_VISIBLE';
-    const STATUS_WAITING_FOR_AUTHORING = 'WAITING_FOR_AUTHORING';
-    const STATUS_WAITING_FOR_MY_DELEGATION = 'WAITING_FOR_MY_DELEGATION';
-    const STATUS_WAITING_FOR_MY_ACCEPTANCE = 'WAITING_FOR_MY_ACCEPTANCE';
-    const STATUS_WAITING_FOR_MY_ACKNOWLEDGEMENT = 'WAITING_FOR_MY_ACKNOWLEDGEMENT';
-    const STATUS_WAITING_FOR_MY_APPROVAL = 'WAITING_FOR_MY_APPROVAL';
-    const STATUS_WAITING_FOR_MY_FORM_FILLING = 'WAITING_FOR_MY_FORM_FILLING';
-    const STATUS_WAITING_FOR_MY_SIGNATURE = 'WAITING_FOR_MY_SIGNATURE';
-    const STATUS_WAITING_FOR_OTHERS = 'WAITING_FOR_OTHERS';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_CANCELLED,
-            self::STATUS_COMPLETED,
-            self::STATUS_EXPIRED,
-            self::STATUS_NOT_YET_VISIBLE,
-            self::STATUS_WAITING_FOR_AUTHORING,
-            self::STATUS_WAITING_FOR_MY_DELEGATION,
-            self::STATUS_WAITING_FOR_MY_ACCEPTANCE,
-            self::STATUS_WAITING_FOR_MY_ACKNOWLEDGEMENT,
-            self::STATUS_WAITING_FOR_MY_APPROVAL,
-            self::STATUS_WAITING_FOR_MY_FORM_FILLING,
-            self::STATUS_WAITING_FOR_MY_SIGNATURE,
-            self::STATUS_WAITING_FOR_OTHERS,
-        ];
-    }
     
 
     /**
@@ -240,7 +200,6 @@ class SenderInfo implements ModelInterface, ArrayAccess
         $this->container['self'] = isset($data['self']) ? $data['self'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -251,14 +210,6 @@ class SenderInfo implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -288,7 +239,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
     /**
      * Sets participant_id
      *
-     * @param string $participant_id The unique identifier of the sender of the agreement.
+     * @param string $participant_id The unique identifier of the creator of the widget.
      *
      * @return $this
      */
@@ -312,7 +263,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the sender, if available.
+     * @param string $name Name of the creator, if available.
      *
      * @return $this
      */
@@ -336,7 +287,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
     /**
      * Sets self
      *
-     * @param bool $self True if the sender is the same user that is calling the API.
+     * @param bool $self True if the creator of the widget is the same user that is calling the API.
      *
      * @return $this
      */
@@ -360,7 +311,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string $company Company of the sender, if available.
+     * @param string $company Company of the creator, if available.
      *
      * @return $this
      */
@@ -384,46 +335,13 @@ class SenderInfo implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Email of the sender of the agreement.
+     * @param string $email Email of the creator of the widget.
      *
      * @return $this
      */
     public function setEmail($email)
     {
         $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status The agreement status with respect to the participant set. This cannot be changed as part of the PUT call.
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }

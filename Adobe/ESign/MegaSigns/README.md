@@ -79,15 +79,15 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api/rest/v6*
+All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *MegaSignsApi* | [**createMegaSign**](docs/Api/MegaSignsApi.md#createmegasign) | **POST** /megaSigns | Send an agreement out for signature to multiple recipients. Each recipient will receive and sign their own copy of the agreement.
 *MegaSignsApi* | [**getChildAgreementsInfoFile**](docs/Api/MegaSignsApi.md#getchildagreementsinfofile) | **GET** /megaSigns/{megaSignId}/childAgreementsInfo/{childAgreementsInfoFileId} | Retrieves the file stream of the original childAgreementsInfoFile that was uploaded by sender while creating the MegaSign.
-*MegaSignsApi* | [**getEvents**](docs/Api/MegaSignsApi.md#getevents) | **GET** /megaSigns/{megaSignId}/events | Retrieves the events information for the MegaSign parent agreement.
 *MegaSignsApi* | [**getMegaSignChildAgreements**](docs/Api/MegaSignsApi.md#getmegasignchildagreements) | **GET** /megaSigns/{megaSignId}/agreements | Get all the child agreements of the specified MegaSign parent agreement.
 *MegaSignsApi* | [**getMegaSignCombinedDocument**](docs/Api/MegaSignsApi.md#getmegasigncombineddocument) | **GET** /megaSigns/{megaSignId}/combinedDocument | Retrieves a single combined PDF document for the documents associated with the MegaSign parent agreement.
+*MegaSignsApi* | [**getMegaSignEvents**](docs/Api/MegaSignsApi.md#getmegasignevents) | **GET** /megaSigns/{megaSignId}/events | Retrieves the events information for the MegaSign parent agreement.
 *MegaSignsApi* | [**getMegaSignFormData**](docs/Api/MegaSignsApi.md#getmegasignformdata) | **GET** /megaSigns/{megaSignId}/formData | Retrieves data entered by recipients into interactive form fields at the time they signed the child agreements of the specified MegaSign agreement
 *MegaSignsApi* | [**getMegaSignInfo**](docs/Api/MegaSignsApi.md#getmegasigninfo) | **GET** /megaSigns/{megaSignId} | Get detailed information of the specified MegaSign parent agreement.
 *MegaSignsApi* | [**getMegaSignView**](docs/Api/MegaSignsApi.md#getmegasignview) | **POST** /megaSigns/{megaSignId}/views | Retrieves the requested views of mega sign agreement.

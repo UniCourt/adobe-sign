@@ -82,16 +82,16 @@ class CommonViewConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "locale"
+     * Test attribute "no_chrome"
      */
-    public function testPropertyLocale()
+    public function testPropertyNoChrome()
     {
     }
 
     /**
-     * Test attribute "no_chrome"
+     * Test attribute "locale"
      */
-    public function testPropertyNoChrome()
+    public function testPropertyLocale()
     {
     }
 }

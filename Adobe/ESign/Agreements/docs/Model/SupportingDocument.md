@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_label** | **string** | Display name of the document | [optional] 
-**num_pages** | [**\Adobe\ESign\Agreements\Model\Int**](Int.md) | Number of pages in the document | [optional] 
+**num_pages** | **int** | Number of pages in the document | [optional] 
 **field_name** | **string** | The name of the supporting document field | [optional] 
 **id** | **string** | Id representing the document | [optional] 
 **mime_type** | **string** | Mime-type of the document | [optional] 

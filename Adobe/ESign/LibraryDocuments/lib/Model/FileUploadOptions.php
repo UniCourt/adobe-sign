@@ -1,11 +1,11 @@
 <?php
 /**
- * SenderInfo
+ * FileUploadOptions
  *
  * PHP version 5
  *
  * @category Class
- * @package  Adobe\ESign\Widgets
+ * @package  Adobe\ESign\LibraryDocuments
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,20 +25,20 @@
  * Do not edit the class manually.
  */
 
-namespace Adobe\ESign\Widgets\Model;
+namespace Adobe\ESign\LibraryDocuments\Model;
 
 use \ArrayAccess;
-use \Adobe\ESign\Widgets\ObjectSerializer;
+use \Adobe\ESign\LibraryDocuments\ObjectSerializer;
 
 /**
- * SenderInfo Class Doc Comment
+ * FileUploadOptions Class Doc Comment
  *
  * @category Class
- * @package  Adobe\ESign\Widgets
+ * @package  Adobe\ESign\LibraryDocuments
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SenderInfo implements ModelInterface, ArrayAccess
+class FileUploadOptions implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class SenderInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SenderInfo';
+    protected static $swaggerModelName = 'FileUploadOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,11 +55,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'company' => 'string',
-        'email' => 'string',
-        'name' => 'string',
-        'participant_id' => 'string',
-        'self' => 'bool'
+        'local_file' => 'bool',
+        'web_connectors' => 'bool',
+        'library_document' => 'bool'
     ];
 
     /**
@@ -68,11 +66,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'company' => null,
-        'email' => null,
-        'name' => null,
-        'participant_id' => null,
-        'self' => null
+        'local_file' => null,
+        'web_connectors' => null,
+        'library_document' => null
     ];
 
     /**
@@ -102,11 +98,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company' => 'company',
-        'email' => 'email',
-        'name' => 'name',
-        'participant_id' => 'participantId',
-        'self' => 'self'
+        'local_file' => 'localFile',
+        'web_connectors' => 'webConnectors',
+        'library_document' => 'libraryDocument'
     ];
 
     /**
@@ -115,11 +109,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company' => 'setCompany',
-        'email' => 'setEmail',
-        'name' => 'setName',
-        'participant_id' => 'setParticipantId',
-        'self' => 'setSelf'
+        'local_file' => 'setLocalFile',
+        'web_connectors' => 'setWebConnectors',
+        'library_document' => 'setLibraryDocument'
     ];
 
     /**
@@ -128,11 +120,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company' => 'getCompany',
-        'email' => 'getEmail',
-        'name' => 'getName',
-        'participant_id' => 'getParticipantId',
-        'self' => 'getSelf'
+        'local_file' => 'getLocalFile',
+        'web_connectors' => 'getWebConnectors',
+        'library_document' => 'getLibraryDocument'
     ];
 
     /**
@@ -195,11 +185,9 @@ class SenderInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['participant_id'] = isset($data['participant_id']) ? $data['participant_id'] : null;
-        $this->container['self'] = isset($data['self']) ? $data['self'] : null;
+        $this->container['local_file'] = isset($data['local_file']) ? $data['local_file'] : null;
+        $this->container['web_connectors'] = isset($data['web_connectors']) ? $data['web_connectors'] : null;
+        $this->container['library_document'] = isset($data['library_document']) ? $data['library_document'] : null;
     }
 
     /**
@@ -227,121 +215,73 @@ class SenderInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company
-     *
-     * @return string
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     *
-     * @param string $company Company of the creator, if available.
-     *
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email of the creator of the widget.
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Name of the creator, if available.
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets participant_id
-     *
-     * @return string
-     */
-    public function getParticipantId()
-    {
-        return $this->container['participant_id'];
-    }
-
-    /**
-     * Sets participant_id
-     *
-     * @param string $participant_id The unique identifier of the creator of the widget.
-     *
-     * @return $this
-     */
-    public function setParticipantId($participant_id)
-    {
-        $this->container['participant_id'] = $participant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets self
+     * Gets local_file
      *
      * @return bool
      */
-    public function getSelf()
+    public function getLocalFile()
     {
-        return $this->container['self'];
+        return $this->container['local_file'];
     }
 
     /**
-     * Sets self
+     * Sets local_file
      *
-     * @param bool $self True if the creator of the widget is the same user that is calling the API.
+     * @param bool $local_file Whether local file upload button should appear or not. Default value is taken as true
      *
      * @return $this
      */
-    public function setSelf($self)
+    public function setLocalFile($local_file)
     {
-        $this->container['self'] = $self;
+        $this->container['local_file'] = $local_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_connectors
+     *
+     * @return bool
+     */
+    public function getWebConnectors()
+    {
+        return $this->container['web_connectors'];
+    }
+
+    /**
+     * Sets web_connectors
+     *
+     * @param bool $web_connectors Whether link to attach documents from web sources like Dropbox should appear or not. Default value is taken as true
+     *
+     * @return $this
+     */
+    public function setWebConnectors($web_connectors)
+    {
+        $this->container['web_connectors'] = $web_connectors;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_document
+     *
+     * @return bool
+     */
+    public function getLibraryDocument()
+    {
+        return $this->container['library_document'];
+    }
+
+    /**
+     * Sets library_document
+     *
+     * @param bool $library_document Whether library documents link should appear or not. Default value is taken as true
+     *
+     * @return $this
+     */
+    public function setLibraryDocument($library_document)
+    {
+        $this->container['library_document'] = $library_document;
 
         return $this;
     }
