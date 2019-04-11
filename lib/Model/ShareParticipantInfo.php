@@ -239,7 +239,7 @@ class ShareParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets participant_id
      *
-     * @param string $participant_id The unique identifier of the sharee participant of the widget.
+     * @param string $participant_id The unique identifier of the sharee participant of the agreement.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class ShareParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of the sharee participant of the widget, if available.
+     * @param string $name Name of the sharee participant, if available.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class ShareParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets sharer_participant_id
      *
-     * @param string $sharer_participant_id The unique identifier of the participant who shared the widget.
+     * @param string $sharer_participant_id The unique identifier of the participant who shared the agreement.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class ShareParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string $company Company of the sharee participant of the widget, if available.
+     * @param string $company Company of the sharee participant, if available.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class ShareParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Email of the sharee participant of the widget.
+     * @param string $email Email of the sharee participant of the agreement.
      *
      * @return $this
      */

@@ -57,6 +57,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'transient_document_id' => 'string',
         'document' => '\Swagger\Client\Model\Document',
+        'library_document_id' => 'string',
         'label' => 'string',
         'url_file_info' => '\Swagger\Client\Model\URLFileInfo'
     ];
@@ -69,6 +70,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'transient_document_id' => null,
         'document' => null,
+        'library_document_id' => null,
         'label' => null,
         'url_file_info' => null
     ];
@@ -102,6 +104,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'transient_document_id' => 'transientDocumentId',
         'document' => 'document',
+        'library_document_id' => 'libraryDocumentId',
         'label' => 'label',
         'url_file_info' => 'urlFileInfo'
     ];
@@ -114,6 +117,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     protected static $setters = [
         'transient_document_id' => 'setTransientDocumentId',
         'document' => 'setDocument',
+        'library_document_id' => 'setLibraryDocumentId',
         'label' => 'setLabel',
         'url_file_info' => 'setUrlFileInfo'
     ];
@@ -126,6 +130,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     protected static $getters = [
         'transient_document_id' => 'getTransientDocumentId',
         'document' => 'getDocument',
+        'library_document_id' => 'getLibraryDocumentId',
         'label' => 'getLabel',
         'url_file_info' => 'getUrlFileInfo'
     ];
@@ -192,6 +197,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     {
         $this->container['transient_document_id'] = isset($data['transient_document_id']) ? $data['transient_document_id'] : null;
         $this->container['document'] = isset($data['document']) ? $data['document'] : null;
+        $this->container['library_document_id'] = isset($data['library_document_id']) ? $data['library_document_id'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['url_file_info'] = isset($data['url_file_info']) ? $data['url_file_info'] : null;
     }
@@ -233,7 +239,7 @@ class FileInfo implements ModelInterface, ArrayAccess
     /**
      * Sets transient_document_id
      *
-     * @param string $transient_document_id ID for a transient document that will be added to the widget
+     * @param string $transient_document_id ID for a transient document that will be added to the agreement
      *
      * @return $this
      */
@@ -257,13 +263,37 @@ class FileInfo implements ModelInterface, ArrayAccess
     /**
      * Sets document
      *
-     * @param \Swagger\Client\Model\Document $document A document that is associated with the widget. This field cannot be provided in POST call. In case of GET call, this is the only field returned in the response
+     * @param \Swagger\Client\Model\Document $document A document that is associated with the agreement. This field cannot be provided in POST call. In case of GET call, this is the only field returned in the response
      *
      * @return $this
      */
     public function setDocument($document)
     {
         $this->container['document'] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_document_id
+     *
+     * @return string
+     */
+    public function getLibraryDocumentId()
+    {
+        return $this->container['library_document_id'];
+    }
+
+    /**
+     * Sets library_document_id
+     *
+     * @param string $library_document_id ID for an existing Library document that will be added to the agreement
+     *
+     * @return $this
+     */
+    public function setLibraryDocumentId($library_document_id)
+    {
+        $this->container['library_document_id'] = $library_document_id;
 
         return $this;
     }

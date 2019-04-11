@@ -233,7 +233,7 @@ class CCParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets participant_id
      *
-     * @param string $participant_id The unique identifier of the CC participant of the widget.
+     * @param string $participant_id The unique identifier of the CC participant of the agreement.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class CCParticipantInfo implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Email of the CC participant of the widget
+     * @param string $email Email of the CC participant of the agreement
      *
      * @return $this
      */

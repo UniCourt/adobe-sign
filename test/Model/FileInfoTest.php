@@ -89,13 +89,6 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "library_document_id"
-     */
-    public function testPropertyLibraryDocumentId()
-    {
-    }
-
-    /**
      * Test attribute "label"
      */
     public function testPropertyLabel()
