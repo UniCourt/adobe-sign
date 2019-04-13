@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**first_name** | **string** | The first name of the user | [optional] 
-**last_name** | **string** | The last name of the user | [optional] 
-**is_group_admin** | **bool** | True if user is group admin | [optional] 
+**firstName** | **string** | The first name of the user | [optional] 
+**lastName** | **string** | The last name of the user | [optional] 
+**isGroupAdmin** | **bool** | True if user is group admin | [optional] 
 **company** | **string** | The name of company of the user | [optional] 
 **id** | **string** | A unique identifier of the user resource for REST APIs. This identifier can not be used in SOAP APIs | [optional] 
 **email** | **string** | The email address of the user | [optional] 

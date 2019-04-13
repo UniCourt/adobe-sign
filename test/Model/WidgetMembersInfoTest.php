@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * WidgetMembersInfoTest Class Doc Comment
  *
  * @category    Class
  * @description WidgetMembersInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,35 +75,35 @@ class WidgetMembersInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ccs_info"
+     * Test attribute "ccsInfo"
      */
     public function testPropertyCcsInfo()
     {
     }
 
     /**
-     * Test attribute "additional_participant_sets"
+     * Test attribute "additionalParticipantSets"
      */
     public function testPropertyAdditionalParticipantSets()
     {
     }
 
     /**
-     * Test attribute "widget_participant_set"
+     * Test attribute "widgetParticipantSet"
      */
     public function testPropertyWidgetParticipantSet()
     {
     }
 
     /**
-     * Test attribute "shares_info"
+     * Test attribute "sharesInfo"
      */
     public function testPropertySharesInfo()
     {
     }
 
     /**
-     * Test attribute "creator_info"
+     * Test attribute "creatorInfo"
      */
     public function testPropertyCreatorInfo()
     {

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * LibraryDocumentCreationInfoV6Test Class Doc Comment
  *
  * @category    Class
  * @description LibraryDocumentCreationInfoV6
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,42 +75,42 @@ class LibraryDocumentCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "created_date"
+     * Test attribute "createdDate"
      */
     public function testPropertyCreatedDate()
     {
     }
 
     /**
-     * Test attribute "template_types"
+     * Test attribute "templateTypes"
      */
     public function testPropertyTemplateTypes()
     {
     }
 
     /**
-     * Test attribute "creator_email"
+     * Test attribute "creatorEmail"
      */
     public function testPropertyCreatorEmail()
     {
     }
 
     /**
-     * Test attribute "sharing_mode"
+     * Test attribute "sharingMode"
      */
     public function testPropertySharingMode()
     {
     }
 
     /**
-     * Test attribute "creator_name"
+     * Test attribute "creatorName"
      */
     public function testPropertyCreatorName()
     {
     }
 
     /**
-     * Test attribute "modified_date"
+     * Test attribute "modifiedDate"
      */
     public function testPropertyModifiedDate()
     {
@@ -124,7 +124,7 @@ class LibraryDocumentCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "file_infos"
+     * Test attribute "fileInfos"
      */
     public function testPropertyFileInfos()
     {

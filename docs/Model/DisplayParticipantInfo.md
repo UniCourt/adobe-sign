@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**full_name** | **string** | Displays the full name of the user, if available. | [optional] 
+**fullName** | **string** | Displays the full name of the user, if available. | [optional] 
 **company** | **string** | Displays the name of the company of the user, if available | [optional] 
 **email** | **string** | Displays the email of the user | [optional] 
 

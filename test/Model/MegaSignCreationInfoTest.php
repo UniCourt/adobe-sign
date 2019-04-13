@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * MegaSignCreationInfoTest Class Doc Comment
  *
  * @category    Class
  * @description MegaSignCreationInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,28 +75,28 @@ class MegaSignCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "first_reminder_delay"
+     * Test attribute "firstReminderDelay"
      */
     public function testPropertyFirstReminderDelay()
     {
     }
 
     /**
-     * Test attribute "child_agreements_info"
+     * Test attribute "childAgreementsInfo"
      */
     public function testPropertyChildAgreementsInfo()
     {
     }
 
     /**
-     * Test attribute "signature_type"
+     * Test attribute "signatureType"
      */
     public function testPropertySignatureType()
     {
     }
 
     /**
-     * Test attribute "external_id"
+     * Test attribute "externalId"
      */
     public function testPropertyExternalId()
     {
@@ -117,28 +117,28 @@ class MegaSignCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "vaulting_info"
+     * Test attribute "vaultingInfo"
      */
     public function testPropertyVaultingInfo()
     {
     }
 
     /**
-     * Test attribute "security_option"
+     * Test attribute "securityOption"
      */
     public function testPropertySecurityOption()
     {
     }
 
     /**
-     * Test attribute "post_sign_option"
+     * Test attribute "postSignOption"
      */
     public function testPropertyPostSignOption()
     {
     }
 
     /**
-     * Test attribute "reminder_frequency"
+     * Test attribute "reminderFrequency"
      */
     public function testPropertyReminderFrequency()
     {
@@ -152,21 +152,21 @@ class MegaSignCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "created_date"
+     * Test attribute "createdDate"
      */
     public function testPropertyCreatedDate()
     {
     }
 
     /**
-     * Test attribute "expiration_time"
+     * Test attribute "expirationTime"
      */
     public function testPropertyExpirationTime()
     {
     }
 
     /**
-     * Test attribute "sender_email"
+     * Test attribute "senderEmail"
      */
     public function testPropertySenderEmail()
     {
@@ -180,7 +180,7 @@ class MegaSignCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "file_infos"
+     * Test attribute "fileInfos"
      */
     public function testPropertyFileInfos()
     {

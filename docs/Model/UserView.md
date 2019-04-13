@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**embedded_code** | **string** | Embedded code of url of resource | [optional] 
+**embeddedCode** | **string** | Embedded code of url of resource | [optional] 
 **name** | **string** | Name of the requested user view | [optional] 
 **expiration** | [**\DateTime**](\DateTime.md) | Expiration of user url | [optional] 
 **url** | **string** | Url of resource location | [optional] 

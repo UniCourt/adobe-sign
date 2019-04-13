@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * OfflineDeviceInfoTest Class Doc Comment
  *
  * @category    Class
  * @description OfflineDeviceInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,21 +75,21 @@ class OfflineDeviceInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "device_description"
+     * Test attribute "deviceDescription"
      */
     public function testPropertyDeviceDescription()
     {
     }
 
     /**
-     * Test attribute "application_description"
+     * Test attribute "applicationDescription"
      */
     public function testPropertyApplicationDescription()
     {
     }
 
     /**
-     * Test attribute "device_time"
+     * Test attribute "deviceTime"
      */
     public function testPropertyDeviceTime()
     {

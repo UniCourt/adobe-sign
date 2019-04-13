@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ParticipantSetInfoTest Class Doc Comment
  *
  * @category    Class
  * @description ParticipantSetInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class ParticipantSetInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "visible_pages"
+     * Test attribute "visiblePages"
      */
     public function testPropertyVisiblePages()
     {
@@ -103,14 +103,14 @@ class ParticipantSetInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "private_message"
+     * Test attribute "privateMessage"
      */
     public function testPropertyPrivateMessage()
     {
     }
 
     /**
-     * Test attribute "member_infos"
+     * Test attribute "memberInfos"
      */
     public function testPropertyMemberInfos()
     {

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant_id** | **string** | The unique identifier of the creator of the widget. | [optional] 
+**participantId** | **string** | The unique identifier of the creator of the widget. | [optional] 
 **name** | **string** | Name of the creator, if available. | [optional] 
 **self** | **bool** | True if the creator of the widget is the same user that is calling the API. | [optional] 
 **company** | **string** | Company of the creator, if available. | [optional] 

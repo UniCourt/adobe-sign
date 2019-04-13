@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * MergefieldInfoTest Class Doc Comment
  *
  * @category    Class
  * @description MergefieldInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,14 +75,14 @@ class MergefieldInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "field_name"
+     * Test attribute "fieldName"
      */
     public function testPropertyFieldName()
     {
     }
 
     /**
-     * Test attribute "default_value"
+     * Test attribute "defaultValue"
      */
     public function testPropertyDefaultValue()
     {

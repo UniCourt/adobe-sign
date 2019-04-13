@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * UserAgreementTest Class Doc Comment
  *
  * @category    Class
  * @description UserAgreement
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class UserAgreementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_date"
+     * Test attribute "displayDate"
      */
     public function testPropertyDisplayDate()
     {
@@ -103,14 +103,14 @@ class UserAgreementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_participant_set_infos"
+     * Test attribute "displayParticipantSetInfos"
      */
     public function testPropertyDisplayParticipantSetInfos()
     {
     }
 
     /**
-     * Test attribute "latest_version_id"
+     * Test attribute "latestVersionId"
      */
     public function testPropertyLatestVersionId()
     {

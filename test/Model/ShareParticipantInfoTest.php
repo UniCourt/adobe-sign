@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ShareParticipantInfoTest Class Doc Comment
  *
  * @category    Class
  * @description ShareParticipantInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class ShareParticipantInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "participant_id"
+     * Test attribute "participantId"
      */
     public function testPropertyParticipantId()
     {
@@ -89,7 +89,7 @@ class ShareParticipantInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sharer_participant_id"
+     * Test attribute "sharerParticipantId"
      */
     public function testPropertySharerParticipantId()
     {

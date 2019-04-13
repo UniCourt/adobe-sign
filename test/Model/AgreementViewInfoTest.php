@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * AgreementViewInfoTest Class Doc Comment
  *
  * @category    Class
  * @description AgreementViewInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,14 +75,14 @@ class AgreementViewInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "compose_view_configuration"
+     * Test attribute "composeViewConfiguration"
      */
     public function testPropertyComposeViewConfiguration()
     {
     }
 
     /**
-     * Test attribute "common_view_configuration"
+     * Test attribute "commonViewConfiguration"
      */
     public function testPropertyCommonViewConfiguration()
     {

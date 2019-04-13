@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * MegasignEventTest Class Doc Comment
  *
  * @category    Class
  * @description MegasignEvent
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class MegasignEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "initiating_user_name"
+     * Test attribute "initiatingUserName"
      */
     public function testPropertyInitiatingUserName()
     {
@@ -96,21 +96,21 @@ class MegasignEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "acting_user_name"
+     * Test attribute "actingUserName"
      */
     public function testPropertyActingUserName()
     {
     }
 
     /**
-     * Test attribute "acting_user_ip_address"
+     * Test attribute "actingUserIpAddress"
      */
     public function testPropertyActingUserIpAddress()
     {
     }
 
     /**
-     * Test attribute "participant_email"
+     * Test attribute "participantEmail"
      */
     public function testPropertyParticipantEmail()
     {
@@ -124,63 +124,63 @@ class MegasignEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "participant_role"
+     * Test attribute "participantRole"
      */
     public function testPropertyParticipantRole()
     {
     }
 
     /**
-     * Test attribute "vault_event_id"
+     * Test attribute "vaultEventId"
      */
     public function testPropertyVaultEventId()
     {
     }
 
     /**
-     * Test attribute "participant_id"
+     * Test attribute "participantId"
      */
     public function testPropertyParticipantId()
     {
     }
 
     /**
-     * Test attribute "version_id"
+     * Test attribute "versionId"
      */
     public function testPropertyVersionId()
     {
     }
 
     /**
-     * Test attribute "acting_user_email"
+     * Test attribute "actingUserEmail"
      */
     public function testPropertyActingUserEmail()
     {
     }
 
     /**
-     * Test attribute "device_phone_number"
+     * Test attribute "devicePhoneNumber"
      */
     public function testPropertyDevicePhoneNumber()
     {
     }
 
     /**
-     * Test attribute "initiating_user_email"
+     * Test attribute "initiatingUserEmail"
      */
     public function testPropertyInitiatingUserEmail()
     {
     }
 
     /**
-     * Test attribute "digital_signature_info"
+     * Test attribute "digitalSignatureInfo"
      */
     public function testPropertyDigitalSignatureInfo()
     {
     }
 
     /**
-     * Test attribute "vault_provider_name"
+     * Test attribute "vaultProviderName"
      */
     public function testPropertyVaultProviderName()
     {
@@ -194,14 +194,14 @@ class MegasignEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "synchronization_id"
+     * Test attribute "synchronizationId"
      */
     public function testPropertySynchronizationId()
     {
     }
 
     /**
-     * Test attribute "device_location"
+     * Test attribute "deviceLocation"
      */
     public function testPropertyDeviceLocation()
     {

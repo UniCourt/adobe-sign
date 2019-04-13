@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -24,17 +24,17 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
-use \Swagger\Client\Configuration;
-use \Swagger\Client\ApiException;
-use \Swagger\Client\ObjectSerializer;
+use \Adobe\ESign\Configuration;
+use \Adobe\ESign\ApiException;
+use \Adobe\ESign\ObjectSerializer;
 
 /**
  * WebhooksApiTest Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

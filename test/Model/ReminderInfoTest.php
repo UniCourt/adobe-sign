@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ReminderInfoTest Class Doc Comment
  *
  * @category    Class
  * @description ReminderInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,42 +82,42 @@ class ReminderInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_sent_date"
+     * Test attribute "lastSentDate"
      */
     public function testPropertyLastSentDate()
     {
     }
 
     /**
-     * Test attribute "next_sent_date"
+     * Test attribute "nextSentDate"
      */
     public function testPropertyNextSentDate()
     {
     }
 
     /**
-     * Test attribute "reminder_id"
+     * Test attribute "reminderId"
      */
     public function testPropertyReminderId()
     {
     }
 
     /**
-     * Test attribute "first_reminder_delay"
+     * Test attribute "firstReminderDelay"
      */
     public function testPropertyFirstReminderDelay()
     {
     }
 
     /**
-     * Test attribute "recipient_participant_ids"
+     * Test attribute "recipientParticipantIds"
      */
     public function testPropertyRecipientParticipantIds()
     {
     }
 
     /**
-     * Test attribute "start_reminder_counter_from"
+     * Test attribute "startReminderCounterFrom"
      */
     public function testPropertyStartReminderCounterFrom()
     {

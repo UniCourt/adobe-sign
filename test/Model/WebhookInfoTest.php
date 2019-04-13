@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * WebhookInfoTest Class Doc Comment
  *
  * @category    Class
  * @description WebhookInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,21 +75,21 @@ class WebhookInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "resource_id"
+     * Test attribute "resourceId"
      */
     public function testPropertyResourceId()
     {
     }
 
     /**
-     * Test attribute "webhook_url_info"
+     * Test attribute "webhookUrlInfo"
      */
     public function testPropertyWebhookUrlInfo()
     {
     }
 
     /**
-     * Test attribute "webhook_conditional_params"
+     * Test attribute "webhookConditionalParams"
      */
     public function testPropertyWebhookConditionalParams()
     {
@@ -103,14 +103,14 @@ class WebhookInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "webhook_subscription_events"
+     * Test attribute "webhookSubscriptionEvents"
      */
     public function testPropertyWebhookSubscriptionEvents()
     {
     }
 
     /**
-     * Test attribute "application_display_name"
+     * Test attribute "applicationDisplayName"
      */
     public function testPropertyApplicationDisplayName()
     {
@@ -138,7 +138,7 @@ class WebhookInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "last_modified"
+     * Test attribute "lastModified"
      */
     public function testPropertyLastModified()
     {
@@ -152,14 +152,14 @@ class WebhookInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "application_name"
+     * Test attribute "applicationName"
      */
     public function testPropertyApplicationName()
     {
     }
 
     /**
-     * Test attribute "resource_type"
+     * Test attribute "resourceType"
      */
     public function testPropertyResourceType()
     {

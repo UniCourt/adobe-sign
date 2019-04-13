@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * SupportingDocumentTest Class Doc Comment
  *
  * @category    Class
  * @description SupportingDocument
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,21 +75,21 @@ class SupportingDocumentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_label"
+     * Test attribute "displayLabel"
      */
     public function testPropertyDisplayLabel()
     {
     }
 
     /**
-     * Test attribute "num_pages"
+     * Test attribute "numPages"
      */
     public function testPropertyNumPages()
     {
     }
 
     /**
-     * Test attribute "field_name"
+     * Test attribute "fieldName"
      */
     public function testPropertyFieldName()
     {
@@ -103,7 +103,7 @@ class SupportingDocumentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "mime_type"
+     * Test attribute "mimeType"
      */
     public function testPropertyMimeType()
     {

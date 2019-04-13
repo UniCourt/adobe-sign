@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * FileInfoTest Class Doc Comment
  *
  * @category    Class
  * @description FileInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "transient_document_id"
+     * Test attribute "transientDocumentId"
      */
     public function testPropertyTransientDocumentId()
     {
@@ -96,7 +96,7 @@ class FileInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "url_file_info"
+     * Test attribute "urlFileInfo"
      */
     public function testPropertyUrlFileInfo()
     {

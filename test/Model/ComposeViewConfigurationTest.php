@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ComposeViewConfigurationTest Class Doc Comment
  *
  * @category    Class
  * @description ComposeViewConfiguration
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,14 +75,14 @@ class ComposeViewConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "file_upload_options"
+     * Test attribute "fileUploadOptions"
      */
     public function testPropertyFileUploadOptions()
     {
     }
 
     /**
-     * Test attribute "is_preview_selected"
+     * Test attribute "isPreviewSelected"
      */
     public function testPropertyIsPreviewSelected()
     {

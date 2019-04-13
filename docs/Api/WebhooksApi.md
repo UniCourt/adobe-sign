@@ -1,4 +1,4 @@
-# Swagger\Client\WebhooksApi
+# Adobe\ESign\WebhooksApi
 
 All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **createWebhook**
-> \Swagger\Client\Model\WebhookCreationResponse createWebhook($authorization, $webhook_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\WebhookCreationResponse createWebhook($authorization, $webhookInfo, $xApiUser, $xOnBehalfOfUser)
 
 Creates a webhook.
 
@@ -24,18 +24,18 @@ This is a primary endpoint which is used to create a new webhook. A webhook can 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_write')\" oncontextmenu=\"this.href=oauthDoc('webhook_write')\" target=\"oauthDoc\">webhook_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$webhook_info = new \Swagger\Client\Model\WebhookInfo(); // \Swagger\Client\Model\WebhookInfo | Information about the webhook that you want to create
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$webhookInfo = new \Adobe\ESign\Model\WebhookInfo(); // \Adobe\ESign\Model\WebhookInfo | Information about the webhook that you want to create
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createWebhook($authorization, $webhook_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createWebhook($authorization, $webhookInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -48,13 +48,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **webhook_info** | [**\Swagger\Client\Model\WebhookInfo**](../Model/WebhookInfo.md)| Information about the webhook that you want to create |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **webhookInfo** | [**\Adobe\ESign\Model\WebhookInfo**](../Model/WebhookInfo.md)| Information about the webhook that you want to create |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WebhookCreationResponse**](../Model/WebhookCreationResponse.md)
+[**\Adobe\ESign\Model\WebhookCreationResponse**](../Model/WebhookCreationResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteWebhook**
-> deleteWebhook($authorization, $if_match, $webhook_id, $x_api_user, $x_on_behalf_of_user)
+> deleteWebhook($authorization, $ifMatch, $webhookId, $xApiUser, $xOnBehalfOfUser)
 
 Deletes a webhook.
 
@@ -77,19 +77,19 @@ Deletes a webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_retention')\" oncontextmenu=\"this.href=oauthDoc('webhook_retention')\" target=\"oauthDoc\">webhook_retention</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$webhook_id = "webhook_id_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$webhookId = "webhookId_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->deleteWebhook($authorization, $if_match, $webhook_id, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->deleteWebhook($authorization, $ifMatch, $webhookId, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
@@ -101,10 +101,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_retention&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_retention&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_retention&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **webhook_id** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **webhookId** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -122,7 +122,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWebhookInfo**
-> \Swagger\Client\Model\WebhookInfo getWebhookInfo($authorization, $webhook_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\WebhookInfo getWebhookInfo($authorization, $webhookId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the details of a webhook.
 
@@ -131,19 +131,19 @@ Retrieves the details of a webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_read')\" oncontextmenu=\"this.href=oauthDoc('webhook_read')\" target=\"oauthDoc\">webhook_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$webhook_id = "webhook_id_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$webhookId = "webhookId_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getWebhookInfo($authorization, $webhook_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getWebhookInfo($authorization, $webhookId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhookInfo: ', $e->getMessage(), PHP_EOL;
@@ -156,14 +156,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **webhook_id** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **webhookId** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WebhookInfo**](../Model/WebhookInfo.md)
+[**\Adobe\ESign\Model\WebhookInfo**](../Model/WebhookInfo.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWebhooks**
-> \Swagger\Client\Model\UserWebhooks getWebhooks($authorization, $x_api_user, $x_on_behalf_of_user, $show_in_active_webhooks, $scope, $resource_type, $cursor, $page_size)
+> \Adobe\ESign\Model\UserWebhooks getWebhooks($authorization, $xApiUser, $xOnBehalfOfUser, $showInActiveWebhooks, $scope, $resourceType, $cursor, $pageSize)
 
 Retrieves webhooks for a user.
 
@@ -186,22 +186,22 @@ Retrieves webhooks for a user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_read')\" oncontextmenu=\"this.href=oauthDoc('webhook_read')\" target=\"oauthDoc\">webhook_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$show_in_active_webhooks = true; // bool | A query parameter to fetch all the inactive webhooks along with the active webhooks.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$showInActiveWebhooks = true; // bool | A query parameter to fetch all the inactive webhooks along with the active webhooks.
 $scope = "scope_example"; // string | Scope of webhook. The possible values are ACCOUNT, GROUP, USER or RESOURCE
-$resource_type = "resource_type_example"; // string | The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT.
+$resourceType = "resourceType_example"; // string | The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT.
 $cursor = "cursor_example"; // string | Used to navigate through the pages. If not provided, returns the first page.
-$page_size = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
+$pageSize = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
 
 try {
-    $result = $apiInstance->getWebhooks($authorization, $x_api_user, $x_on_behalf_of_user, $show_in_active_webhooks, $scope, $resource_type, $cursor, $page_size);
+    $result = $apiInstance->getWebhooks($authorization, $xApiUser, $xOnBehalfOfUser, $showInActiveWebhooks, $scope, $resourceType, $cursor, $pageSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhooks: ', $e->getMessage(), PHP_EOL;
@@ -214,17 +214,17 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **show_in_active_webhooks** | **bool**| A query parameter to fetch all the inactive webhooks along with the active webhooks. | [optional]
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **showInActiveWebhooks** | **bool**| A query parameter to fetch all the inactive webhooks along with the active webhooks. | [optional]
  **scope** | **string**| Scope of webhook. The possible values are ACCOUNT, GROUP, USER or RESOURCE | [optional]
- **resource_type** | **string**| The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT. | [optional]
+ **resourceType** | **string**| The type of resource on which webhook was created. The possible values are AGREEMENT, WIDGET, MEGASIGN and LIBRARY_DOCUMENT. | [optional]
  **cursor** | **string**| Used to navigate through the pages. If not provided, returns the first page. | [optional]
- **page_size** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
+ **pageSize** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\UserWebhooks**](../Model/UserWebhooks.md)
+[**\Adobe\ESign\Model\UserWebhooks**](../Model/UserWebhooks.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWebhook**
-> updateWebhook($authorization, $if_match, $webhook_id, $webhook_info, $x_api_user, $x_on_behalf_of_user)
+> updateWebhook($authorization, $ifMatch, $webhookId, $webhookInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates a webhook.
 
@@ -247,20 +247,20 @@ Updates a webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_write')\" oncontextmenu=\"this.href=oauthDoc('webhook_write')\" target=\"oauthDoc\">webhook_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$webhook_id = "webhook_id_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
-$webhook_info = new \Swagger\Client\Model\WebhookInfo(); // \Swagger\Client\Model\WebhookInfo | Information necessary to update a webhook
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$webhookId = "webhookId_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
+$webhookInfo = new \Adobe\ESign\Model\WebhookInfo(); // \Adobe\ESign\Model\WebhookInfo | Information necessary to update a webhook
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWebhook($authorization, $if_match, $webhook_id, $webhook_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWebhook($authorization, $ifMatch, $webhookId, $webhookInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->updateWebhook: ', $e->getMessage(), PHP_EOL;
 }
@@ -272,11 +272,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **webhook_id** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
- **webhook_info** | [**\Swagger\Client\Model\WebhookInfo**](../Model/WebhookInfo.md)| Information necessary to update a webhook |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **webhookId** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
+ **webhookInfo** | [**\Adobe\ESign\Model\WebhookInfo**](../Model/WebhookInfo.md)| Information necessary to update a webhook |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -294,7 +294,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWebhookState**
-> updateWebhookState($authorization, $if_match, $webhook_id, $webhook_state_info, $x_api_user, $x_on_behalf_of_user)
+> updateWebhookState($authorization, $ifMatch, $webhookId, $webhookStateInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the state of a webhook identified by webhookId in the path.
 
@@ -303,20 +303,20 @@ Updates the state of a webhook identified by webhookId in the path.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WebhooksApi(
+$apiInstance = new Adobe\ESign\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('webhook_write')\" oncontextmenu=\"this.href=oauthDoc('webhook_write')\" target=\"oauthDoc\">webhook_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$webhook_id = "webhook_id_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
-$webhook_state_info = new \Swagger\Client\Model\WebhookStateInfo(); // \Swagger\Client\Model\WebhookStateInfo | 
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$webhookId = "webhookId_example"; // string | The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks.
+$webhookStateInfo = new \Adobe\ESign\Model\WebhookStateInfo(); // \Adobe\ESign\Model\WebhookStateInfo | 
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWebhookState($authorization, $if_match, $webhook_id, $webhook_state_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWebhookState($authorization, $ifMatch, $webhookId, $webhookStateInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->updateWebhookState: ', $e->getMessage(), PHP_EOL;
 }
@@ -328,11 +328,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;webhook_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;webhook_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **webhook_id** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
- **webhook_state_info** | [**\Swagger\Client\Model\WebhookStateInfo**](../Model/WebhookStateInfo.md)|  |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **webhookId** | **string**| The webhook identifier, as returned by the webhook creation API or retrieved from the API to fetch webhooks. |
+ **webhookStateInfo** | [**\Adobe\ESign\Model\WebhookStateInfo**](../Model/WebhookStateInfo.md)|  |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 

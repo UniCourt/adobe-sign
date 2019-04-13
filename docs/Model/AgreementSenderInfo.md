@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant_id** | **string** | The unique identifier of the sender of the agreement. | [optional] 
+**participantId** | **string** | The unique identifier of the sender of the agreement. | [optional] 
 **name** | **string** | Name of the sender, if available. | [optional] 
 **self** | **bool** | True if the sender is the same user that is calling the API. | [optional] 
 **company** | **string** | Company of the sender, if available. | [optional] 

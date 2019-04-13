@@ -1,4 +1,4 @@
-# Swagger\Client\WidgetsApi
+# Adobe\ESign\WidgetsApi
 
 All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **createShareOnWidget**
-> \Swagger\Client\Model\ShareCreationResponseList createShareOnWidget($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\ShareCreationResponseList createShareOnWidget($authorization, $widgetId, $shareCreationInfoList, $xApiUser, $xOnBehalfOfUser)
 
 Share a widget with someone.
 
@@ -38,19 +38,19 @@ Share a widget with someone.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$share_creation_info_list = new \Swagger\Client\Model\ShareCreationInfoList(); // \Swagger\Client\Model\ShareCreationInfoList | List of agreement share creation information objects.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$shareCreationInfoList = new \Adobe\ESign\Model\ShareCreationInfoList(); // \Adobe\ESign\Model\ShareCreationInfoList | List of agreement share creation information objects.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createShareOnWidget($authorization, $widget_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createShareOnWidget($authorization, $widgetId, $shareCreationInfoList, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->createShareOnWidget: ', $e->getMessage(), PHP_EOL;
@@ -63,14 +63,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **share_creation_info_list** | [**\Swagger\Client\Model\ShareCreationInfoList**](../Model/ShareCreationInfoList.md)| List of agreement share creation information objects. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **shareCreationInfoList** | [**\Adobe\ESign\Model\ShareCreationInfoList**](../Model/ShareCreationInfoList.md)| List of agreement share creation information objects. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ShareCreationResponseList**](../Model/ShareCreationResponseList.md)
+[**\Adobe\ESign\Model\ShareCreationResponseList**](../Model/ShareCreationResponseList.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createWidget**
-> \Swagger\Client\Model\WidgetCreationResponse createWidget($authorization, $widget_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\WidgetCreationResponse createWidget($authorization, $widgetInfo, $xApiUser, $xOnBehalfOfUser)
 
 Creates a widget and and returns the widgetId in the response to the client.
 
@@ -95,18 +95,18 @@ This is a primary endpoint which is used to create a new widget. You can create 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_info = new \Swagger\Client\Model\WidgetCreationInfoV6(); // \Swagger\Client\Model\WidgetCreationInfoV6 | Information about the widget that you want to create.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetInfo = new \Adobe\ESign\Model\WidgetCreationInfoV6(); // \Adobe\ESign\Model\WidgetCreationInfoV6 | Information about the widget that you want to create.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createWidget($authorization, $widget_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createWidget($authorization, $widgetInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->createWidget: ', $e->getMessage(), PHP_EOL;
@@ -119,13 +119,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_info** | [**\Swagger\Client\Model\WidgetCreationInfoV6**](../Model/WidgetCreationInfoV6.md)| Information about the widget that you want to create. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetInfo** | [**\Adobe\ESign\Model\WidgetCreationInfoV6**](../Model/WidgetCreationInfoV6.md)| Information about the widget that you want to create. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetCreationResponse**](../Model/WidgetCreationResponse.md)
+[**\Adobe\ESign\Model\WidgetCreationResponse**](../Model/WidgetCreationResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllDocumentsOfWidget**
-> \Swagger\Client\Model\WidgetDocuments getAllDocumentsOfWidget($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id)
+> \Adobe\ESign\Model\WidgetDocuments getAllDocumentsOfWidget($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId)
 
 Retrieves the IDs of the documents associated with widget.
 
@@ -148,21 +148,21 @@ Retrieves the IDs of the documents associated with widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$version_id = "version_id_example"; // string | The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$versionId = "versionId_example"; // string | The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used.
 
 try {
-    $result = $apiInstance->getAllDocumentsOfWidget($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id);
+    $result = $apiInstance->getAllDocumentsOfWidget($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getAllDocumentsOfWidget: ', $e->getMessage(), PHP_EOL;
@@ -175,16 +175,16 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **version_id** | **string**| The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **versionId** | **string**| The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetDocuments**](../Model/WidgetDocuments.md)
+[**\Adobe\ESign\Model\WidgetDocuments**](../Model/WidgetDocuments.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllWidgetMembers**
-> \Swagger\Client\Model\WidgetMembersInfo getAllWidgetMembers($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\WidgetMembersInfo getAllWidgetMembers($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves detailed member info along with IDs for different types of participants.
 
@@ -207,19 +207,19 @@ Retrieves detailed member info along with IDs for different types of participant
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAllWidgetMembers($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAllWidgetMembers($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getAllWidgetMembers: ', $e->getMessage(), PHP_EOL;
@@ -232,14 +232,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetMembersInfo**](../Model/WidgetMembersInfo.md)
+[**\Adobe\ESign\Model\WidgetMembersInfo**](../Model/WidgetMembersInfo.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDocumentOfWidget**
-> string getDocumentOfWidget($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> string getDocumentOfWidget($authorization, $widgetId, $documentId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the file stream of a document of a widget.
 
@@ -262,20 +262,20 @@ Retrieves the file stream of a document of a widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$document_id = "document_id_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified widget
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$documentId = "documentId_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified widget
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getDocumentOfWidget($authorization, $widget_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getDocumentOfWidget($authorization, $widgetId, $documentId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getDocumentOfWidget: ', $e->getMessage(), PHP_EOL;
@@ -288,11 +288,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **document_id** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified widget |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **documentId** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified widget |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
@@ -310,7 +310,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetAgreements**
-> \Swagger\Client\Model\WidgetAgreements getWidgetAgreements($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $show_hidden_agreements, $cursor, $page_size)
+> \Adobe\ESign\Model\WidgetAgreements getWidgetAgreements($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $showHiddenAgreements, $cursor, $pageSize)
 
 Retrieves agreements for the widget.
 
@@ -319,21 +319,21 @@ Retrieves agreements for the widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$show_hidden_agreements = true; // bool | A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$showHiddenAgreements = true; // bool | A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false.
 $cursor = "cursor_example"; // string | Used to navigate through the pages. If not provided, returns the first page.
-$page_size = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
+$pageSize = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
 
 try {
-    $result = $apiInstance->getWidgetAgreements($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $show_hidden_agreements, $cursor, $page_size);
+    $result = $apiInstance->getWidgetAgreements($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $showHiddenAgreements, $cursor, $pageSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetAgreements: ', $e->getMessage(), PHP_EOL;
@@ -346,16 +346,16 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **show_hidden_agreements** | **bool**| A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **showHiddenAgreements** | **bool**| A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. | [optional]
  **cursor** | **string**| Used to navigate through the pages. If not provided, returns the first page. | [optional]
- **page_size** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
+ **pageSize** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetAgreements**](../Model/WidgetAgreements.md)
+[**\Adobe\ESign\Model\WidgetAgreements**](../Model/WidgetAgreements.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetAllDocumentsImageUrls**
-> \Swagger\Client\Model\WidgetDocumentsImageUrlsInfo getWidgetAllDocumentsImageUrls($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only)
+> \Adobe\ESign\Model\WidgetDocumentsImageUrlsInfo getWidgetAllDocumentsImageUrls($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $imageSizes, $showImageAvailabilityOnly)
 
 Retrieves image urls of all visible pages of a document associated with a widget.
 
@@ -378,21 +378,21 @@ Retrieves image urls of all visible pages of a document associated with a widget
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$image_sizes = "image_sizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
-$show_image_availability_only = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$imageSizes = "imageSizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
+$showImageAvailabilityOnly = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
 
 try {
-    $result = $apiInstance->getWidgetAllDocumentsImageUrls($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $image_sizes, $show_image_availability_only);
+    $result = $apiInstance->getWidgetAllDocumentsImageUrls($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $imageSizes, $showImageAvailabilityOnly);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetAllDocumentsImageUrls: ', $e->getMessage(), PHP_EOL;
@@ -405,16 +405,16 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **image_sizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
- **show_image_availability_only** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **imageSizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
+ **showImageAvailabilityOnly** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetDocumentsImageUrlsInfo**](../Model/WidgetDocumentsImageUrlsInfo.md)
+[**\Adobe\ESign\Model\WidgetDocumentsImageUrlsInfo**](../Model/WidgetDocumentsImageUrlsInfo.md)
 
 ### Authorization
 
@@ -428,7 +428,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetAuditTrail**
-> string getWidgetAuditTrail($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> string getWidgetAuditTrail($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the audit trail of a widget identified by widgetId.
 
@@ -437,19 +437,19 @@ Retrieves the audit trail of a widget identified by widgetId.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getWidgetAuditTrail($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getWidgetAuditTrail($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetAuditTrail: ', $e->getMessage(), PHP_EOL;
@@ -462,10 +462,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
@@ -483,7 +483,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetCombinedDocument**
-> string getWidgetCombinedDocument($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_audit_report)
+> string getWidgetCombinedDocument($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $attachAuditReport)
 
 Retrieves a single combined PDF document for the documents associated with a widget.
 
@@ -492,22 +492,22 @@ Retrieves a single combined PDF document for the documents associated with a wid
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$version_id = "version_id_example"; // string | The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used.
-$attach_audit_report = true; // bool | When set to YES, attach an audit report to the signed Widget PDF. Default value is false
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$versionId = "versionId_example"; // string | The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$attachAuditReport = true; // bool | When set to YES, attach an audit report to the signed Widget PDF. Default value is false
 
 try {
-    $result = $apiInstance->getWidgetCombinedDocument($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_audit_report);
+    $result = $apiInstance->getWidgetCombinedDocument($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $attachAuditReport);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetCombinedDocument: ', $e->getMessage(), PHP_EOL;
@@ -520,13 +520,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **version_id** | **string**| The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
- **attach_audit_report** | **bool**| When set to YES, attach an audit report to the signed Widget PDF. Default value is false | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **versionId** | **string**| The version identifier of widget as provided by the API which retrieves information of a specific widget. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The ID of the participant to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **attachAuditReport** | **bool**| When set to YES, attach an audit report to the signed Widget PDF. Default value is false | [optional]
 
 ### Return type
 
@@ -544,7 +544,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetEvents**
-> \Swagger\Client\Model\WidgetEventList getWidgetEvents($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\WidgetEventList getWidgetEvents($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the events information for a widget.
 
@@ -553,19 +553,19 @@ Retrieves the events information for a widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getWidgetEvents($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getWidgetEvents($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetEvents: ', $e->getMessage(), PHP_EOL;
@@ -578,14 +578,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetEventList**](../Model/WidgetEventList.md)
+[**\Adobe\ESign\Model\WidgetEventList**](../Model/WidgetEventList.md)
 
 ### Authorization
 
@@ -599,7 +599,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetFormData**
-> string getWidgetFormData($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user)
+> string getWidgetFormData($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves data entered by the user into interactive form fields at the time they signed the widget
 
@@ -610,18 +610,18 @@ CSV file stream containing form data information
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getWidgetFormData($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getWidgetFormData($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetFormData: ', $e->getMessage(), PHP_EOL;
@@ -634,9 +634,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -654,7 +654,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetInfo**
-> \Swagger\Client\Model\WidgetCreationInfoV6 getWidgetInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\WidgetCreationInfoV6 getWidgetInfo($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the details of a widget.
 
@@ -663,19 +663,19 @@ Retrieves the details of a widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getWidgetInfo($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getWidgetInfo($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetInfo: ', $e->getMessage(), PHP_EOL;
@@ -688,14 +688,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetCreationInfoV6**](../Model/WidgetCreationInfoV6.md)
+[**\Adobe\ESign\Model\WidgetCreationInfoV6**](../Model/WidgetCreationInfoV6.md)
 
 ### Authorization
 
@@ -709,7 +709,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetNoteForApiUser**
-> \Swagger\Client\Model\Note getWidgetNoteForApiUser($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\Note getWidgetNoteForApiUser($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves the latest note of a widget for the API user.
 
@@ -718,18 +718,18 @@ Retrieves the latest note of a widget for the API user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getWidgetNoteForApiUser($authorization, $widget_id, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getWidgetNoteForApiUser($authorization, $widgetId, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetNoteForApiUser: ', $e->getMessage(), PHP_EOL;
@@ -742,13 +742,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Note**](../Model/Note.md)
+[**\Adobe\ESign\Model\Note**](../Model/Note.md)
 
 ### Authorization
 
@@ -762,7 +762,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetParticipantSet**
-> \Swagger\Client\Model\DetailedWidgetParticipantSetInfo getWidgetParticipantSet($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\DetailedWidgetParticipantSetInfo getWidgetParticipantSet($authorization, $widgetId, $participantSetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the participant set of a widget identified by widgetId in the path.
 
@@ -771,20 +771,20 @@ Retrieves the participant set of a widget identified by widgetId in the path.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getWidgetParticipantSet($authorization, $widget_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getWidgetParticipantSet($authorization, $widgetId, $participantSetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetParticipantSet: ', $e->getMessage(), PHP_EOL;
@@ -797,15 +797,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **participant_set_id** | **string**| The participant set identifier |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **participantSetId** | **string**| The participant set identifier |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\DetailedWidgetParticipantSetInfo**](../Model/DetailedWidgetParticipantSetInfo.md)
+[**\Adobe\ESign\Model\DetailedWidgetParticipantSetInfo**](../Model/DetailedWidgetParticipantSetInfo.md)
 
 ### Authorization
 
@@ -819,7 +819,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetSecurityOptionsForParticipation**
-> \Swagger\Client\Model\ParticipantSecurityOption getWidgetSecurityOptionsForParticipation($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user)
+> \Adobe\ESign\Model\ParticipantSecurityOption getWidgetSecurityOptionsForParticipation($authorization, $widgetId, $participantSetId, $participantId, $ifNoneMatch, $xApiUser)
 
 Retrieves the security options for a particular participant.
 
@@ -828,20 +828,20 @@ Retrieves the security options for a particular participant.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$participant_id = "participant_id_example"; // string | The participant identifier
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$participantId = "participantId_example"; // string | The participant identifier
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $result = $apiInstance->getWidgetSecurityOptionsForParticipation($authorization, $widget_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+    $result = $apiInstance->getWidgetSecurityOptionsForParticipation($authorization, $widgetId, $participantSetId, $participantId, $ifNoneMatch, $xApiUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetSecurityOptionsForParticipation: ', $e->getMessage(), PHP_EOL;
@@ -854,15 +854,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **participant_set_id** | **string**| The participant set identifier |
- **participant_id** | **string**| The participant identifier |
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **participantSetId** | **string**| The participant set identifier |
+ **participantId** | **string**| The participant identifier |
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)
+[**\Adobe\ESign\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)
 
 ### Authorization
 
@@ -876,7 +876,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgetView**
-> \Swagger\Client\Model\WidgetViews getWidgetView($authorization, $widget_id, $widget_view_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\WidgetViews getWidgetView($authorization, $widgetId, $widgetViewInfo, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves the requested views for a widget.
 
@@ -885,19 +885,19 @@ Retrieves the requested views for a widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a> - widget read is always required</li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login</a> - Required additionally if the autoLoginUser parameter is set to true</li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$widget_view_info = new \Swagger\Client\Model\WidgetViewInfo(); // \Swagger\Client\Model\WidgetViewInfo | Name of the required view and its desired configuration.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$widgetViewInfo = new \Adobe\ESign\Model\WidgetViewInfo(); // \Adobe\ESign\Model\WidgetViewInfo | Name of the required view and its desired configuration.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getWidgetView($authorization, $widget_id, $widget_view_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getWidgetView($authorization, $widgetId, $widgetViewInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgetView: ', $e->getMessage(), PHP_EOL;
@@ -910,14 +910,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt; - widget read is always required&lt;/li&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;user_login&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;user_login&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;user_login&lt;/a&gt; - Required additionally if the autoLoginUser parameter is set to true&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **widget_view_info** | [**\Swagger\Client\Model\WidgetViewInfo**](../Model/WidgetViewInfo.md)| Name of the required view and its desired configuration. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **widgetViewInfo** | [**\Adobe\ESign\Model\WidgetViewInfo**](../Model/WidgetViewInfo.md)| Name of the required view and its desired configuration. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\WidgetViews**](../Model/WidgetViews.md)
+[**\Adobe\ESign\Model\WidgetViews**](../Model/WidgetViews.md)
 
 ### Authorization
 
@@ -931,7 +931,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWidgets**
-> \Swagger\Client\Model\UserWidgets getWidgets($authorization, $x_api_user, $x_on_behalf_of_user, $show_hidden_widgets, $cursor, $page_size)
+> \Adobe\ESign\Model\UserWidgets getWidgets($authorization, $xApiUser, $xOnBehalfOfUser, $showHiddenWidgets, $cursor, $pageSize)
 
 Retrieves widgets for a user.
 
@@ -940,20 +940,20 @@ Retrieves widgets for a user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_read')\" oncontextmenu=\"this.href=oauthDoc('widget_read')\" target=\"oauthDoc\">widget_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$show_hidden_widgets = true; // bool | A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$showHiddenWidgets = true; // bool | A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false.
 $cursor = "cursor_example"; // string | Used to navigate through the pages. If not provided, returns the first page.
-$page_size = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
+$pageSize = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
 
 try {
-    $result = $apiInstance->getWidgets($authorization, $x_api_user, $x_on_behalf_of_user, $show_hidden_widgets, $cursor, $page_size);
+    $result = $apiInstance->getWidgets($authorization, $xApiUser, $xOnBehalfOfUser, $showHiddenWidgets, $cursor, $pageSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->getWidgets: ', $e->getMessage(), PHP_EOL;
@@ -966,15 +966,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **show_hidden_widgets** | **bool**| A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. | [optional]
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **showHiddenWidgets** | **bool**| A query parameter to fetch all the hidden widgets along with the visible widgets. Default value is false. | [optional]
  **cursor** | **string**| Used to navigate through the pages. If not provided, returns the first page. | [optional]
- **page_size** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
+ **pageSize** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\UserWidgets**](../Model/UserWidgets.md)
+[**\Adobe\ESign\Model\UserWidgets**](../Model/UserWidgets.md)
 
 ### Authorization
 
@@ -988,7 +988,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWidget**
-> updateWidget($authorization, $if_match, $widget_id, $widget_info, $x_api_user, $x_on_behalf_of_user)
+> updateWidget($authorization, $ifMatch, $widgetId, $widgetInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates a widget.
 
@@ -997,20 +997,20 @@ Updates a widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$widget_info = new \Swagger\Client\Model\WidgetInfo(); // \Swagger\Client\Model\WidgetInfo | Widget update information object.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$widgetInfo = new \Adobe\ESign\Model\WidgetInfo(); // \Adobe\ESign\Model\WidgetInfo | Widget update information object.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWidget($authorization, $if_match, $widget_id, $widget_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWidget($authorization, $ifMatch, $widgetId, $widgetInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->updateWidget: ', $e->getMessage(), PHP_EOL;
 }
@@ -1022,11 +1022,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **widget_info** | [**\Swagger\Client\Model\WidgetInfo**](../Model/WidgetInfo.md)| Widget update information object. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **widgetInfo** | [**\Adobe\ESign\Model\WidgetInfo**](../Model/WidgetInfo.md)| Widget update information object. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1044,7 +1044,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWidgetNoteForApiUser**
-> updateWidgetNoteForApiUser($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user)
+> updateWidgetNoteForApiUser($authorization, $widgetId, $note, $xApiUser, $xOnBehalfOfUser)
 
 Updates the latest note of a widget for the API user.
 
@@ -1053,19 +1053,19 @@ Updates the latest note of a widget for the API user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$note = new \Swagger\Client\Model\Note(); // \Swagger\Client\Model\Note | The note to be associated with the widget.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$note = new \Adobe\ESign\Model\Note(); // \Adobe\ESign\Model\Note | The note to be associated with the widget.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWidgetNoteForApiUser($authorization, $widget_id, $note, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWidgetNoteForApiUser($authorization, $widgetId, $note, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->updateWidgetNoteForApiUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1077,10 +1077,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **note** | [**\Swagger\Client\Model\Note**](../Model/Note.md)| The note to be associated with the widget. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **note** | [**\Adobe\ESign\Model\Note**](../Model/Note.md)| The note to be associated with the widget. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1098,7 +1098,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWidgetSecurityOptionsForParticipation**
-> updateWidgetSecurityOptionsForParticipation($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user)
+> updateWidgetSecurityOptionsForParticipation($authorization, $ifMatch, $widgetId, $participantSetId, $participantId, $participantSecurityOption, $xApiUser)
 
 Updates the security options for a particular participant.
 
@@ -1107,21 +1107,21 @@ Updates the security options for a particular participant.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$participant_id = "participant_id_example"; // string | The participant identifier
-$participant_security_option = new \Swagger\Client\Model\ParticipantSecurityOption(); // \Swagger\Client\Model\ParticipantSecurityOption | Security options that apply to the participant
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$participantId = "participantId_example"; // string | The participant identifier
+$participantSecurityOption = new \Adobe\ESign\Model\ParticipantSecurityOption(); // \Adobe\ESign\Model\ParticipantSecurityOption | Security options that apply to the participant
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $apiInstance->updateWidgetSecurityOptionsForParticipation($authorization, $if_match, $widget_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+    $apiInstance->updateWidgetSecurityOptionsForParticipation($authorization, $ifMatch, $widgetId, $participantSetId, $participantId, $participantSecurityOption, $xApiUser);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->updateWidgetSecurityOptionsForParticipation: ', $e->getMessage(), PHP_EOL;
 }
@@ -1133,12 +1133,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **participant_set_id** | **string**| The participant set identifier |
- **participant_id** | **string**| The participant identifier |
- **participant_security_option** | [**\Swagger\Client\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)| Security options that apply to the participant |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **participantSetId** | **string**| The participant set identifier |
+ **participantId** | **string**| The participant identifier |
+ **participantSecurityOption** | [**\Adobe\ESign\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)| Security options that apply to the participant |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
@@ -1156,7 +1156,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWidgetState**
-> updateWidgetState($authorization, $if_match, $widget_id, $widget_state_info, $x_api_user, $x_on_behalf_of_user)
+> updateWidgetState($authorization, $ifMatch, $widgetId, $widgetStateInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the state of a widget identified by widgetId in the path.
 
@@ -1167,20 +1167,20 @@ This endpoint can be used by creator of the widget to transition between the sta
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$widget_state_info = new \Swagger\Client\Model\WidgetStateInfo(); // \Swagger\Client\Model\WidgetStateInfo | 
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$widgetStateInfo = new \Adobe\ESign\Model\WidgetStateInfo(); // \Adobe\ESign\Model\WidgetStateInfo | 
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWidgetState($authorization, $if_match, $widget_id, $widget_state_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWidgetState($authorization, $ifMatch, $widgetId, $widgetStateInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->updateWidgetState: ', $e->getMessage(), PHP_EOL;
 }
@@ -1192,11 +1192,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **widget_state_info** | [**\Swagger\Client\Model\WidgetStateInfo**](../Model/WidgetStateInfo.md)|  |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **widgetStateInfo** | [**\Adobe\ESign\Model\WidgetStateInfo**](../Model/WidgetStateInfo.md)|  |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1214,7 +1214,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWidgetVisibility**
-> updateWidgetVisibility($authorization, $widget_id, $visibility_info, $x_api_user, $x_on_behalf_of_user)
+> updateWidgetVisibility($authorization, $widgetId, $visibilityInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the visibility of widget.
 
@@ -1223,19 +1223,19 @@ Updates the visibility of widget.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\WidgetsApi(
+$apiInstance = new Adobe\ESign\Api\WidgetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('widget_write')\" oncontextmenu=\"this.href=oauthDoc('widget_write')\" target=\"oauthDoc\">widget_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$widget_id = "widget_id_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
-$visibility_info = new \Swagger\Client\Model\VisibilityInfo(); // \Swagger\Client\Model\VisibilityInfo | Information to update visibility of widget
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$widgetId = "widgetId_example"; // string | The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets.
+$visibilityInfo = new \Adobe\ESign\Model\VisibilityInfo(); // \Adobe\ESign\Model\VisibilityInfo | Information to update visibility of widget
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateWidgetVisibility($authorization, $widget_id, $visibility_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateWidgetVisibility($authorization, $widgetId, $visibilityInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling WidgetsApi->updateWidgetVisibility: ', $e->getMessage(), PHP_EOL;
 }
@@ -1247,10 +1247,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;widget_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;widget_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **widget_id** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
- **visibility_info** | [**\Swagger\Client\Model\VisibilityInfo**](../Model/VisibilityInfo.md)| Information to update visibility of widget |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **widgetId** | **string**| The widget identifier, as returned by the widget creation API or retrieved from the API to fetch widgets. |
+ **visibilityInfo** | [**\Adobe\ESign\Model\VisibilityInfo**](../Model/VisibilityInfo.md)| Information to update visibility of widget |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 

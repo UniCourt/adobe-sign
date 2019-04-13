@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * CombinedDocumentPagesInfoTest Class Doc Comment
  *
  * @category    Class
  * @description CombinedDocumentPagesInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class CombinedDocumentPagesInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "document_pages_info"
+     * Test attribute "documentPagesInfo"
      */
     public function testPropertyDocumentPagesInfo()
     {

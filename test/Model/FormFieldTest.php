@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * FormFieldTest Class Doc Comment
  *
  * @category    Class
  * @description A form field for an agreement.
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,35 +75,35 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "radio_check_type"
+     * Test attribute "radioCheckType"
      */
     public function testPropertyRadioCheckType()
     {
     }
 
     /**
-     * Test attribute "border_color"
+     * Test attribute "borderColor"
      */
     public function testPropertyBorderColor()
     {
     }
 
     /**
-     * Test attribute "value_expression"
+     * Test attribute "valueExpression"
      */
     public function testPropertyValueExpression()
     {
     }
 
     /**
-     * Test attribute "masking_text"
+     * Test attribute "maskingText"
      */
     public function testPropertyMaskingText()
     {
     }
 
     /**
-     * Test attribute "default_value"
+     * Test attribute "defaultValue"
      */
     public function testPropertyDefaultValue()
     {
@@ -117,7 +117,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "min_length"
+     * Test attribute "minLength"
      */
     public function testPropertyMinLength()
     {
@@ -138,7 +138,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hidden_options"
+     * Test attribute "hiddenOptions"
      */
     public function testPropertyHiddenOptions()
     {
@@ -152,42 +152,42 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "validation_data"
+     * Test attribute "validationData"
      */
     public function testPropertyValidationData()
     {
     }
 
     /**
-     * Test attribute "min_value"
+     * Test attribute "minValue"
      */
     public function testPropertyMinValue()
     {
     }
 
     /**
-     * Test attribute "border_width"
+     * Test attribute "borderWidth"
      */
     public function testPropertyBorderWidth()
     {
     }
 
     /**
-     * Test attribute "url_overridable"
+     * Test attribute "urlOverridable"
      */
     public function testPropertyUrlOverridable()
     {
     }
 
     /**
-     * Test attribute "input_type"
+     * Test attribute "inputType"
      */
     public function testPropertyInputType()
     {
     }
 
     /**
-     * Test attribute "border_style"
+     * Test attribute "borderStyle"
      */
     public function testPropertyBorderStyle()
     {
@@ -201,7 +201,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "content_type"
+     * Test attribute "contentType"
      */
     public function testPropertyContentType()
     {
@@ -215,7 +215,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_label"
+     * Test attribute "displayLabel"
      */
     public function testPropertyDisplayLabel()
     {
@@ -229,7 +229,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "background_color"
+     * Test attribute "backgroundColor"
      */
     public function testPropertyBackgroundColor()
     {
@@ -243,56 +243,56 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_format_type"
+     * Test attribute "displayFormatType"
      */
     public function testPropertyDisplayFormatType()
     {
     }
 
     /**
-     * Test attribute "max_value"
+     * Test attribute "maxValue"
      */
     public function testPropertyMaxValue()
     {
     }
 
     /**
-     * Test attribute "validation_err_msg"
+     * Test attribute "validationErrMsg"
      */
     public function testPropertyValidationErrMsg()
     {
     }
 
     /**
-     * Test attribute "display_format"
+     * Test attribute "displayFormat"
      */
     public function testPropertyDisplayFormat()
     {
     }
 
     /**
-     * Test attribute "visible_options"
+     * Test attribute "visibleOptions"
      */
     public function testPropertyVisibleOptions()
     {
     }
 
     /**
-     * Test attribute "read_only"
+     * Test attribute "readOnly"
      */
     public function testPropertyReadOnly()
     {
     }
 
     /**
-     * Test attribute "font_name"
+     * Test attribute "fontName"
      */
     public function testPropertyFontName()
     {
     }
 
     /**
-     * Test attribute "conditional_action"
+     * Test attribute "conditionalAction"
      */
     public function testPropertyConditionalAction()
     {
@@ -306,7 +306,7 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "font_size"
+     * Test attribute "fontSize"
      */
     public function testPropertyFontSize()
     {
@@ -334,14 +334,14 @@ class FormFieldTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "font_color"
+     * Test attribute "fontColor"
      */
     public function testPropertyFontColor()
     {
     }
 
     /**
-     * Test attribute "max_length"
+     * Test attribute "maxLength"
      */
     public function testPropertyMaxLength()
     {

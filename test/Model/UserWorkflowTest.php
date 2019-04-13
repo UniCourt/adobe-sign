@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * UserWorkflowTest Class Doc Comment
  *
  * @category    Class
  * @description UserWorkflow
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class UserWorkflowTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "scope_id"
+     * Test attribute "scopeId"
      */
     public function testPropertyScopeId()
     {
@@ -89,7 +89,7 @@ class UserWorkflowTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "display_name"
+     * Test attribute "displayName"
      */
     public function testPropertyDisplayName()
     {

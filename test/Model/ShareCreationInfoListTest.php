@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ShareCreationInfoListTest Class Doc Comment
  *
  * @category    Class
  * @description ShareCreationInfoList
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class ShareCreationInfoListTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "share_creation_info"
+     * Test attribute "shareCreationInfo"
      */
     public function testPropertyShareCreationInfo()
     {

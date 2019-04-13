@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * WidgetCreationInfoV6Test Class Doc Comment
  *
  * @category    Class
  * @description WidgetCreationInfoV6
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,14 +75,14 @@ class WidgetCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additional_participant_sets_info"
+     * Test attribute "additionalParticipantSetsInfo"
      */
     public function testPropertyAdditionalParticipantSetsInfo()
     {
     }
 
     /**
-     * Test attribute "creator_email"
+     * Test attribute "creatorEmail"
      */
     public function testPropertyCreatorEmail()
     {
@@ -96,21 +96,21 @@ class WidgetCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "vaulting_info"
+     * Test attribute "vaultingInfo"
      */
     public function testPropertyVaultingInfo()
     {
     }
 
     /**
-     * Test attribute "security_option"
+     * Test attribute "securityOption"
      */
     public function testPropertySecurityOption()
     {
     }
 
     /**
-     * Test attribute "widget_participant_set_info"
+     * Test attribute "widgetParticipantSetInfo"
      */
     public function testPropertyWidgetParticipantSetInfo()
     {
@@ -124,7 +124,7 @@ class WidgetCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "created_date"
+     * Test attribute "createdDate"
      */
     public function testPropertyCreatedDate()
     {
@@ -138,21 +138,21 @@ class WidgetCreationInfoV6Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "completion_info"
+     * Test attribute "completionInfo"
      */
     public function testPropertyCompletionInfo()
     {
     }
 
     /**
-     * Test attribute "auth_failure_info"
+     * Test attribute "authFailureInfo"
      */
     public function testPropertyAuthFailureInfo()
     {
     }
 
     /**
-     * Test attribute "file_infos"
+     * Test attribute "fileInfos"
      */
     public function testPropertyFileInfos()
     {

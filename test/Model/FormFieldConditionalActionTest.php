@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * FormFieldConditionalActionTest Class Doc Comment
  *
  * @category    Class
  * @description Conditional actions to perfom on this form field.
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class FormFieldConditionalActionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "any_or_all"
+     * Test attribute "anyOrAll"
      */
     public function testPropertyAnyOrAll()
     {

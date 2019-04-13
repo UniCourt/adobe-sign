@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * SendOptionsTest Class Doc Comment
  *
  * @category    Class
  * @description SendOptions
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,21 +75,21 @@ class SendOptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "init_emails"
+     * Test attribute "initEmails"
      */
     public function testPropertyInitEmails()
     {
     }
 
     /**
-     * Test attribute "in_flight_emails"
+     * Test attribute "inFlightEmails"
      */
     public function testPropertyInFlightEmails()
     {
     }
 
     /**
-     * Test attribute "completion_emails"
+     * Test attribute "completionEmails"
      */
     public function testPropertyCompletionEmails()
     {

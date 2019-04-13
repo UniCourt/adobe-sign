@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * PageImageUrlTest Class Doc Comment
  *
  * @category    Class
  * @description PageImageUrl
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class PageImageUrlTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "page_number"
+     * Test attribute "pageNumber"
      */
     public function testPropertyPageNumber()
     {

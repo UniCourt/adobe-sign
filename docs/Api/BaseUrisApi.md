@@ -1,4 +1,4 @@
-# Swagger\Client\BaseUrisApi
+# Adobe\ESign\BaseUrisApi
 
 All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getBaseUris**
-> \Swagger\Client\Model\BaseUriInfo getBaseUris($authorization)
+> \Adobe\ESign\Model\BaseUriInfo getBaseUris($authorization)
 
 Gets the base uri to access other APIs. In case other APIs are accessed from a different end point, it will be considered an invalid request.
 
@@ -17,7 +17,7 @@ Gets the base uri to access other APIs. In case other APIs are accessed from a d
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\BaseUrisApi(
+$apiInstance = new Adobe\ESign\Api\BaseUrisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\BaseUriInfo**](../Model/BaseUriInfo.md)
+[**\Adobe\ESign\Model\BaseUriInfo**](../Model/BaseUriInfo.md)
 
 ### Authorization
 

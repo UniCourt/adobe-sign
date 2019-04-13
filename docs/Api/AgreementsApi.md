@@ -1,4 +1,4 @@
-# Swagger\Client\AgreementsApi
+# Adobe\ESign\AgreementsApi
 
 All URIs are relative to *https://secure.na1.echosign.com/api/rest/v6*
 
@@ -45,7 +45,7 @@ Method | HTTP request | Description
 
 
 # **addTemplateFieldsToAgreement**
-> \Swagger\Client\Model\AgreementFormFields addTemplateFieldsToAgreement($authorization, $if_match, $agreement_id, $form_field_post_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\AgreementFormFields addTemplateFieldsToAgreement($authorization, $ifMatch, $agreementId, $formFieldPostInfo, $xApiUser, $xOnBehalfOfUser)
 
 Adds template fields to an agreement
 
@@ -54,20 +54,20 @@ Adds template fields to an agreement
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$form_field_post_info = new \Swagger\Client\Model\FormFieldPostInfo(); // \Swagger\Client\Model\FormFieldPostInfo | List of form fields to add or replace
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$formFieldPostInfo = new \Adobe\ESign\Model\FormFieldPostInfo(); // \Adobe\ESign\Model\FormFieldPostInfo | List of form fields to add or replace
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->addTemplateFieldsToAgreement($authorization, $if_match, $agreement_id, $form_field_post_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->addTemplateFieldsToAgreement($authorization, $ifMatch, $agreementId, $formFieldPostInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->addTemplateFieldsToAgreement: ', $e->getMessage(), PHP_EOL;
@@ -80,15 +80,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **form_field_post_info** | [**\Swagger\Client\Model\FormFieldPostInfo**](../Model/FormFieldPostInfo.md)| List of form fields to add or replace |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **formFieldPostInfo** | [**\Adobe\ESign\Model\FormFieldPostInfo**](../Model/FormFieldPostInfo.md)| List of form fields to add or replace |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
+[**\Adobe\ESign\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAgreement**
-> \Swagger\Client\Model\AgreementCreationResponse createAgreement($authorization, $agreement_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\AgreementCreationResponse createAgreement($authorization, $agreementInfo, $xApiUser, $xOnBehalfOfUser)
 
 Creates an agreement. Sends it out for signatures, and returns the agreementID in the response to the client.
 
@@ -113,18 +113,18 @@ This is a primary endpoint which is used to create a new agreement. An agreement
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_info = new \Swagger\Client\Model\AgreementCreationInfo(); // \Swagger\Client\Model\AgreementCreationInfo | Information about the agreement that you want to create.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementInfo = new \Adobe\ESign\Model\AgreementCreationInfo(); // \Adobe\ESign\Model\AgreementCreationInfo | Information about the agreement that you want to create.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createAgreement($authorization, $agreement_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createAgreement($authorization, $agreementInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->createAgreement: ', $e->getMessage(), PHP_EOL;
@@ -137,13 +137,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_info** | [**\Swagger\Client\Model\AgreementCreationInfo**](../Model/AgreementCreationInfo.md)| Information about the agreement that you want to create. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementInfo** | [**\Adobe\ESign\Model\AgreementCreationInfo**](../Model/AgreementCreationInfo.md)| Information about the agreement that you want to create. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementCreationResponse**](../Model/AgreementCreationResponse.md)
+[**\Adobe\ESign\Model\AgreementCreationResponse**](../Model/AgreementCreationResponse.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAgreementView**
-> \Swagger\Client\Model\AgreementViews createAgreementView($authorization, $agreement_id, $agreement_view_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\AgreementViews createAgreementView($authorization, $agreementId, $agreementViewInfo, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves the latest state view url of agreement.
 
@@ -166,19 +166,19 @@ Retrieves the latest state view url of agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a> - agreement read is always required</li><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('user_login')\" oncontextmenu=\"this.href=oauthDoc('user_login')\" target=\"oauthDoc\">user_login</a> - Required additionally if the autoLoginUser parameter is set to true</li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$agreement_view_info = new \Swagger\Client\Model\AgreementViewInfo(); // \Swagger\Client\Model\AgreementViewInfo | Name of the required view and its desired configuration.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$agreementViewInfo = new \Adobe\ESign\Model\AgreementViewInfo(); // \Adobe\ESign\Model\AgreementViewInfo | Name of the required view and its desired configuration.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createAgreementView($authorization, $agreement_id, $agreement_view_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createAgreementView($authorization, $agreementId, $agreementViewInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->createAgreementView: ', $e->getMessage(), PHP_EOL;
@@ -191,14 +191,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt; - agreement read is always required&lt;/li&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;user_login&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;user_login&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;user_login&lt;/a&gt; - Required additionally if the autoLoginUser parameter is set to true&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **agreement_view_info** | [**\Swagger\Client\Model\AgreementViewInfo**](../Model/AgreementViewInfo.md)| Name of the required view and its desired configuration. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **agreementViewInfo** | [**\Adobe\ESign\Model\AgreementViewInfo**](../Model/AgreementViewInfo.md)| Name of the required view and its desired configuration. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementViews**](../Model/AgreementViews.md)
+[**\Adobe\ESign\Model\AgreementViews**](../Model/AgreementViews.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createDelegatedParticipantSets**
-> \Swagger\Client\Model\DelegationResponse createDelegatedParticipantSets($authorization, $agreement_id, $participant_set_id, $delegated_participant_set_info, $x_api_user)
+> \Adobe\ESign\Model\DelegationResponse createDelegatedParticipantSets($authorization, $agreementId, $participantSetId, $delegatedParticipantSetInfo, $xApiUser)
 
 Creates a participantSet to which the agreement is forwarded for taking appropriate action.
 
@@ -223,19 +223,19 @@ Participants marked as delegator can call this API endpoint.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$delegated_participant_set_info = new \Swagger\Client\Model\DelegatedParticipantSetInfo(); // \Swagger\Client\Model\DelegatedParticipantSetInfo | Information about the delegate participant Set
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$delegatedParticipantSetInfo = new \Adobe\ESign\Model\DelegatedParticipantSetInfo(); // \Adobe\ESign\Model\DelegatedParticipantSetInfo | Information about the delegate participant Set
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $result = $apiInstance->createDelegatedParticipantSets($authorization, $agreement_id, $participant_set_id, $delegated_participant_set_info, $x_api_user);
+    $result = $apiInstance->createDelegatedParticipantSets($authorization, $agreementId, $participantSetId, $delegatedParticipantSetInfo, $xApiUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->createDelegatedParticipantSets: ', $e->getMessage(), PHP_EOL;
@@ -248,14 +248,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **delegated_participant_set_info** | [**\Swagger\Client\Model\DelegatedParticipantSetInfo**](../Model/DelegatedParticipantSetInfo.md)| Information about the delegate participant Set |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **delegatedParticipantSetInfo** | [**\Adobe\ESign\Model\DelegatedParticipantSetInfo**](../Model/DelegatedParticipantSetInfo.md)| Information about the delegate participant Set |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\DelegationResponse**](../Model/DelegationResponse.md)
+[**\Adobe\ESign\Model\DelegationResponse**](../Model/DelegationResponse.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReminderOnParticipant**
-> \Swagger\Client\Model\ReminderCreationResult createReminderOnParticipant($authorization, $agreement_id, $reminder_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\ReminderCreationResult createReminderOnParticipant($authorization, $agreementId, $reminderInfo, $xApiUser, $xOnBehalfOfUser)
 
 Creates a reminder on the specified participants of an agreement identified by agreementId in the path.
 
@@ -278,19 +278,19 @@ Creates a reminder on the specified participants of an agreement identified by a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$reminder_info = new \Swagger\Client\Model\ReminderInfo(); // \Swagger\Client\Model\ReminderInfo | The information about a reminder associated with a recipient of an agreement.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$reminderInfo = new \Adobe\ESign\Model\ReminderInfo(); // \Adobe\ESign\Model\ReminderInfo | The information about a reminder associated with a recipient of an agreement.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createReminderOnParticipant($authorization, $agreement_id, $reminder_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createReminderOnParticipant($authorization, $agreementId, $reminderInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->createReminderOnParticipant: ', $e->getMessage(), PHP_EOL;
@@ -303,14 +303,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **reminder_info** | [**\Swagger\Client\Model\ReminderInfo**](../Model/ReminderInfo.md)| The information about a reminder associated with a recipient of an agreement. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **reminderInfo** | [**\Adobe\ESign\Model\ReminderInfo**](../Model/ReminderInfo.md)| The information about a reminder associated with a recipient of an agreement. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ReminderCreationResult**](../Model/ReminderCreationResult.md)
+[**\Adobe\ESign\Model\ReminderCreationResult**](../Model/ReminderCreationResult.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createShareOnAgreement**
-> \Swagger\Client\Model\ShareCreationResponseList createShareOnAgreement($authorization, $agreement_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\ShareCreationResponseList createShareOnAgreement($authorization, $agreementId, $shareCreationInfoList, $xApiUser, $xOnBehalfOfUser)
 
 Share an agreement with someone.
 
@@ -333,19 +333,19 @@ Share an agreement with someone.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$share_creation_info_list = new \Swagger\Client\Model\ShareCreationInfoList(); // \Swagger\Client\Model\ShareCreationInfoList | List of agreement share creation information objects.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$shareCreationInfoList = new \Adobe\ESign\Model\ShareCreationInfoList(); // \Adobe\ESign\Model\ShareCreationInfoList | List of agreement share creation information objects.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->createShareOnAgreement($authorization, $agreement_id, $share_creation_info_list, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->createShareOnAgreement($authorization, $agreementId, $shareCreationInfoList, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->createShareOnAgreement: ', $e->getMessage(), PHP_EOL;
@@ -358,14 +358,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **share_creation_info_list** | [**\Swagger\Client\Model\ShareCreationInfoList**](../Model/ShareCreationInfoList.md)| List of agreement share creation information objects. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **shareCreationInfoList** | [**\Adobe\ESign\Model\ShareCreationInfoList**](../Model/ShareCreationInfoList.md)| List of agreement share creation information objects. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ShareCreationResponseList**](../Model/ShareCreationResponseList.md)
+[**\Adobe\ESign\Model\ShareCreationResponseList**](../Model/ShareCreationResponseList.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteDocumentsOfAgreement**
-> deleteDocumentsOfAgreement($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user)
+> deleteDocumentsOfAgreement($authorization, $ifMatch, $agreementId, $xApiUser, $xOnBehalfOfUser)
 
 Deletes all the documents of an agreement.
 
@@ -388,19 +388,19 @@ Deletes all the documents of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_retention')\" oncontextmenu=\"this.href=oauthDoc('agreement_retention')\" target=\"oauthDoc\">agreement_retention</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->deleteDocumentsOfAgreement($authorization, $if_match, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->deleteDocumentsOfAgreement($authorization, $ifMatch, $agreementId, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->deleteDocumentsOfAgreement: ', $e->getMessage(), PHP_EOL;
 }
@@ -412,10 +412,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_retention&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_retention&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_retention&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -433,7 +433,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementAuditTrail**
-> string getAgreementAuditTrail($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> string getAgreementAuditTrail($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the audit trail of an agreement identified by agreementId.
 
@@ -444,19 +444,19 @@ PDF file stream containing audit trail information
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAgreementAuditTrail($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAgreementAuditTrail($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementAuditTrail: ', $e->getMessage(), PHP_EOL;
@@ -469,10 +469,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
@@ -490,7 +490,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementCombinedDocument**
-> string getAgreementCombinedDocument($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
+> string getAgreementCombinedDocument($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $attachSupportingDocuments, $attachAuditReport)
 
 Retrieves a single combined PDF document for the documents associated with an agreement.
 
@@ -499,23 +499,23 @@ Retrieves a single combined PDF document for the documents associated with an ag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$version_id = "version_id_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
-$attach_supporting_documents = true; // bool | When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true.
-$attach_audit_report = true; // bool | When set to true, attach an audit report to the signed agreement PDF. Default value is false
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$versionId = "versionId_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$attachSupportingDocuments = true; // bool | When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true.
+$attachAuditReport = true; // bool | When set to true, attach an audit report to the signed agreement PDF. Default value is false
 
 try {
-    $result = $apiInstance->getAgreementCombinedDocument($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+    $result = $apiInstance->getAgreementCombinedDocument($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $attachSupportingDocuments, $attachAuditReport);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementCombinedDocument: ', $e->getMessage(), PHP_EOL;
@@ -528,14 +528,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **version_id** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
- **attach_supporting_documents** | **bool**| When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. | [optional]
- **attach_audit_report** | **bool**| When set to true, attach an audit report to the signed agreement PDF. Default value is false | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **versionId** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **attachSupportingDocuments** | **bool**| When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. | [optional]
+ **attachAuditReport** | **bool**| When set to true, attach an audit report to the signed agreement PDF. Default value is false | [optional]
 
 ### Return type
 
@@ -553,7 +553,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementCombinedDocumentPagesInfo**
-> \Swagger\Client\Model\CombinedDocumentPagesInfo getAgreementCombinedDocumentPagesInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info)
+> \Adobe\ESign\Model\CombinedDocumentPagesInfo getAgreementCombinedDocumentPagesInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $includeSupportingDocumentsPagesInfo)
 
 Retrieves info of all pages of a combined PDF document for the documents associated with an agreement.
 
@@ -562,20 +562,20 @@ Retrieves info of all pages of a combined PDF document for the documents associa
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$include_supporting_documents_pages_info = true; // bool | When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$includeSupportingDocumentsPagesInfo = true; // bool | When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document.
 
 try {
-    $result = $apiInstance->getAgreementCombinedDocumentPagesInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_supporting_documents_pages_info);
+    $result = $apiInstance->getAgreementCombinedDocumentPagesInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $includeSupportingDocumentsPagesInfo);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementCombinedDocumentPagesInfo: ', $e->getMessage(), PHP_EOL;
@@ -588,15 +588,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **include_supporting_documents_pages_info** | **bool**| When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **includeSupportingDocumentsPagesInfo** | **bool**| When set to true, returns info of all pages of supporting documents as well. Else, return the info of pages of only the original document. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\CombinedDocumentPagesInfo**](../Model/CombinedDocumentPagesInfo.md)
+[**\Adobe\ESign\Model\CombinedDocumentPagesInfo**](../Model/CombinedDocumentPagesInfo.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementCombinedDocumentUrl**
-> \Swagger\Client\Model\DocumentUrl getAgreementCombinedDocumentUrl($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report)
+> \Adobe\ESign\Model\DocumentUrl getAgreementCombinedDocumentUrl($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $versionId, $participantId, $attachSupportingDocuments, $attachAuditReport)
 
 Retrieves url of all visible pages of all the documents associated with an agreement.
 
@@ -619,22 +619,22 @@ Retrieves url of all visible pages of all the documents associated with an agree
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$version_id = "version_id_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
-$attach_supporting_documents = true; // bool | When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true.
-$attach_audit_report = true; // bool | When set to true, attach an audit report to the signed agreement PDF. Default value is false
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$versionId = "versionId_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$attachSupportingDocuments = true; // bool | When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true.
+$attachAuditReport = true; // bool | When set to true, attach an audit report to the signed agreement PDF. Default value is false
 
 try {
-    $result = $apiInstance->getAgreementCombinedDocumentUrl($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $attach_supporting_documents, $attach_audit_report);
+    $result = $apiInstance->getAgreementCombinedDocumentUrl($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $versionId, $participantId, $attachSupportingDocuments, $attachAuditReport);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementCombinedDocumentUrl: ', $e->getMessage(), PHP_EOL;
@@ -647,17 +647,17 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **version_id** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
- **attach_supporting_documents** | **bool**| When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. | [optional]
- **attach_audit_report** | **bool**| When set to true, attach an audit report to the signed agreement PDF. Default value is false | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **versionId** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **attachSupportingDocuments** | **bool**| When set to true, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true. | [optional]
+ **attachAuditReport** | **bool**| When set to true, attach an audit report to the signed agreement PDF. Default value is false | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\DocumentUrl**](../Model/DocumentUrl.md)
+[**\Adobe\ESign\Model\DocumentUrl**](../Model/DocumentUrl.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementEvents**
-> \Swagger\Client\Model\AgreementEventList getAgreementEvents($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\AgreementEventList getAgreementEvents($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the events information for an agreement.
 
@@ -680,19 +680,19 @@ Retrieves the events information for an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAgreementEvents($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAgreementEvents($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementEvents: ', $e->getMessage(), PHP_EOL;
@@ -705,14 +705,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementEventList**](../Model/AgreementEventList.md)
+[**\Adobe\ESign\Model\AgreementEventList**](../Model/AgreementEventList.md)
 
 ### Authorization
 
@@ -726,7 +726,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementFormData**
-> string getAgreementFormData($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> string getAgreementFormData($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves data entered into the interactive form fields of the agreement.
 
@@ -737,19 +737,19 @@ This API can only be called by the creator of the agreement
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAgreementFormData($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAgreementFormData($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementFormData: ', $e->getMessage(), PHP_EOL;
@@ -762,10 +762,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
@@ -783,7 +783,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementInfo**
-> \Swagger\Client\Model\AgreementInfo getAgreementInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\AgreementInfo getAgreementInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the current status of an agreement.
 
@@ -792,19 +792,19 @@ Retrieves the current status of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAgreementInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAgreementInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementInfo: ', $e->getMessage(), PHP_EOL;
@@ -817,14 +817,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementInfo**](../Model/AgreementInfo.md)
+[**\Adobe\ESign\Model\AgreementInfo**](../Model/AgreementInfo.md)
 
 ### Authorization
 
@@ -838,7 +838,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementNoteForApiUser**
-> \Swagger\Client\Model\Note getAgreementNoteForApiUser($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\Note getAgreementNoteForApiUser($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves the latest note associated with an agreement.
 
@@ -847,18 +847,18 @@ Retrieves the latest note associated with an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getAgreementNoteForApiUser($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getAgreementNoteForApiUser($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementNoteForApiUser: ', $e->getMessage(), PHP_EOL;
@@ -871,13 +871,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\Note**](../Model/Note.md)
+[**\Adobe\ESign\Model\Note**](../Model/Note.md)
 
 ### Authorization
 
@@ -891,7 +891,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementParticipantSet**
-> \Swagger\Client\Model\DetailedParticipantSetInfo getAgreementParticipantSet($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> \Adobe\ESign\Model\DetailedParticipantSetInfo getAgreementParticipantSet($authorization, $agreementId, $participantSetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the participant set of an agreement identified by agreementId in the path.
 
@@ -900,20 +900,20 @@ Retrieves the participant set of an agreement identified by agreementId in the p
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getAgreementParticipantSet($authorization, $agreement_id, $participant_set_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getAgreementParticipantSet($authorization, $agreementId, $participantSetId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementParticipantSet: ', $e->getMessage(), PHP_EOL;
@@ -926,15 +926,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\DetailedParticipantSetInfo**](../Model/DetailedParticipantSetInfo.md)
+[**\Adobe\ESign\Model\DetailedParticipantSetInfo**](../Model/DetailedParticipantSetInfo.md)
 
 ### Authorization
 
@@ -948,7 +948,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementReminder**
-> \Swagger\Client\Model\ReminderInfo getAgreementReminder($authorization, $agreement_id, $reminder_id, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\ReminderInfo getAgreementReminder($authorization, $agreementId, $reminderId, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves a specific reminder associated with an agreement
 
@@ -957,19 +957,19 @@ Retrieves a specific reminder associated with an agreement
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$reminder_id = "reminder_id_example"; // string | The reminder identifier
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$reminderId = "reminderId_example"; // string | The reminder identifier
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getAgreementReminder($authorization, $agreement_id, $reminder_id, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getAgreementReminder($authorization, $agreementId, $reminderId, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementReminder: ', $e->getMessage(), PHP_EOL;
@@ -982,14 +982,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **reminder_id** | **string**| The reminder identifier |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **reminderId** | **string**| The reminder identifier |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ReminderInfo**](../Model/ReminderInfo.md)
+[**\Adobe\ESign\Model\ReminderInfo**](../Model/ReminderInfo.md)
 
 ### Authorization
 
@@ -1003,7 +1003,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementReminders**
-> \Swagger\Client\Model\RemindersResponse getAgreementReminders($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $status)
+> \Adobe\ESign\Model\RemindersResponse getAgreementReminders($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $status)
 
 Retrieves the reminders of an agreement, identified by agreementId in the path.
 
@@ -1012,19 +1012,19 @@ Retrieves the reminders of an agreement, identified by agreementId in the path.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 $status = "status_example"; // string | A comma-separated list of reminder statuses of the reminders which should be returned in the response. Currently supported values are ACTIVE, CANCELLED, COMPLETE
 
 try {
-    $result = $apiInstance->getAgreementReminders($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $status);
+    $result = $apiInstance->getAgreementReminders($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementReminders: ', $e->getMessage(), PHP_EOL;
@@ -1037,14 +1037,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
  **status** | **string**| A comma-separated list of reminder statuses of the reminders which should be returned in the response. Currently supported values are ACTIVE, CANCELLED, COMPLETE | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\RemindersResponse**](../Model/RemindersResponse.md)
+[**\Adobe\ESign\Model\RemindersResponse**](../Model/RemindersResponse.md)
 
 ### Authorization
 
@@ -1058,7 +1058,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAgreementSecurityOptionsForParticipation**
-> \Swagger\Client\Model\ParticipantSecurityOption getAgreementSecurityOptionsForParticipation($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user)
+> \Adobe\ESign\Model\ParticipantSecurityOption getAgreementSecurityOptionsForParticipation($authorization, $agreementId, $participantSetId, $participantId, $ifNoneMatch, $xApiUser)
 
 Retrieves the security options for a particular participant.
 
@@ -1067,20 +1067,20 @@ Retrieves the security options for a particular participant.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$participant_id = "participant_id_example"; // string | The participant identifier
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$participantId = "participantId_example"; // string | The participant identifier
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $result = $apiInstance->getAgreementSecurityOptionsForParticipation($authorization, $agreement_id, $participant_set_id, $participant_id, $if_none_match, $x_api_user);
+    $result = $apiInstance->getAgreementSecurityOptionsForParticipation($authorization, $agreementId, $participantSetId, $participantId, $ifNoneMatch, $xApiUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAgreementSecurityOptionsForParticipation: ', $e->getMessage(), PHP_EOL;
@@ -1093,15 +1093,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **participant_id** | **string**| The participant identifier |
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **participantId** | **string**| The participant identifier |
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)
+[**\Adobe\ESign\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)
 
 ### Authorization
 
@@ -1115,7 +1115,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllAgreements**
-> \Swagger\Client\Model\UserAgreements getAllAgreements($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size)
+> \Adobe\ESign\Model\UserAgreements getAllAgreements($authorization, $xApiUser, $xOnBehalfOfUser, $externalId, $showHiddenAgreements, $cursor, $pageSize)
 
 Retrieves agreements for the user.
 
@@ -1124,21 +1124,21 @@ Retrieves agreements for the user.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$external_id = "external_id_example"; // string | Case-sensitive ExternalID for which you would like to retrieve agreement information. ExternalId is passed in the call to the agreement creation API.
-$show_hidden_agreements = true; // bool | A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$externalId = "externalId_example"; // string | Case-sensitive ExternalID for which you would like to retrieve agreement information. ExternalId is passed in the call to the agreement creation API.
+$showHiddenAgreements = true; // bool | A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false.
 $cursor = "cursor_example"; // string | Used to navigate through the pages. If not provided, returns the first page.
-$page_size = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
+$pageSize = 56; // int | Number of intended items in the response page. If not provided, it is decided by the application settings.
 
 try {
-    $result = $apiInstance->getAllAgreements($authorization, $x_api_user, $x_on_behalf_of_user, $external_id, $show_hidden_agreements, $cursor, $page_size);
+    $result = $apiInstance->getAllAgreements($authorization, $xApiUser, $xOnBehalfOfUser, $externalId, $showHiddenAgreements, $cursor, $pageSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAllAgreements: ', $e->getMessage(), PHP_EOL;
@@ -1151,16 +1151,16 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **external_id** | **string**| Case-sensitive ExternalID for which you would like to retrieve agreement information. ExternalId is passed in the call to the agreement creation API. | [optional]
- **show_hidden_agreements** | **bool**| A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. | [optional]
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **externalId** | **string**| Case-sensitive ExternalID for which you would like to retrieve agreement information. ExternalId is passed in the call to the agreement creation API. | [optional]
+ **showHiddenAgreements** | **bool**| A query parameter to fetch all the hidden agreements along with the visible agreements. Default value is false. | [optional]
  **cursor** | **string**| Used to navigate through the pages. If not provided, returns the first page. | [optional]
- **page_size** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
+ **pageSize** | **int**| Number of intended items in the response page. If not provided, it is decided by the application settings. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\UserAgreements**](../Model/UserAgreements.md)
+[**\Adobe\ESign\Model\UserAgreements**](../Model/UserAgreements.md)
 
 ### Authorization
 
@@ -1174,7 +1174,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllDocumentsImageUrlsOfAgreement**
-> \Swagger\Client\Model\DocumentsImageUrlsInfo getAllDocumentsImageUrlsOfAgreement($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only)
+> \Adobe\ESign\Model\DocumentsImageUrlsInfo getAllDocumentsImageUrlsOfAgreement($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $versionId, $participantId, $imageSizes, $includeSupportingDocumentsImageUrls, $showImageAvailabilityOnly)
 
 Retrieves image urls of all visible pages of all the documents associated with an agreement.
 
@@ -1183,23 +1183,23 @@ Retrieves image urls of all visible pages of all the documents associated with a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$version_id = "version_id_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
-$image_sizes = "image_sizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
-$include_supporting_documents_image_urls = true; // bool | When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents.
-$show_image_availability_only = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$versionId = "versionId_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$imageSizes = "imageSizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
+$includeSupportingDocumentsImageUrls = true; // bool | When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents.
+$showImageAvailabilityOnly = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
 
 try {
-    $result = $apiInstance->getAllDocumentsImageUrlsOfAgreement($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $version_id, $participant_id, $image_sizes, $include_supporting_documents_image_urls, $show_image_availability_only);
+    $result = $apiInstance->getAllDocumentsImageUrlsOfAgreement($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $versionId, $participantId, $imageSizes, $includeSupportingDocumentsImageUrls, $showImageAvailabilityOnly);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAllDocumentsImageUrlsOfAgreement: ', $e->getMessage(), PHP_EOL;
@@ -1212,18 +1212,18 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **version_id** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
- **image_sizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
- **include_supporting_documents_image_urls** | **bool**| When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. | [optional]
- **show_image_availability_only** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **versionId** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **imageSizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
+ **includeSupportingDocumentsImageUrls** | **bool**| When set to true, returns image urls of supporting documents as well. Else, returns image urls of only the original documents. | [optional]
+ **showImageAvailabilityOnly** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\DocumentsImageUrlsInfo**](../Model/DocumentsImageUrlsInfo.md)
+[**\Adobe\ESign\Model\DocumentsImageUrlsInfo**](../Model/DocumentsImageUrlsInfo.md)
 
 ### Authorization
 
@@ -1237,7 +1237,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllDocumentsOfAgreement**
-> \Swagger\Client\Model\AgreementDocuments getAllDocumentsOfAgreement($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format)
+> \Adobe\ESign\Model\AgreementDocuments getAllDocumentsOfAgreement($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $supportingDocumentContentFormat)
 
 Retrieves the IDs of the documents of an agreement identified by agreementId.
 
@@ -1246,22 +1246,22 @@ Retrieves the IDs of the documents of an agreement identified by agreementId.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$version_id = "version_id_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
-$participant_id = "participant_id_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
-$supporting_document_content_format = "supporting_document_content_format_example"; // string | Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$versionId = "versionId_example"; // string | The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used.
+$participantId = "participantId_example"; // string | The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used.
+$supportingDocumentContentFormat = "supportingDocumentContentFormat_example"; // string | Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF.
 
 try {
-    $result = $apiInstance->getAllDocumentsOfAgreement($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $version_id, $participant_id, $supporting_document_content_format);
+    $result = $apiInstance->getAllDocumentsOfAgreement($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $versionId, $participantId, $supportingDocumentContentFormat);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAllDocumentsOfAgreement: ', $e->getMessage(), PHP_EOL;
@@ -1274,17 +1274,17 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **version_id** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
- **participant_id** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
- **supporting_document_content_format** | **string**| Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **versionId** | **string**| The version identifier of agreement as provided by the API which retrieves information of a specific agreement. If not provided then latest version will be used. | [optional]
+ **participantId** | **string**| The participant identifier to be used to retrieve documents. If not mentioned, the participation of api caller is used. | [optional]
+ **supportingDocumentContentFormat** | **string**| Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. Default value is CONVERTED_PDF. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementDocuments**](../Model/AgreementDocuments.md)
+[**\Adobe\ESign\Model\AgreementDocuments**](../Model/AgreementDocuments.md)
 
 ### Authorization
 
@@ -1298,7 +1298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllMembers**
-> \Swagger\Client\Model\MembersInfo getAllMembers($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_next_participant_set)
+> \Adobe\ESign\Model\MembersInfo getAllMembers($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $includeNextParticipantSet)
 
 Retrieves information of members of the agreement.
 
@@ -1307,20 +1307,20 @@ Retrieves information of members of the agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$include_next_participant_set = true; // bool | A query parameter to fetch next active participation members. Default value is false.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$includeNextParticipantSet = true; // bool | A query parameter to fetch next active participation members. Default value is false.
 
 try {
-    $result = $apiInstance->getAllMembers($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $include_next_participant_set);
+    $result = $apiInstance->getAllMembers($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $includeNextParticipantSet);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getAllMembers: ', $e->getMessage(), PHP_EOL;
@@ -1333,15 +1333,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **include_next_participant_set** | **bool**| A query parameter to fetch next active participation members. Default value is false. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **includeNextParticipantSet** | **bool**| A query parameter to fetch next active participation members. Default value is false. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\MembersInfo**](../Model/MembersInfo.md)
+[**\Adobe\ESign\Model\MembersInfo**](../Model/MembersInfo.md)
 
 ### Authorization
 
@@ -1355,7 +1355,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDocumentImageUrlsOfAgreement**
-> \Swagger\Client\Model\AgreementDocumentImageUrlsInfo getDocumentImageUrlsOfAgreement($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page)
+> \Adobe\ESign\Model\AgreementDocumentImageUrlsInfo getDocumentImageUrlsOfAgreement($authorization, $agreementId, $documentId, $xApiUser, $xOnBehalfOfUser, $imageSizes, $showImageAvailabilityOnly, $startPage, $endPage)
 
 Retrieves image urls of all visible pages of a document associated with an agreement.
 
@@ -1364,23 +1364,23 @@ Retrieves image urls of all visible pages of a document associated with an agree
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$document_id = "document_id_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified agreement
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$image_sizes = "image_sizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
-$show_image_availability_only = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
-$start_page = 56; // int | Start of page number range for which imageUrls are requested. Starting page number should be greater than 0.
-$end_page = 56; // int | End of page number range for which imageUrls are requested.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$documentId = "documentId_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified agreement
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$imageSizes = "imageSizes_example"; // string | A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}.
+$showImageAvailabilityOnly = true; // bool | When set to true, returns only image availability. Else, returns both image urls and its availability.
+$startPage = 56; // int | Start of page number range for which imageUrls are requested. Starting page number should be greater than 0.
+$endPage = 56; // int | End of page number range for which imageUrls are requested.
 
 try {
-    $result = $apiInstance->getDocumentImageUrlsOfAgreement($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $image_sizes, $show_image_availability_only, $start_page, $end_page);
+    $result = $apiInstance->getDocumentImageUrlsOfAgreement($authorization, $agreementId, $documentId, $xApiUser, $xOnBehalfOfUser, $imageSizes, $showImageAvailabilityOnly, $startPage, $endPage);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getDocumentImageUrlsOfAgreement: ', $e->getMessage(), PHP_EOL;
@@ -1393,18 +1393,18 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **document_id** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified agreement |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **image_sizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
- **show_image_availability_only** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
- **start_page** | **int**| Start of page number range for which imageUrls are requested. Starting page number should be greater than 0. | [optional]
- **end_page** | **int**| End of page number range for which imageUrls are requested. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **documentId** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified agreement |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **imageSizes** | **string**| A comma separated list of image sizes i.e. {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_50_PERCENT, ZOOM_75_PERCENT, ZOOM_100_PERCENT, ZOOM_125_PERCENT, ZOOM_150_PERCENT, ZOOM_200_PERCENT}. Default sizes returned are {FIXED_WIDTH_50px, FIXED_WIDTH_250px, FIXED_WIDTH_675px, ZOOM_100_PERCENT}. | [optional]
+ **showImageAvailabilityOnly** | **bool**| When set to true, returns only image availability. Else, returns both image urls and its availability. | [optional]
+ **startPage** | **int**| Start of page number range for which imageUrls are requested. Starting page number should be greater than 0. | [optional]
+ **endPage** | **int**| End of page number range for which imageUrls are requested. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementDocumentImageUrlsInfo**](../Model/AgreementDocumentImageUrlsInfo.md)
+[**\Adobe\ESign\Model\AgreementDocumentImageUrlsInfo**](../Model/AgreementDocumentImageUrlsInfo.md)
 
 ### Authorization
 
@@ -1418,7 +1418,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDocumentOfAgreement**
-> string getDocumentOfAgreement($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match)
+> string getDocumentOfAgreement($authorization, $agreementId, $documentId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch)
 
 Retrieves the file stream of a document of an agreement.
 
@@ -1427,20 +1427,20 @@ Retrieves the file stream of a document of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$document_id = "document_id_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified agreement
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$documentId = "documentId_example"; // string | The document identifier, as retrieved from the API which fetches the documents of a specified agreement
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getDocumentOfAgreement($authorization, $agreement_id, $document_id, $x_api_user, $x_on_behalf_of_user, $if_none_match);
+    $result = $apiInstance->getDocumentOfAgreement($authorization, $agreementId, $documentId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getDocumentOfAgreement: ', $e->getMessage(), PHP_EOL;
@@ -1453,11 +1453,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **document_id** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified agreement |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **documentId** | **string**| The document identifier, as retrieved from the API which fetches the documents of a specified agreement |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
@@ -1475,7 +1475,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFormFields**
-> \Swagger\Client\Model\AgreementFormFields getFormFields($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $participant_email)
+> \Adobe\ESign\Model\AgreementFormFields getFormFields($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $participantEmail)
 
 Retrieves details of form fields of an agreement.
 
@@ -1484,20 +1484,20 @@ Retrieves details of form fields of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
-$participant_email = "participant_email_example"; // string | The email address of the participant to be used to retrieve its associated form fields.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$participantEmail = "participantEmail_example"; // string | The email address of the participant to be used to retrieve its associated form fields.
 
 try {
-    $result = $apiInstance->getFormFields($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user, $if_none_match, $participant_email);
+    $result = $apiInstance->getFormFields($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser, $ifNoneMatch, $participantEmail);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getFormFields: ', $e->getMessage(), PHP_EOL;
@@ -1510,15 +1510,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
- **participant_email** | **string**| The email address of the participant to be used to retrieve its associated form fields. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **participantEmail** | **string**| The email address of the participant to be used to retrieve its associated form fields. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
+[**\Adobe\ESign\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
 
 ### Authorization
 
@@ -1532,7 +1532,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMergeInfo**
-> \Swagger\Client\Model\FormFieldMergeInfo getMergeInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\FormFieldMergeInfo getMergeInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser)
 
 Retrieves the merge info stored with an agreement.
 
@@ -1541,18 +1541,18 @@ Retrieves the merge info stored with an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_read')\" oncontextmenu=\"this.href=oauthDoc('agreement_read')\" target=\"oauthDoc\">agreement_read</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->getMergeInfo($authorization, $agreement_id, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->getMergeInfo($authorization, $agreementId, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getMergeInfo: ', $e->getMessage(), PHP_EOL;
@@ -1565,13 +1565,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_read&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_read&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FormFieldMergeInfo**](../Model/FormFieldMergeInfo.md)
+[**\Adobe\ESign\Model\FormFieldMergeInfo**](../Model/FormFieldMergeInfo.md)
 
 ### Authorization
 
@@ -1585,7 +1585,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSigningUrl**
-> \Swagger\Client\Model\SigningUrlResponse getSigningUrl($authorization, $agreement_id, $x_api_user, $if_none_match)
+> \Adobe\ESign\Model\SigningUrlResponse getSigningUrl($authorization, $agreementId, $xApiUser, $ifNoneMatch)
 
 Retrieves the URL for the e-sign page for the current signer(s) of an agreement.
 
@@ -1594,18 +1594,18 @@ Retrieves the URL for the e-sign page for the current signer(s) of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$if_none_match = "if_none_match_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$ifNoneMatch = "ifNoneMatch_example"; // string | Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn't changed.
 
 try {
-    $result = $apiInstance->getSigningUrl($authorization, $agreement_id, $x_api_user, $if_none_match);
+    $result = $apiInstance->getSigningUrl($authorization, $agreementId, $xApiUser, $ifNoneMatch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->getSigningUrl: ', $e->getMessage(), PHP_EOL;
@@ -1618,13 +1618,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **if_none_match** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **ifNoneMatch** | **string**| Pass the value of the e-tag header obtained from the previous response to the same request to get a RESOURCE_NOT_MODIFIED(304) if the resource hasn&#39;t changed. | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\SigningUrlResponse**](../Model/SigningUrlResponse.md)
+[**\Adobe\ESign\Model\SigningUrlResponse**](../Model/SigningUrlResponse.md)
 
 ### Authorization
 
@@ -1638,7 +1638,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **rejectAgreementForParticipation**
-> rejectAgreementForParticipation($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $agreement_rejection_info, $x_api_user)
+> rejectAgreementForParticipation($authorization, $ifMatch, $agreementId, $participantSetId, $participantId, $agreementRejectionInfo, $xApiUser)
 
 Rejects the agreement for a participant.
 
@@ -1647,21 +1647,21 @@ Rejects the agreement for a participant.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$participant_id = "participant_id_example"; // string | The participant identifier
-$agreement_rejection_info = new \Swagger\Client\Model\AgreementRejectionInfo(); // \Swagger\Client\Model\AgreementRejectionInfo | Participant rejection information required for rejecting the agreement
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$participantId = "participantId_example"; // string | The participant identifier
+$agreementRejectionInfo = new \Adobe\ESign\Model\AgreementRejectionInfo(); // \Adobe\ESign\Model\AgreementRejectionInfo | Participant rejection information required for rejecting the agreement
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $apiInstance->rejectAgreementForParticipation($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $agreement_rejection_info, $x_api_user);
+    $apiInstance->rejectAgreementForParticipation($authorization, $ifMatch, $agreementId, $participantSetId, $participantId, $agreementRejectionInfo, $xApiUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->rejectAgreementForParticipation: ', $e->getMessage(), PHP_EOL;
 }
@@ -1673,12 +1673,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **participant_id** | **string**| The participant identifier |
- **agreement_rejection_info** | [**\Swagger\Client\Model\AgreementRejectionInfo**](../Model/AgreementRejectionInfo.md)| Participant rejection information required for rejecting the agreement |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **participantId** | **string**| The participant identifier |
+ **agreementRejectionInfo** | [**\Adobe\ESign\Model\AgreementRejectionInfo**](../Model/AgreementRejectionInfo.md)| Participant rejection information required for rejecting the agreement |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
@@ -1696,7 +1696,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreement**
-> updateAgreement($authorization, $if_match, $agreement_id, $agreement_info, $x_api_user, $x_on_behalf_of_user)
+> updateAgreement($authorization, $ifMatch, $agreementId, $agreementInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the agreement in draft state, or update the expirationTime on an existing agreement that is already out for signature.
 
@@ -1705,20 +1705,20 @@ Updates the agreement in draft state, or update the expirationTime on an existin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$agreement_info = new \Swagger\Client\Model\AgreementInfo(); // \Swagger\Client\Model\AgreementInfo | Information necessary to update a modifiable agreement that is presently out for signature.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$agreementInfo = new \Adobe\ESign\Model\AgreementInfo(); // \Adobe\ESign\Model\AgreementInfo | Information necessary to update a modifiable agreement that is presently out for signature.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreement($authorization, $if_match, $agreement_id, $agreement_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreement($authorization, $ifMatch, $agreementId, $agreementInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreement: ', $e->getMessage(), PHP_EOL;
 }
@@ -1730,11 +1730,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **agreement_info** | [**\Swagger\Client\Model\AgreementInfo**](../Model/AgreementInfo.md)| Information necessary to update a modifiable agreement that is presently out for signature. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **agreementInfo** | [**\Adobe\ESign\Model\AgreementInfo**](../Model/AgreementInfo.md)| Information necessary to update a modifiable agreement that is presently out for signature. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1752,7 +1752,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementMergeInfo**
-> updateAgreementMergeInfo($authorization, $if_match, $agreement_id, $form_field_merge_info, $x_api_user, $x_on_behalf_of_user)
+> updateAgreementMergeInfo($authorization, $ifMatch, $agreementId, $formFieldMergeInfo, $xApiUser, $xOnBehalfOfUser)
 
 Set the merge info for an agreement.
 
@@ -1761,20 +1761,20 @@ Set the merge info for an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$form_field_merge_info = new \Swagger\Client\Model\FormFieldMergeInfo(); // \Swagger\Client\Model\FormFieldMergeInfo | A mapping indicating the default values to set for form fields
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$formFieldMergeInfo = new \Adobe\ESign\Model\FormFieldMergeInfo(); // \Adobe\ESign\Model\FormFieldMergeInfo | A mapping indicating the default values to set for form fields
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreementMergeInfo($authorization, $if_match, $agreement_id, $form_field_merge_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreementMergeInfo($authorization, $ifMatch, $agreementId, $formFieldMergeInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementMergeInfo: ', $e->getMessage(), PHP_EOL;
 }
@@ -1786,11 +1786,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **form_field_merge_info** | [**\Swagger\Client\Model\FormFieldMergeInfo**](../Model/FormFieldMergeInfo.md)| A mapping indicating the default values to set for form fields |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **formFieldMergeInfo** | [**\Adobe\ESign\Model\FormFieldMergeInfo**](../Model/FormFieldMergeInfo.md)| A mapping indicating the default values to set for form fields |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1808,7 +1808,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementNoteForApiUser**
-> updateAgreementNoteForApiUser($authorization, $agreement_id, $note, $x_api_user, $x_on_behalf_of_user)
+> updateAgreementNoteForApiUser($authorization, $agreementId, $note, $xApiUser, $xOnBehalfOfUser)
 
 Updates the latest note associated with an agreement.
 
@@ -1817,19 +1817,19 @@ Updates the latest note associated with an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$note = new \Swagger\Client\Model\Note(); // \Swagger\Client\Model\Note | The note to be associated with the agreement.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$note = new \Adobe\ESign\Model\Note(); // \Adobe\ESign\Model\Note | The note to be associated with the agreement.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreementNoteForApiUser($authorization, $agreement_id, $note, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreementNoteForApiUser($authorization, $agreementId, $note, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementNoteForApiUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1841,10 +1841,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **note** | [**\Swagger\Client\Model\Note**](../Model/Note.md)| The note to be associated with the agreement. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **note** | [**\Adobe\ESign\Model\Note**](../Model/Note.md)| The note to be associated with the agreement. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1862,7 +1862,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementReminder**
-> updateAgreementReminder($authorization, $agreement_id, $reminder_id, $reminder_info, $x_api_user, $x_on_behalf_of_user)
+> updateAgreementReminder($authorization, $agreementId, $reminderId, $reminderInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates an existing reminder for an agreement
 
@@ -1873,20 +1873,20 @@ You can only update an ACTIVE reminder, and can only update the status to 'CANCE
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$reminder_id = "reminder_id_example"; // string | The reminder identifier
-$reminder_info = new \Swagger\Client\Model\ReminderInfo(); // \Swagger\Client\Model\ReminderInfo | The information about a reminder associated with a recipient of an agreement.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$reminderId = "reminderId_example"; // string | The reminder identifier
+$reminderInfo = new \Adobe\ESign\Model\ReminderInfo(); // \Adobe\ESign\Model\ReminderInfo | The information about a reminder associated with a recipient of an agreement.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreementReminder($authorization, $agreement_id, $reminder_id, $reminder_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreementReminder($authorization, $agreementId, $reminderId, $reminderInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementReminder: ', $e->getMessage(), PHP_EOL;
 }
@@ -1898,11 +1898,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **reminder_id** | **string**| The reminder identifier |
- **reminder_info** | [**\Swagger\Client\Model\ReminderInfo**](../Model/ReminderInfo.md)| The information about a reminder associated with a recipient of an agreement. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **reminderId** | **string**| The reminder identifier |
+ **reminderInfo** | [**\Adobe\ESign\Model\ReminderInfo**](../Model/ReminderInfo.md)| The information about a reminder associated with a recipient of an agreement. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -1920,7 +1920,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementSecurityOptionsForParticipation**
-> updateAgreementSecurityOptionsForParticipation($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user)
+> updateAgreementSecurityOptionsForParticipation($authorization, $ifMatch, $agreementId, $participantSetId, $participantId, $participantSecurityOption, $xApiUser)
 
 Updates the security options for a particular participant.
 
@@ -1929,21 +1929,21 @@ Updates the security options for a particular participant.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$participant_id = "participant_id_example"; // string | The participant identifier
-$participant_security_option = new \Swagger\Client\Model\ParticipantSecurityOption(); // \Swagger\Client\Model\ParticipantSecurityOption | Security options that apply to the participant
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$participantId = "participantId_example"; // string | The participant identifier
+$participantSecurityOption = new \Adobe\ESign\Model\ParticipantSecurityOption(); // \Adobe\ESign\Model\ParticipantSecurityOption | Security options that apply to the participant
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
 
 try {
-    $apiInstance->updateAgreementSecurityOptionsForParticipation($authorization, $if_match, $agreement_id, $participant_set_id, $participant_id, $participant_security_option, $x_api_user);
+    $apiInstance->updateAgreementSecurityOptionsForParticipation($authorization, $ifMatch, $agreementId, $participantSetId, $participantId, $participantSecurityOption, $xApiUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementSecurityOptionsForParticipation: ', $e->getMessage(), PHP_EOL;
 }
@@ -1955,12 +1955,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **participant_id** | **string**| The participant identifier |
- **participant_security_option** | [**\Swagger\Client\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)| Security options that apply to the participant |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **participantId** | **string**| The participant identifier |
+ **participantSecurityOption** | [**\Adobe\ESign\Model\ParticipantSecurityOption**](../Model/ParticipantSecurityOption.md)| Security options that apply to the participant |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
 
 ### Return type
 
@@ -1978,7 +1978,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementState**
-> updateAgreementState($authorization, $if_match, $agreement_id, $agreement_state_info, $x_api_user, $x_on_behalf_of_user)
+> updateAgreementState($authorization, $ifMatch, $agreementId, $agreementStateInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the state of an agreement identified by agreementId in the path.
 
@@ -1989,20 +1989,20 @@ This endpoint can be used by originator/sender of an agreement to transition bet
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$agreement_state_info = new \Swagger\Client\Model\AgreementStateInfo(); // \Swagger\Client\Model\AgreementStateInfo | 
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$agreementStateInfo = new \Adobe\ESign\Model\AgreementStateInfo(); // \Adobe\ESign\Model\AgreementStateInfo | 
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreementState($authorization, $if_match, $agreement_id, $agreement_state_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreementState($authorization, $ifMatch, $agreementId, $agreementStateInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementState: ', $e->getMessage(), PHP_EOL;
 }
@@ -2014,11 +2014,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **agreement_state_info** | [**\Swagger\Client\Model\AgreementStateInfo**](../Model/AgreementStateInfo.md)|  |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **agreementStateInfo** | [**\Adobe\ESign\Model\AgreementStateInfo**](../Model/AgreementStateInfo.md)|  |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -2036,7 +2036,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAgreementVisibility**
-> updateAgreementVisibility($authorization, $agreement_id, $visibility_info, $x_api_user, $x_on_behalf_of_user)
+> updateAgreementVisibility($authorization, $agreementId, $visibilityInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the visibility of an agreement.
 
@@ -2045,19 +2045,19 @@ Updates the visibility of an agreement.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$visibility_info = new \Swagger\Client\Model\VisibilityInfo(); // \Swagger\Client\Model\VisibilityInfo | Information to update visibility of agreement
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$visibilityInfo = new \Adobe\ESign\Model\VisibilityInfo(); // \Adobe\ESign\Model\VisibilityInfo | Information to update visibility of agreement
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateAgreementVisibility($authorization, $agreement_id, $visibility_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateAgreementVisibility($authorization, $agreementId, $visibilityInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateAgreementVisibility: ', $e->getMessage(), PHP_EOL;
 }
@@ -2069,10 +2069,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **visibility_info** | [**\Swagger\Client\Model\VisibilityInfo**](../Model/VisibilityInfo.md)| Information to update visibility of agreement |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **visibilityInfo** | [**\Adobe\ESign\Model\VisibilityInfo**](../Model/VisibilityInfo.md)| Information to update visibility of agreement |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
@@ -2090,7 +2090,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFormFields**
-> \Swagger\Client\Model\AgreementFormFields updateFormFields($authorization, $if_match, $agreement_id, $form_field_put_info, $x_api_user, $x_on_behalf_of_user)
+> \Adobe\ESign\Model\AgreementFormFields updateFormFields($authorization, $ifMatch, $agreementId, $formFieldPutInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates form fields of an agreement.  This will replace all fields in AUTHORING mode agreements, and will replace all fields except for text tag generated fields in DRAFT mode agreements.
 
@@ -2099,20 +2099,20 @@ Updates form fields of an agreement.  This will replace all fields in AUTHORING 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$form_field_put_info = new \Swagger\Client\Model\FormFieldPutInfo(); // \Swagger\Client\Model\FormFieldPutInfo | List of form fields to add or replace
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$formFieldPutInfo = new \Adobe\ESign\Model\FormFieldPutInfo(); // \Adobe\ESign\Model\FormFieldPutInfo | List of form fields to add or replace
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $result = $apiInstance->updateFormFields($authorization, $if_match, $agreement_id, $form_field_put_info, $x_api_user, $x_on_behalf_of_user);
+    $result = $apiInstance->updateFormFields($authorization, $ifMatch, $agreementId, $formFieldPutInfo, $xApiUser, $xOnBehalfOfUser);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateFormFields: ', $e->getMessage(), PHP_EOL;
@@ -2125,15 +2125,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **form_field_put_info** | [**\Swagger\Client\Model\FormFieldPutInfo**](../Model/FormFieldPutInfo.md)| List of form fields to add or replace |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **formFieldPutInfo** | [**\Adobe\ESign\Model\FormFieldPutInfo**](../Model/FormFieldPutInfo.md)| List of form fields to add or replace |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
+[**\Adobe\ESign\Model\AgreementFormFields**](../Model/AgreementFormFields.md)
 
 ### Authorization
 
@@ -2147,7 +2147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateParticipantSet**
-> updateParticipantSet($authorization, $if_match, $agreement_id, $participant_set_id, $detailed_participant_set_info, $x_api_user, $x_on_behalf_of_user)
+> updateParticipantSet($authorization, $ifMatch, $agreementId, $participantSetId, $detailedParticipantSetInfo, $xApiUser, $xOnBehalfOfUser)
 
 Updates the participant set of an agreement identified by agreementId in the path.
 
@@ -2156,21 +2156,21 @@ Updates the participant set of an agreement identified by agreementId in the pat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AgreementsApi(
+$apiInstance = new Adobe\ESign\Api\AgreementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $authorization = "authorization_example"; // string | An <a href=\"#\" onclick=\"this.href=oauthDoc()\" oncontextmenu=\"this.href=oauthDoc()\" target=\"oauthDoc\">OAuth Access Token</a> with scopes:<ul><li style='list-style-type: square'><a href=\"#\" onclick=\"this.href=oauthDoc('agreement_write')\" oncontextmenu=\"this.href=oauthDoc('agreement_write')\" target=\"oauthDoc\">agreement_write</a></li></ul>in the format <b>'Bearer {accessToken}'.
-$if_match = "if_match_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
-$agreement_id = "agreement_id_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
-$participant_set_id = "participant_set_id_example"; // string | The participant set identifier
-$detailed_participant_set_info = new \Swagger\Client\Model\DetailedParticipantSetInfo(); // \Swagger\Client\Model\DetailedParticipantSetInfo | The new participant set info.
-$x_api_user = "x_api_user_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
-$x_on_behalf_of_user = "x_on_behalf_of_user_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
+$ifMatch = "ifMatch_example"; // string | The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned.
+$agreementId = "agreementId_example"; // string | The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements.
+$participantSetId = "participantSetId_example"; // string | The participant set identifier
+$detailedParticipantSetInfo = new \Adobe\ESign\Model\DetailedParticipantSetInfo(); // \Adobe\ESign\Model\DetailedParticipantSetInfo | The new participant set info.
+$xApiUser = "xApiUser_example"; // string | The userId or email of API caller using the account or group token in the format <b>userid:{userId} OR email:{email}.</b> If it is not specified, then the caller is inferred from the token.
+$xOnBehalfOfUser = "xOnBehalfOfUser_example"; // string | The userId or email in the format <b>userid:{userId} OR email:{email}.</b> of the user that has shared his/her account
 
 try {
-    $apiInstance->updateParticipantSet($authorization, $if_match, $agreement_id, $participant_set_id, $detailed_participant_set_info, $x_api_user, $x_on_behalf_of_user);
+    $apiInstance->updateParticipantSet($authorization, $ifMatch, $agreementId, $participantSetId, $detailedParticipantSetInfo, $xApiUser, $xOnBehalfOfUser);
 } catch (Exception $e) {
     echo 'Exception when calling AgreementsApi->updateParticipantSet: ', $e->getMessage(), PHP_EOL;
 }
@@ -2182,12 +2182,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| An &lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc()\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;OAuth Access Token&lt;/a&gt; with scopes:&lt;ul&gt;&lt;li style&#x3D;&#39;list-style-type: square&#39;&gt;&lt;a href&#x3D;\&quot;#\&quot; onclick&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; oncontextmenu&#x3D;\&quot;this.href&#x3D;oauthDoc(&#39;agreement_write&#39;)\&quot; target&#x3D;\&quot;oauthDoc\&quot;&gt;agreement_write&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;in the format &lt;b&gt;&#39;Bearer {accessToken}&#39;. |
- **if_match** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
- **agreement_id** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
- **participant_set_id** | **string**| The participant set identifier |
- **detailed_participant_set_info** | [**\Swagger\Client\Model\DetailedParticipantSetInfo**](../Model/DetailedParticipantSetInfo.md)| The new participant set info. |
- **x_api_user** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
- **x_on_behalf_of_user** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
+ **ifMatch** | **string**| The server will only update the resource if it matches the listed ETag otherwise error RESOURCE_MODIFIED(412) is returned. |
+ **agreementId** | **string**| The agreement identifier, as returned by the agreement creation API or retrieved from the API to fetch agreements. |
+ **participantSetId** | **string**| The participant set identifier |
+ **detailedParticipantSetInfo** | [**\Adobe\ESign\Model\DetailedParticipantSetInfo**](../Model/DetailedParticipantSetInfo.md)| The new participant set info. |
+ **xApiUser** | **string**| The userId or email of API caller using the account or group token in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; If it is not specified, then the caller is inferred from the token. | [optional]
+ **xOnBehalfOfUser** | **string**| The userId or email in the format &lt;b&gt;userid:{userId} OR email:{email}.&lt;/b&gt; of the user that has shared his/her account | [optional]
 
 ### Return type
 

@@ -1,5 +1,6 @@
 {
     "name": "unicourt/adobe-sign",
+    "version": "1.0.0",
     "description": "",
     "keywords": [
         "swagger",
@@ -28,9 +29,9 @@
         "friendsofphp/php-cs-fixer": "~2.12"
     },
     "autoload": {
-        "psr-4": { "Swagger\\Client\\" : "lib/" }
+        "psr-4": { "Adobe\\ESign\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Swagger\\Client\\" : "test/" }
+        "psr-4": { "Adobe\\ESign\\" : "test/" }
     }
 }

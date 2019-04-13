@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * AgreementCreationInfoTest Class Doc Comment
  *
  * @category    Class
  * @description AgreementCreationInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,21 +82,21 @@ class AgreementCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "vaulting_info"
+     * Test attribute "vaultingInfo"
      */
     public function testPropertyVaultingInfo()
     {
     }
 
     /**
-     * Test attribute "security_option"
+     * Test attribute "securityOption"
      */
     public function testPropertySecurityOption()
     {
     }
 
     /**
-     * Test attribute "post_sign_option"
+     * Test attribute "postSignOption"
      */
     public function testPropertyPostSignOption()
     {
@@ -110,14 +110,14 @@ class AgreementCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "document_visibility_enabled"
+     * Test attribute "documentVisibilityEnabled"
      */
     public function testPropertyDocumentVisibilityEnabled()
     {
     }
 
     /**
-     * Test attribute "sender_email"
+     * Test attribute "senderEmail"
      */
     public function testPropertySenderEmail()
     {
@@ -138,35 +138,35 @@ class AgreementCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "merge_field_info"
+     * Test attribute "mergeFieldInfo"
      */
     public function testPropertyMergeFieldInfo()
     {
     }
 
     /**
-     * Test attribute "first_reminder_delay"
+     * Test attribute "firstReminderDelay"
      */
     public function testPropertyFirstReminderDelay()
     {
     }
 
     /**
-     * Test attribute "email_option"
+     * Test attribute "emailOption"
      */
     public function testPropertyEmailOption()
     {
     }
 
     /**
-     * Test attribute "signature_type"
+     * Test attribute "signatureType"
      */
     public function testPropertySignatureType()
     {
     }
 
     /**
-     * Test attribute "external_id"
+     * Test attribute "externalId"
      */
     public function testPropertyExternalId()
     {
@@ -180,42 +180,42 @@ class AgreementCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "device_info"
+     * Test attribute "deviceInfo"
      */
     public function testPropertyDeviceInfo()
     {
     }
 
     /**
-     * Test attribute "reminder_frequency"
+     * Test attribute "reminderFrequency"
      */
     public function testPropertyReminderFrequency()
     {
     }
 
     /**
-     * Test attribute "created_date"
+     * Test attribute "createdDate"
      */
     public function testPropertyCreatedDate()
     {
     }
 
     /**
-     * Test attribute "participant_sets_info"
+     * Test attribute "participantSetsInfo"
      */
     public function testPropertyParticipantSetsInfo()
     {
     }
 
     /**
-     * Test attribute "expiration_time"
+     * Test attribute "expirationTime"
      */
     public function testPropertyExpirationTime()
     {
     }
 
     /**
-     * Test attribute "form_field_layer_templates"
+     * Test attribute "formFieldLayerTemplates"
      */
     public function testPropertyFormFieldLayerTemplates()
     {
@@ -229,14 +229,14 @@ class AgreementCreationInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "file_infos"
+     * Test attribute "fileInfos"
      */
     public function testPropertyFileInfos()
     {
     }
 
     /**
-     * Test attribute "workflow_id"
+     * Test attribute "workflowId"
      */
     public function testPropertyWorkflowId()
     {

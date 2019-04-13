@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_date** | [**\DateTime**](\DateTime.md) | The display date for the MegaSign parent agreement. Format would be yyyy-MM-dd&#39;T&#39;HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time | [optional] 
+**displayDate** | [**\DateTime**](\DateTime.md) | The display date for the MegaSign parent agreement. Format would be yyyy-MM-dd&#39;T&#39;HH:mm:ssZ. For example, e.g 2016-02-25T18:46:19Z represents UTC time | [optional] 
 **esign** | **bool** | True, if the signature type of the MegaSign parent agreement is ESIGN. False, if the signature type of the MegaSign parent agreement is WRITTEN | [optional] 
 **name** | **string** | Name of the MegaSign parent agreement | [optional] 
 **id** | **string** | The unique identifier of the MegaSign parent agreement | [optional] 

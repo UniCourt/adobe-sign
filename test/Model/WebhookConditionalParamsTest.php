@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * WebhookConditionalParamsTest Class Doc Comment
  *
  * @category    Class
  * @description WebhookConditionalParams
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,28 +75,28 @@ class WebhookConditionalParamsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "webhook_widget_events"
+     * Test attribute "webhookWidgetEvents"
      */
     public function testPropertyWebhookWidgetEvents()
     {
     }
 
     /**
-     * Test attribute "webhook_mega_sign_events"
+     * Test attribute "webhookMegaSignEvents"
      */
     public function testPropertyWebhookMegaSignEvents()
     {
     }
 
     /**
-     * Test attribute "webhook_library_document_events"
+     * Test attribute "webhookLibraryDocumentEvents"
      */
     public function testPropertyWebhookLibraryDocumentEvents()
     {
     }
 
     /**
-     * Test attribute "webhook_agreement_events"
+     * Test attribute "webhookAgreementEvents"
      */
     public function testPropertyWebhookAgreementEvents()
     {

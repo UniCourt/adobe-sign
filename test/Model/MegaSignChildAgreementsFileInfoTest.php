@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * MegaSignChildAgreementsFileInfoTest Class Doc Comment
  *
  * @category    Class
  * @description MegaSignChildAgreementsFileInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,21 +75,21 @@ class MegaSignChildAgreementsFileInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "transient_document_id"
+     * Test attribute "transientDocumentId"
      */
     public function testPropertyTransientDocumentId()
     {
     }
 
     /**
-     * Test attribute "file_type"
+     * Test attribute "fileType"
      */
     public function testPropertyFileType()
     {
     }
 
     /**
-     * Test attribute "child_agreements_info_file_id"
+     * Test attribute "childAgreementsInfoFileId"
      */
     public function testPropertyChildAgreementsInfoFileId()
     {

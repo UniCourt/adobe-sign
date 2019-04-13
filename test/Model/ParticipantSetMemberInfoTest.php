@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * ParticipantSetMemberInfoTest Class Doc Comment
  *
  * @category    Class
  * @description ParticipantSetMemberInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class ParticipantSetMemberInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "security_option"
+     * Test attribute "securityOption"
      */
     public function testPropertySecurityOption()
     {

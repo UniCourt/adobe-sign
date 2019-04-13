@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * DisplayParticipantInfoTest Class Doc Comment
  *
  * @category    Class
  * @description DisplayParticipantInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,7 +75,7 @@ class DisplayParticipantInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "full_name"
+     * Test attribute "fullName"
      */
     public function testPropertyFullName()
     {

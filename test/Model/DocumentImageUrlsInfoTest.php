@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Adobe\ESign
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,14 +25,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace Swagger\Client;
+namespace Adobe\ESign;
 
 /**
  * DocumentImageUrlsInfoTest Class Doc Comment
  *
  * @category    Class
  * @description DocumentImageUrlsInfo
- * @package     Swagger\Client
+ * @package     Adobe\ESign
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
@@ -75,14 +75,14 @@ class DocumentImageUrlsInfoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "document_image_urls_list"
+     * Test attribute "documentImageUrlsList"
      */
     public function testPropertyDocumentImageUrlsList()
     {
     }
 
     /**
-     * Test attribute "document_id"
+     * Test attribute "documentId"
      */
     public function testPropertyDocumentId()
     {
